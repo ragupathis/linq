@@ -1,0 +1,77 @@
+a{
+color:#DEB887;
+font-size:16px;
+}
+a:hover{
+text-decoration:none;
+}
+i:hover{
+cursor:pointer;
+}
+.navbar{
+margin-top:-30px;
+}
+.ragu{
+background-color:silver;
+}
+#main{
+width:250px;
+padding-left:8%;
+padding-top:2%;
+}
+i{
+float:right;
+}
+i:hover{
+color:red;
+}
+.demo{
+font-size:20px;
+width:420px;
+background-color:gray;
+border-radius:15px ;
+padding:12px;
+margin-left:15%;
+margin-top:5%;
+height:400px;
+}
+.content{
+overflow-y: scroll;
+overflow-x: hidden;
+height:300px;
+}
+.like{
+float:right;
+}
+.count{
+margin-right:10%;
+float:right;
+}
+.example{
+margin-left:40%;
+}
+.name{
+font-size:25px;
+margin-left:50px;
+margin-top:50px;
+}
+table{
+margin-top:-50px;
+
+}
+body{
+background-color: #fff; 
+background-image:linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 81px, transparent 81px),linear-gradient(#eee .1em, transparent .1em);
+background-size: 100% 1.2em;
+}
+.icon-share,.icon-thumbs-up{
+float:right;
+}
+.err1,.err2{
+color:red;
+font-size:17px;
+display:none;
+}
+.titl{
+color:#FFFAF0;
+}

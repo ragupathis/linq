@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Link</title>
+	
+<link href="css/jquery-ui1.css" rel="stylesheet">
+
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min3.css" />
+<link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.css" />
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/examples.css">
+<link rel="stylesheet" href="css/darktooltip.css">
+<link href="css/font-awesome.css" rel="stylesheet">
+<link href="css/font-awesome-ie7.css" rel="stylesheet">
+
+<link rel="stylesheet" type="text/css" href="css/link/normalize.css" />
+<link rel="stylesheet" type="text/css" href="css/link/component.css" />
+<link href="css/main.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+
+
+<link rel="stylesheet" href="bootbar.css">
+
+<script src="js/modernizr.custom1.js"></script>
+ 		
+</head>
+
+<style>
+#status,#profile, .my, .username{
+margin-top:25px;
+}
+.username{
+color:gray;
+}
+.container-fluid{
+height:70px;
+}
+#mailid, .site{
+height:30px;
+}
+.site{
+width:200px;
+}
+.vis{
+font-size:15px;
+}
+select{
+font-size:12px;
+height:22px;
+}
+
+.icon-gift , .icon-tint , .icon-off , .icon-user , .icon-eye-open{
+margin-top:5px;
+//color:red;
+}
+.lgfailed{
+display:none;
+}
+.content li{
+float:none;
+}
+.content{
+overflow:scroll;
+}
+</style>
+
+<nav class="navbar " role="navigation">
+<div class="ragu header">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+       
+      </button>
+      <a class="navbar-brand username" ></a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+     
+      
+      <ul class="nav navbar-nav navbar-right">
+        <li><a   href="#" class=" dialog-link my" ><i class="icon-tint"></i>Add Category</a></li>
+        <li class="dropdown">
+          <a href="#" id='profile' > <span class="icon-gift"></span>My Favourites</a>
+         
+        </li>
+		 <li><a id='status' class="  dialog-link-about "  href="#"  >  logout</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+  </div>
+</nav>
+
+
+<body id="home" >
+
+<div class="msg"> Please Enter Valid Input </div>
+
+<!-- starting of ui-dialog -->
+<div id="category_dialog" title="Add Category " >
+	<p>Category Name &nbsp; &nbsp; <input id="categoryname" title="enter new category name" required> </p>
+	<p class="info"> <br> Note :Please enter category name in single word with 1-15 letters </p>
+	<p class="errmsg1"> Please enter valid category name</p>
+</div>
+
+<div id="login_dialog" title="Login">
+	<div class="control-group">
+  
+  <div class="controls">
+    E-Mail ID  <input id="mailid" name="mailid" placeholder="yourmail@domain.com" class="input-xlarge" required="" type="text">
+    <p class="danger lgfailed"> <br>*** Please enter valid email address *** </p>
+  </div>
+</div>
+</div>
+<br><br>
+
+
+
+  
+<script src="js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="js/script.js">	</script>
+<script src="js/jquery.darktooltip.js"></script>
+<script src="js/jquery-ui.js"></script>
+<script src="js/js.js"> </script>
+<script src="bootbar.js"></script>
+
+<script>
+            $(document).ready(function(){
+             /*   $.bootbar.info("This is a standard info bar.");
+                $.bootbar.warning("This warning is stacked underneath the original info bar.");
+                $.bootbar.danger("This is a standard danger bar.");
+                $.bootbar.success("This is a standard success bar.");
+*/
+              
+            });
+        </script>
+
+</body>
+</html>

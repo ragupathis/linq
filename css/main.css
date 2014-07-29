@@ -44,7 +44,8 @@ text-decoration:none;
 .icon-eye-close:hover{
 color:red;
 }
-.icon-tint,icon-user,icon-off,icon-star-empty{
+
+.icon-tint,icon-user,icon-off,icon-star-empty,icon-ban-circle{
 float:left;
 }
 .errmsg{

@@ -19,7 +19,7 @@ var temp="";
 	
 	for(var i=1;i<=t.count;i++){
 	console.log(t[i]);
-	 temp+='<li> <a href="https://'+t[i]+'" target="_blank">'+t[i]+'</a><i class="icon-thumbs-up" uid='+t[i]+' id='+t[i]+' title="like '+t[i]+'"></i></li>';
+	 temp+='<li> <a href="https://'+t[i]+'" target="_blank">'+t[i]+'</a><i class="icon-ban-circle" uid='+categorynames+' id='+t[i]+' title="report '+t[i]+'"></i><i class="icon-thumbs-up" uid='+categorynames+' id='+t[i]+' title="like '+t[i]+'"></i></li>';
 	}
 	$('.'+categorynames).html(temp);
 	});  
@@ -89,17 +89,38 @@ $.ajax({
 
 }
 
-function liked_site(site_name,user){
+function liked_site(category_temp,site_name,user){
 $.ajax({
         type: "POST",
 		url: 'model/liked_site.php',			
 		data: {'sitename':site_name,'user':user}
    	}).done(function(result) {
-	$('.errmsg').html('u liked');
-	$('.errmsg').css('display','block');
+	
+	  result = result.substring(2, result.length - 1);
+      var t = JSON.parse(result);
+	$('.'+category_temp+'err').html(t['replay']);
+	$('.'+category_temp+'err').css('display','block');
 	}); 
 
 }
+
+
+function report_site(cat_name,site_name,user){
+$.ajax({
+        type: "POST",
+		url: 'model/report_site.php',			
+		data: {'sitename':site_name,'user':user}
+   	}).done(function(result) {
+	
+	  result = result.substring(2, result.length - 1);
+      var t = JSON.parse(result);	
+	
+	$('.'+cat_name+'err').html(t['replay']);
+	$('.'+cat_name+'err').css('display','block');
+	}); 
+
+}
+
 
 $(document).ready(function(){
 
@@ -160,19 +181,35 @@ fetch_site(category_temp,userid);
 /*   like sites 	*/
 
 $(document.body).on('mousedown','.icon-thumbs-up',function(){
+var cat_name=$(this).attr( "uid" );
 if(sessionStorage['mail']){
-var site_name=$(this).attr( "uid" );
 //alert(site_name);
+var site_name=$(this).attr( "id" );
 var user=sessionStorage['mail'];
-liked_site(site_name,user);
+var category_temp =  $(this).attr( "uid" );
+liked_site(category_temp,site_name,user);
 }
 else{
-$('.errmsg').html('please login to like ');
-$('.errmsg').css('display','block');
+$('.'+cat_name+'err').html('please login to like ');
+$('.'+cat_name+'err').css('display','block');
 }
 });
 
+/*   report site	*/
 
+$(document.body).on('mousedown','.icon-ban-circle',function(){
+var cat_name=$(this).attr( "uid" );
+if(sessionStorage['mail']){
+var site_name=$(this).attr( "id" );
+//alert(site_name);
+var user=sessionStorage['mail'];
+report_site(cat_name,site_name,user);
+}
+else{
+$('.'+cat_name+'err').html('please login to report ');
+$('.'+cat_name+'err').css('display','block');
+}
+});
 
 /*  navigate to profile page  */
 

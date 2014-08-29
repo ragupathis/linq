@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
+<!--
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min3.css" />
+<link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.css" />
+
+<link rel="stylesheet" href="css/reset.css">
+
+<link rel="stylesheet" type="text/css" href="css/link/normalize.css" />
+-->
+<link rel="stylesheet" href="css/examples.css">
+<link rel="stylesheet" href="css/darktooltip.css">
+<link href="css/font-awesome.css" rel="stylesheet">
+<link href="css/font-awesome-ie7.css" rel="stylesheet">
+
+<link rel="stylesheet" type="text/css" href="css/link/component.css" />
+<link href="css/main.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+
+<script src="js/modernizr.js"></script> <!-- Modernizr -->
+   <link rel="stylesheet" type="text/css" href="css1/component.css" />
+		<link rel="stylesheet" type="text/css" href="css1/content.css" />
+		 <script>!window.jQuery && document.write(unescape('%3Cscript src="js/jquery1.6.2.js"%3E%3C/script%3E'))</script>
+
+		<script src="js1/modernizr.custom.js"></script>
+
+
+<link rel="stylesheet" href="bootbar.css">
+
+	
+	<link rel="stylesheet" href="m/css/reset.css"> <!-- CSS reset -->
+	<link rel="stylesheet" href="m/css/style.css"> <!-- Gem style -->
+	<script src="js/modernizr.js"></script> <!-- Modernizr -->
+  	
+	<title>Log In &amp; Sign Up Form</title>
+</head>
+
+
+<style>
+body{
+background-color:silver;
+
+}
+#status,#profile, .my, .username{
+margin-top:50px;
+}
+.username{
+color:gray;
+}
+.container-fluid{
+height:70px;
+}
+#mailid, .site{
+height:30px;
+}
+.site{
+width:200px;
+}
+.vis{
+font-size:15px;
+}
+select{
+font-size:12px;
+height:22px;
+}
+
+.icon-gift , .icon-tint , .icon-off , .icon-user , .icon-eye-open{
+margin-top:5px;
+//color:red;
+}
+.lgfailed{
+display:none;
+}
+.content li{
+float:none;
+}
+.content{
+overflow:scroll;
+}
+.icon-ban-circle:hover{
+color:red;
+}
+.ui-autocomplete{
+z-index:20000;
+font-size:10px;
+background-color:red;
+overflow-y:scroll;
+overflow-x:ellipse;
+height:100px;
+}
+#categoryname,#mailid, #newmail, #newpass, #newpass1, #pass{
+height:50px;
+}
+</style>
+
+<body id="home" >
+
+	<header role="banner">
+		<div id="cd-logo"><a href="#"><img src="m/img/cd-logo.svg" alt="Logo"></a></div>
+
+		<nav class="main-nav">
+			<ul  id="menu_list">
+				<!-- inser more links here -->
+				<li><a class="cd-signin" href="#0" id="in">Sign in</a></li>
+				<li><a class="cd-signup" href="#0" id="out">Sign up</a></li>
+				
+			</ul>
+		</nav>
+	</header>
+<br><br><br> <br>
+	<div class="cd-user-modal"> <!-- this is the entire modal form, including the background -->
+		<div class="cd-user-modal-container"> <!-- this is the container wrapper -->
+			<ul class="cd-switcher">
+				<li><a href="#0">Sign in</a></li>
+				<li><a href="#0">New account</a></li>
+				
+			</ul>
+
+			<div id="cd-login"> <!-- log in form -->
+				<form class="cd-form">
+					<p class="fieldset">
+						<label class="image-replace cd-email" for="mailid">E-mail</label>
+						<input class="full-width has-padding has-border" id="mailid" type="email" placeholder="E-mail">
+					<!--	<span class="cd-error-message">Error message here!</span>-->
+					</p>
+
+					<p class="fieldset">
+						<label class="image-replace cd-password" for="signin-password">Password</label>
+						<input class="full-width has-padding has-border" id="signin-password" type="password"  placeholder="Password">
+						<a href="#0" class="hide-password">Show</a>
+						<span class="cd-error-message">Error message here!</span>
+					</p>
+
+				
+					<p class="fieldset">
+						<input class="full-width" type="submit" value="Login" id="signin">
+					</p>
+				</form>
+				
+				<p class="cd-form-bottom-message"><a href="#0">Forgot your password?</a></p>
+				<!-- <a href="#0" class="cd-close-form">Close</a> -->
+			</div> <!-- cd-login -->
+
+			<div id="cd-signup"> <!-- sign up form -->
+				<form class="cd-form">
+					<p class="fieldset">
+						<label class="image-replace cd-username" for="signup-username">Username</label>
+						<input class="full-width has-padding has-border" id="signup-username" type="text" placeholder="Username">
+						<span class="cd-error-message">Error message here!</span>
+					</p>
+
+					<p class="fieldset">
+						<label class="image-replace cd-email" for="signup-email">E-mail</label>
+						<input class="full-width has-padding has-border" id="signup-email" type="email" placeholder="E-mail">
+						<span class="cd-error-message">Error message here!</span>
+					</p>
+
+					<p class="fieldset">
+						<label class="image-replace cd-password" for="signup-password">Password</label>
+						<input class="full-width has-padding has-border" id="signup-password" type="text"  placeholder="Password">
+						<a href="#0" class="hide-password">Hide</a>
+						<span class="cd-error-message">Error message here!</span>
+					</p>
+
+					<p class="fieldset">
+						<input type="checkbox" id="accept-terms">
+						<label for="accept-terms">I agree to the <a href="#0">Terms</a></label>
+					</p>
+
+					<p class="fieldset">
+						<input class="full-width has-padding" type="submit" value="Create account">
+					</p>
+				</form>
+
+				<!-- <a href="#0" class="cd-close-form">Close</a> -->
+			</div> <!-- cd-signup -->
+
+			<div id="cd-reset-password"> <!-- reset password form -->
+				<p class="cd-form-message">Lost your password? Please enter your email address. You will receive a link to create a new password.</p>
+
+				<form class="cd-form">
+					<p class="fieldset">
+						<label class="image-replace cd-email" for="reset-email">E-mail</label>
+						<input class="full-width has-padding has-border" id="reset-email" type="email" placeholder="E-mail">
+						<span class="cd-error-message">Error message here!</span>
+					</p>
+
+					<p class="fieldset">
+						<input class="full-width has-padding" type="submit" value="Reset password">
+					</p>
+				</form>
+
+				<p class="cd-form-bottom-message"><a href="#0">Back to log-in</a></p>
+			</div> <!-- cd-reset-password -->
+			
+			
+		
+			
+			
+			<a href="#0" class="cd-close-form">Close</a>
+		</div> <!-- cd-user-modal-container -->
+	</div> <!-- cd-user-modal -->
+	
+	<div class="user-modal1">
+		<div id="cd-add-category"> <!-- add new category form -->
+				<p class="cd-form-message">Please enter your new category name</p>
+
+				<form class="cd-form">
+					<p class="fieldset">
+						<label class="image-replace cd-email" for="reset-email">Category Name</label>
+						<input class="full-width has-padding has-border" id="reset-email" type="text" placeholder="Category Name">
+						<span class="cd-error-message">Error message here!</span>
+					</p>
+
+					<p class="fieldset">
+						<input class="full-width has-padding" type="submit" value="Add">
+					</p>
+				</form>
+
+				<p class="cd-form-bottom-message"><a href="#0">Back to log-in</a></p>
+			</div> <!-- cd-reset-password -->
+	</div>
+<script src="js/jquery.js"></script>
+<script src="m/js/main.js"></script> <!-- Gem jQuery -->
+<script src="js/modernizr.custom1.js"></script>
+<script src="js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="js/script.js">	</script>
+<script src="js/jquery.darktooltip.js"></script>
+<script src="js/js.js"> </script>
+<script src="bootbar.js"></script>
+</body>
+</html>

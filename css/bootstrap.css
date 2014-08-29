@@ -9,56 +9,6 @@
  */
 
 
-.input-block-level {
-  display: block;
-  width: 100%;
-  min-height: 30px;
-  -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
-
-button,
-input,
-select,
-textarea {
-  margin: 0;
-  font-size: 100%;
-  vertical-align: middle;
-}
-
-button,
-input {
-  *overflow: visible;
-  line-height: normal;
-}
-
-button::-moz-focus-inner,
-input::-moz-focus-inner {
-  padding: 0;
-  border: 0;
-}
-
-button,
-html input[type="button"],
-input[type="reset"],
-input[type="submit"] {
-  cursor: pointer;
-  -webkit-appearance: button;
-}
-
-label,
-select,
-button,
-input[type="button"],
-input[type="reset"],
-input[type="submit"],
-input[type="radio"],
-input[type="checkbox"] {
-  cursor: pointer;
-}
-
 input[type="search"] {
   -webkit-box-sizing: content-box;
      -moz-box-sizing: content-box;
@@ -71,10 +21,6 @@ input[type="search"]::-webkit-search-cancel-button {
   -webkit-appearance: none;
 }
 
-textarea {
-  overflow: auto;
-  vertical-align: top;
-}
 
 @media print {
   * {
@@ -903,12 +849,6 @@ textarea {
   line-height: 20px;
 }
 
-input,
-button,
-select,
-textarea {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
 
 label {
   display: block;
@@ -917,20 +857,6 @@ label {
 
 select,
 textarea,
-input[type="text"],
-input[type="password"],
-input[type="datetime"],
-input[type="datetime-local"],
-input[type="date"],
-input[type="month"],
-input[type="time"],
-input[type="week"],
-input[type="number"],
-input[type="email"],
-input[type="url"],
-input[type="search"],
-input[type="tel"],
-input[type="color"],
 .uneditable-input {
   display: inline-block;
   height: 20px;
@@ -2116,7 +2042,7 @@ table th[class*="span"],
 .table-hover tbody tr.info:hover > td {
   background-color: #c4e3f3;
 }
-
+/*   codde for icons
 [class^="icon-"],
 [class*=" icon-"] {
   display: inline-block;
@@ -2129,7 +2055,7 @@ table th[class*="span"],
   background-image: url("../img/glyphicons-halflings.png");
   background-position: 14px 14px;
   background-repeat: no-repeat;
-}
+}  */
 
 /* White icons with optional class, or on hover/focus/active states of certain elements */
 

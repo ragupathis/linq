@@ -50,7 +50,7 @@ $('.username').html('<span class="icon-user"></span> &nbsp; '+ sessionStorage['m
 user_details(sessionStorage['mail']);
 liked_sitelist(sessionStorage['mail']);
 }else{
-window.location='main.html';
+window.location='menu.html';
 }
 });
 
@@ -61,7 +61,7 @@ var site_name=this.id;
 var user=sessionStorage['mail'];
 var tblname="likedsites";
 remove_site(site_name,user,tblname);
-$('.err2').css('display','block');
+$('.err2').css('display','block'); 
 });
 
 /*   remove sites   */
@@ -79,7 +79,7 @@ $('.err1').css('display','block');
 $('#logout').click(function(){
 sessionStorage['hash']='';
 sessionStorage['mail']='';
-window.location='main.html';
+window.location='menu.html';
 });
 
 

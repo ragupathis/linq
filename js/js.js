@@ -11,18 +11,13 @@ function user_login(user_name){
 	    sessionStorage['hash']=t['hash'];
 	    sessionStorage['mail']=t['mail'];
 		sessionStorage['status_code']='first_login';
-	    window.location='main.html';
+	    window.location='menu.html';
 	});  
 }
 
-$( "#category_dialog" ).dialog({
-	autoOpen: false,
-	width: 500,
-	buttons: [
-		{
-			text: "Add",
-			click: function() {
-			var category_name=document.getElementById('categoryname').value;
+function add_new_category(){
+
+var category_name=document.getElementById('categoryname').value;
 			var len=category_name.length;		
 			var pattern=new RegExp(' ');
 			if(pattern.test(category_name)){
@@ -60,45 +55,43 @@ $( "#category_dialog" ).dialog({
 	//alert('in');
 	i=1;
   })
-  $( this ).dialog( "close" );
-  $('.info').css('color','blue');
+ // $( this ).dialog( "close" );
+ // $('.info').css('color','blue');
+  $('.info').addClass('alert-info');
   }
   else{
  //$('.msg').css('display','block');
  // $('.errmsg1').css('display','block');
- $('.info').css('color','red');
+ 
+$('.info').removeClass('alert-info');
+$('.info').removeClass('alert-danger');
+ $('.info').addClass('alert-danger');
+ //$('.info').css('color','red');
  //$.bootbar.danger("please give valid category name");
   }
 }
 //}	
+
+}
+
+
+
+$("#newcategorybtn").click(function(){
+			add_new_category();
+});
+
 			
-			}
-		},
-		{
-			text: "Cancel",
-			click: function() {
-					
-			$( this ).dialog( "close" );
-			}
-		}
-	]
-});
-
-// Link to open the dialog
-$( ".dialog-link" ).click(function( event ) {
-	$( "#category_dialog" ).dialog( "open" );
-	event.preventDefault();
+			
+			
+$(document.body).on('mousedown','#signin',function(){
+		//	alert('k');
+	user_check();
 });
 
 
-$( "#login_dialog" ).dialog({
-	autoOpen: false,
-	width: 500,
-	buttons: [
-		{
-			text: "Login",
-			click: function() {
-			var user_name=document.getElementById('mailid').value;
+function user_check(){
+
+	var user_name=document.getElementById('mailid').value;
 	
 	
    	var testEmail = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
@@ -108,25 +101,8 @@ $( "#login_dialog" ).dialog({
 		$('.lgfailed').css('display','block');
 	}else{
 		user_login(user_name);
-		$( this ).dialog( "close" );
+	//	$( this ).dialog( "close" );
 	}
-		}
-		},
-		{
-			text: "Cancel",
-			click: function() {
-			$( this ).dialog( "close" );
-			}
-		}
-	]
-});
-
-// Link to open the dialog
-$( ".dialog-link-about" ).click(function( event ) {
-	$( "#login_dialog" ).dialog( "open" );
-	event.preventDefault();
-});
-
-
-
+	
+	}
 

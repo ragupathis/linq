@@ -23,10 +23,6 @@
 <link href="css/font-awesome.css" rel="stylesheet">
 <link href="css/font-awesome-ie7.css" rel="stylesheet">
        
-<link rel="stylesheet" href="bootbar.css">
-
-<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
- 		
 	   
  
 <link rel="stylesheet" type="text/css" href="css/link/normalize.css" />
@@ -39,11 +35,9 @@
 margin-top:5px;
 }
 #logout,#home, .my, .username{
-margin-top:25px;
+
 }
-.container-fluid{
-height:70px;
-}
+
 
 </style>
 
@@ -57,16 +51,19 @@ height:70px;
 					
 				
 					
-					<div class="morph-button morph-button-modal morph-button-modal-3 morph-button-fixed ">
-						<button type="button" id="backtohome">Home</button>
+					<div class="morph-button morph-button-modal morph-button-modal-3 morph-button-fixed">
+						<button type="button">Home</button>
 						
 						<div class="morph-content">
 							<div>
 								<div class="content-style-form content-style-form-2">
 									<span class="icon icon-close">Close the dialog</span>
-									<h6>Please wait</h6>
+									<h2>Add New</h2>
 									<form>
-										<img src="loader.gif">
+										<p><label>Email</label><input type="text" /></p>
+										<p><label>Password</label><input type="password" /></p>
+										<p><label>Repeat Password</label><input type="password" /></p>
+										<p><button>Sign Up</button></p>
 									</form>
 								</div>
 							</div>
@@ -75,7 +72,7 @@ height:70px;
 					
 					
 					<div class="morph-button morph-button-modal morph-button-modal-3 morph-button-fixed">
-						<button type="button" id="logout">Logout</button>
+						<button type="button">Add New 4</button>
 						
 						<div class="morph-content">
 							<div>
@@ -83,12 +80,17 @@ height:70px;
 									<span class="icon icon-close">Close the dialog</span>
 									<h2>Add New</h2>
 									<form>
-										</form>
+										<p><label>Email</label><input type="text" /></p>
+										<p><label>Password</label><input type="password" /></p>
+										<p><label>Repeat Password</label><input type="password" /></p>
+										<p><button>Sign Up</button></p>
+									</form>
 								</div>
 							</div>
 						</div>
 					</div><!-- morph-button -->
-				
+					
+					
 					
 				</div><!-- /form-mockup -->
 			
@@ -112,7 +114,7 @@ height:70px;
    <tr><td>
    
    <div class="demo"><p  class='titl'>Shared Sites   <span class="icon-share"> </span></p><hr>
-   <div class="content"><ul class="added_site"></ul><p class="err1 alert alert-dismissable alert-danger"> link removed successfully </p></div></div>
+   <div class="content"><ul class="added_site"></ul><p class="err1"> link removed successfully </p></div></div>
 	
    </td>
    
@@ -121,7 +123,7 @@ height:70px;
    <div class="demo"><p class='titl'>Liked Sites  <span class="icon-thumbs-up"> </span></p><hr>
    <div class="content">	
    <ul class="liked_site">
-   </ul><p class="err2 alert alert-dismissable alert-danger"> link removed </p></div></div>
+   </ul><p class="err2"> link removed </p></div></div>
    
    </td></tr>
    
@@ -196,10 +198,6 @@ height:70px;
 					bttn.addEventListener( 'click', function( ev ) { ev.preventDefault(); } );
 				} );
 			})();
-			
-			$("#backtohome").click(function(){
-			window.location="main.html";
-			});
 		</script>
 
   
@@ -209,5 +207,4 @@ height:70px;
     <script src="js/prettyDate.js"></script>
 	<script type='text/javascript' src='js/script1.js'></script>
 
-<script src="bootbar.js"></script>
 </html>

@@ -97,7 +97,8 @@ html5sticky.addNote = function(){
 
 // no html5 ?
 html5sticky.nohtml5 = function(){
-   alert('Your browser does not support html5, please upgrade your browser.');
+   //alert('Your browser does not support html5, please upgrade your browser.');
+   $('#main').css('display','none');
 };
 
 
@@ -705,7 +706,8 @@ $.ajax({
    }
    else {
       html5sticky.nohtml5();
-	  alert('noo');
+//	  alert('noo');
+$('#main').css('display','none');
    }
    }
 

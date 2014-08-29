@@ -75,3 +75,77 @@ display:none;
 .titl{
 color:#FFFAF0;
 }
+
+
+
+@media(max-width:400px){
+	body{
+		font-size:8px
+	}
+.demo{
+font-size:14px;
+width:250px;
+border-radius:15px ;
+padding:5px;
+}
+
+.content{
+overflow-y: scroll;
+width:230px;
+}
+
+}
+
+@media(max-width:600px){
+	body{
+		font-size:9px
+	}
+.demo{
+font-size:14px;
+width:280px;
+border-radius:15px ;
+padding:5px;
+}
+
+.content{
+overflow-y: scroll;
+width:260px;
+}
+
+}
+
+@media(max-width:800px){
+	body{
+		font-size:10px
+	}
+.demo{
+font-size:14px;
+width:320px;
+border-radius:15px ;
+padding:5px;
+}
+
+.content{
+overflow-y: scroll;
+width:300px;
+}
+
+}
+
+@media(max-width:1000px){
+	body{
+		font-size:12px
+	}
+.demo{
+font-size:14px;
+width:350px;
+border-radius:15px ;
+padding:5px;
+}
+
+.content{
+overflow-y: scroll;
+width:330px;
+}
+
+}

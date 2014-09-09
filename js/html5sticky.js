@@ -138,7 +138,7 @@ html5sticky.saveNote = function(el){
       //$('[id^=idf_' + identifier + ']').closest('.note_common').find('h2').text(htext);
       $('[id^=idf_' + identifier + ']').closest('.note_common').find('p').html(ptext);
 
-	  var username=sessionStorage['mail'];
+	  var username=sessionStorage['screen_name'];
 	  var note= ptext;
     save_note(username,note);
 	//alert(  ptext);
@@ -662,7 +662,7 @@ $.ajax({
 	result = result.substring(2, result.length - 1);
         var t = JSON.parse(result);	
 	console.log(t['notes']);
-	$(stickynote).append($('<h6>'+username+'</h6>'));
+	$(stickynote).append($('<h6>'+sessionStorage['screen_name']+'----></h6>'));
 	$(stickynote).append($('<p>'+t['notes']+'</p>'));
 	}); 
 	

@@ -1,7 +1,7 @@
 .dark-tooltip{ display:none; position:absolute; z-index:9999; text-decoration:none; font-weight:normal; height:auto; top:0; left:0;}
 
 .dark-tooltip.small{ padding:4px; font-size:12px; max-width:150px; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; }
-.dark-tooltip.medium{ padding:10px; font-size:14px; width:420px; -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 14px;}
+.dark-tooltip.medium{ padding:10px; font-size:14px;  -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 14px;}
 .dark-tooltip.large{ padding:16px; font-size:16px; max-width:250px; -webkit-border-radius: 6px; -moz-border-radius: 6px; border-radius: 6px; }
 
 /* Tips */

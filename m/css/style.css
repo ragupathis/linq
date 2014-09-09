@@ -22,7 +22,7 @@ body {
 }
 
 a {
-  color: #2f889a;
+  color: white;
   text-decoration: none;
 }
 
@@ -48,6 +48,7 @@ header[role=banner] {
   position: relative;
   height: 50px;
   background: #343642;
+  
 }
 header[role=banner] #cd-logo {
   float: left;
@@ -162,12 +163,12 @@ header[role=banner]::after {
     line-height: normal;
     background: transparent;
   }
-  .main-nav a.cd-signin, .main-nav a.cd-signup, .main-nav a.cd-add_category,  .main-nav a.cd-wishlist   {
+  .main-nav a.cd-signin, .main-nav a.cd-signup, .main-nav a.cd-add_category,  .main-nav a.cd-wishlist   , .main-nav a.cd-profile  , .main-nav a.cd-signout{
     padding: .6em 1em;
     border: 1px solid rgba(255, 255, 255, 0.6);
     border-radius: 50em;
   }
-  .main-nav a.cd-signup {
+  .main-nav a.cd-signup , .main-nav a.cd-signin  , .main-nav a.cd-profile , .main-nav a.cd-signout{
     background: #2f889a;
     border: none;
   }

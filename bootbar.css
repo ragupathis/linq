@@ -31,13 +31,14 @@ top: 70px;
 	
 }
 }
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 900px) {
 	.alert-messages {
 top: 50px;
     position: absolute;
 	
 }
 }
+
 @media screen and (max-width: 400px) {
 	.alert-messages {
 top: 50px;

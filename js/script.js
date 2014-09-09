@@ -43,6 +43,7 @@ var temp="";
 	    console.log(t['response']); 
 		sessionStorage['hash']=t['hash'];
 		sessionStorage['mail']=t['mail'];
+		sessionStorage['screen_name']=t['screen_name'];
 		sessionStorage['status_code']='first_login';
 		window.location='menu.html';
 	}
@@ -67,10 +68,12 @@ function getRandomInt(min, max) {
         return Math.floor(Math.random() * (max - min )) + min;
     }
 function generate_category(){
-
+var user_names=sessionStorage['mail'];
 $.ajax({
         type: "POST",
+		
 		url: 'model/display_category.php',			   
+		data: {'user':user_names}
    	}).done(function(result) {
 	  result = result.substring(2, result.length - 1);
       var t = JSON.parse(result);	
@@ -86,10 +89,7 @@ $.ajax({
 	var html= '<div class="demo">'+category_name+' <hr><div class="content">	<ul class="'+category_name+'">';
 	html+='</ul></div>';
 	// code to generate add site feature to account holders  - start
-	
 
- 
-	
 	//if(user){
 	html+='	<hr>  <div class="new"> <table><tr><td class="first_td"> <p class="vis">Add new site</p><input type="text" name="site" ';
 	html+='class="site input-xlarge search-query" id="'+category_name+'text"  placeholder="www.guvi.in" >';
@@ -174,7 +174,7 @@ if(sessionStorage['hash']){
 
 
 if(sessionStorage['status_code']==='first_login'){
-$.bootbar.success("<p align='center'>Welcome "+sessionStorage['mail']+"</p>");
+$.bootbar.success("<p align='center'>Welcome "+sessionStorage['screen_name']+"</p>");
 sessionStorage['status_code']='second_login';
 }
 }else{
@@ -192,8 +192,10 @@ document.getElementById('forms').innerHTML=temp_val;
 $('#add_category').css('display','none');
 $('#profile').css('display','none');
 if(sessionStorage['status_code']==='logout_first'){
-$.bootbar.danger("<p align='center'>you logged out successfully</p>");
+$.bootbar.danger("<p align='center'>"+ sessionStorage['screen_name']+" you are logged out successfully</p>");
 sessionStorage['status_code']='';
+}else{
+$.bootbar.success("<p align='center'>Thanks for visiting , Click the Category to get the Links and give feedback</p>");
 }
 }
 
@@ -307,6 +309,7 @@ $(document.body).on('mousedown','#logout',function(){
 if(sessionStorage['hash']){
 sessionStorage['hash']='';
 sessionStorage['mail']='';
+sessionStorage['screen_name']='';
 if(sessionStorage['status_code']==='second_login'){
 sessionStorage['status_code']='logout_first';
 }

@@ -3,9 +3,9 @@ var flag_value=0;
 
 if(sessionStorage['hash']){
 // for menu changes inn dynamic 
-var menu_temp='<ul><li><a class="cd-signu" href="#0" id="ttt">Profile</a></li>';
+var menu_temp='<ul><li><a href="#0" id="ttt" class="cd-profile">Profile</a></li>';
 menu_temp+='<li><a  href="#0" class="cd-signin" id="in">Sign in</a></li><li><a class="cd-signup" href="#0" id="out">Sign up</a></li>';
-menu_temp+='<li><a  href="#0" id="logout">Sign Out</a></li></ul>';
+menu_temp+='<li><a  href="#0" id="logout" class="cd-signout">Sign Out</a></li></ul>';
 $('.main-nav').html(menu_temp);
 document.getElementById('in').innerHTML="add category";
 document.getElementById('out').innerHTML="feedback";
@@ -20,7 +20,7 @@ temp+='	</div> <!-- cd-reset-password -->';
 
 temp+='<div id="cd-signup"> <!-- add new category form -->	<p class="cd-form-message">Please Give Your Valuable Feedback</p>';
 temp+='	<form class="cd-form">	<p class="fieldset"><label class="image-replace cd-email" for="reset-email">Feedback</label>';
-temp+='<input class="full-width has-padding has-border" id="reset-email" type="text" placeholder="Please Give Your Valuable Feedback">';
+temp+='<input class="full-width has-padding has-border" id="search_category" type="text" placeholder="Please Give Your Valuable Feedback">';
 temp+='<span class="cd-error-message">Error message here!</span></p><p class="fieldset">';
 temp+='<input class="full-width has-padding" type="submit" id="new_category" value="Send">	</p></form>';
 temp+='	</div> <!-- cd-reset-password -->';
@@ -178,9 +178,16 @@ $('.cd-add_category').fadeIn(500);
 	
 	
 	$('#new_category').click(function(){
-	alert('success');
+	//alert('success');
+	$form_modal.removeClass('is-visible');
 	});
 
+$("#newcategorybtn").click(function(){
+			
+			add_new_category();
+			$form_modal.removeClass('is-visible');
+});
+	
 });
 
 
@@ -200,3 +207,95 @@ jQuery.fn.putCursorAtEnd = function() {
     	}
 	});
 };
+
+
+
+function add_new_category(){
+
+var category_name=document.getElementById('categoryname').value;
+			var len=category_name.length;		
+			var pattern=new RegExp(' ');
+			if(pattern.test(category_name)){
+
+			}
+			else{	
+			if((len>1) && (len<15)){
+			var by=sessionStorage['mail'];
+			add_category_db(category_name,by);
+			$.bootbar.success("<p align='center'>add sites to new category.</p>");
+			
+				var html3='	<div class="example" pid="'+category_name+'">';
+				html3+='<nav class="cl-effect-'+design_collection[random]+'"> <a href="#" class="confirm"  id="'+category_name+'" ';
+				html3+='class="box" data-tooltip=""><span data-hover=" &nbsp; '+category_name+'">'+category_name+'</span></a></nav></div>';
+				$('body').append(html3);
+
+				
+			var html= '<div class="demo">'+category_name+' <hr><div class="content">	<ul class="'+category_name+'">';
+	html+='</ul></div>';
+	// code to generate add site feature to account holders  - start
+
+	//if(user){
+	html+='	<hr>  <div class="new"> <table><tr><td class="first_td"> <p class="vis">Add new site</p><input type="text" name="site" ';
+	html+='class="site input-xlarge search-query" id="'+category_name+'text"  placeholder="www.guvi.in" >';
+	html+='<button btnid="'+category_name+'" id="as" class="btn btn-primary ok">Add</button> <input type="hidden" id="'+ category_name +'" class="temp"/> &nbsp;'; html+='</td><td><br> <i class="icon-eye-open" title="who can see ?"></i>';
+	html+='<select id="'+category_name+'visible" title="who can see ?" class="input-small btn-default"> <option selected value="Public">Public</option>';
+	html+='<option value="me">Only Me</option></select></td></tr></table><br><p class="'+category_name+'err errmsg alert alert-dismissable alert-messages1 " >';
+	html+='Please Login to add </p></div>';
+				$("#"+category_name).attr('data-tooltip',html);
+				//console.log(html);
+				$("#"+category_name).attr('data-tooltip',html);
+
+				//sessionStorage['category_notif']='first';
+				
+	window.include=function(){function f(){b--;b||c()}var a=arguments,d=document,b=a.length,c;
+  arguments[b-1]instanceof Function?(b--,c=a[a.length-1]):c=function(){};
+  for(var e=0;e<b;e++)a=d.createElement("script"),a.src=arguments[e],a.onload=a.onerror=f,
+  (d.head||d.getElementsByTagName("head")[0]).appendChild(a)};
+//if(i==0){
+  include('js/jquery.darktooltip1.js', function() {
+	include('js/examples.js');
+	//alert('in');
+	i=1;
+  })
+ // $( this ).dialog( "close" );
+ // $('.info').css('color','blue');
+  $('.info').addClass('alert-info');
+  }
+  else{
+ //$('.msg').css('display','block');
+ // $('.errmsg1').css('display','block');
+ 
+$('.info').removeClass('alert-info');
+$('.info').removeClass('alert-danger');
+ $('.info').addClass('alert-danger');
+ //$('.info').css('color','red');
+ //$.bootbar.danger("please give valid category name");
+  }
+}
+//}	
+}
+
+
+function add_category_db(user_name,new_category){
+console.log(user_name);
+console.log(new_category);
+
+    $.ajax({
+        type: "POST",
+		url: 'model/add_category.php',			
+		data: {'user_id':user_name,'category':new_category}    
+   	}).done(function(result) {
+	   // result = result.substring(1, result.length - 1);
+      //  var t = JSON.parse(result);	
+	    
+		/*console.log(t['status']);
+		if(t['status']===1){
+		console.log('true');
+		}
+		else{
+		console.log('false');
+		}*/
+	});  
+
+}
+

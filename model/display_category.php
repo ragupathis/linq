@@ -4,6 +4,8 @@
 
 $count=0;
 $size=0;
+$user=$_POST['user'];
+$admin='admin';
 $result= array();	
 	$category_info=array();
 $mysqli = new mysqli($hostname, $username, $password, $database);
@@ -15,14 +17,14 @@ $mysqli = new mysqli($hostname, $username, $password, $database);
    }
 	
 	
-	$sql3 ="SELECT  count(distinct `category`) FROM `sitelist`" ;	
-	$sql4 ="SELECT  distinct `category` FROM `sitelist` ";
+	$sql3 ="SELECT  count(`category`) FROM `categories` where `added_by`=? or `added_by`=?" ;	
+	$sql4 ="SELECT   `category` FROM `categories` where `added_by`=? or `added_by`=? ";
 	
 	
 	if($stmt1 = $mysqli -> prepare($sql3)) 
 	{	
 		
-		
+		$stmt1->bind_param('ss', $user, $admin);
 		$stmt1 -> execute();
 		
 		$stmt1 -> bind_result($size);
@@ -38,7 +40,7 @@ $mysqli = new mysqli($hostname, $username, $password, $database);
 	if($stmt1 = $mysqli -> prepare($sql4)) 
 	{	
 		
-		
+		$stmt1->bind_param('ss', $user, $admin);
 		$stmt1 -> execute();
 		
 		for($k=1;$k<=$size;$k++){
@@ -50,7 +52,7 @@ $mysqli = new mysqli($hostname, $username, $password, $database);
 		
 	
 		
-	}else{ echo "sorry"; 
+	}else{ //echo "sorry"; 
 	
 	}
 	

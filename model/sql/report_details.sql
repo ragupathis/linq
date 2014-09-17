@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 29, 2014 at 05:32 PM
+-- Generation Time: Sep 10, 2014 at 05:32 PM
 -- Server version: 5.5.24-log
 -- PHP Version: 5.3.13
 
@@ -36,11 +36,22 @@ CREATE TABLE IF NOT EXISTS `report_details` (
 --
 
 INSERT INTO `report_details` (`sitename`, `by`) VALUES
-('helloweb', 'ragu@ragu.com'),
-('link.com', 'ragu@ragu.com'),
-('www.linkq.com', 'ragu@ragu.com'),
-('hjb', 'ragu@ragu.com'),
-('k', 'ragu@ragu.com');
+('www.tamil.com', 'admin@linkhere.in'),
+('abcdef', 'admin@linkhere.in'),
+('hjb', 'admin@linkhere.in'),
+('www.linq.com', 'admin@linkhere.in'),
+('www.linkhere.in', 'admin@linkhere.in'),
+('abcdef', 'ragu@linkhere.in'),
+('helloweb', 'admin@linkhere.in'),
+('www.guvi.com', 'admin@linkhere.in'),
+('myweb', 'admin@linkhere.in'),
+('www.cricbuzz.com', 'str@str.com'),
+('helloweb', 'str@str.com'),
+('link.com', 'str@str.com'),
+('www.google.com', 'ragu@linkhere.info'),
+('https:\\/\\/www.linkhere.in\\/', 'admin@linkhere.in'),
+('www.guvi.in', 'ragupathi@ragu.co'),
+('www.guvi.com', 'ragu@ragu.ragu');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

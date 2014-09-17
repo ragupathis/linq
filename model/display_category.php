@@ -34,7 +34,9 @@ $mysqli = new mysqli($hostname, $username, $password, $database);
 		
 	
 		
-	}else{ echo "sorry"; }
+	}else{ //echo "sorry"; 
+	
+	}
 	
 	
 	if($stmt1 = $mysqli -> prepare($sql4)) 

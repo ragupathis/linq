@@ -1,4 +1,4 @@
-var flag_value=0;
+var flag_value=0,temp_flag=0;
 
 
 if(sessionStorage['hash']){
@@ -183,10 +183,30 @@ $('.cd-add_category').fadeIn(500);
 	});
 
 $("#newcategorybtn").click(function(){
-			
-			add_new_category();
+			add_new_category()
+			if(temp_flag==1){
 			$form_modal.removeClass('is-visible');
+			}
+			else{
+			document.getElementById('categoryname').placeholder="Please enter valid category";
+			}
 });
+
+$('#categoryname').keypress(function(e) {
+	if (e.which == '13') {
+		 e.preventDefault();
+
+		add_new_category()
+			if(temp_flag==1){
+			$form_modal.removeClass('is-visible');
+			}
+			else{
+			document.getElementById('categoryname').placeholder="Please enter valid category";
+			}
+	}
+	});
+
+
 	
 });
 
@@ -213,9 +233,12 @@ jQuery.fn.putCursorAtEnd = function() {
 function add_new_category(){
 
 var category_name=document.getElementById('categoryname').value;
+category_name=category_name.trim();
+category_name=category_name.replace(" ","_");
 			var len=category_name.length;		
 			var pattern=new RegExp(' ');
 			if(pattern.test(category_name)){
+temp_flag=0;
 
 			}
 			else{	
@@ -223,7 +246,7 @@ var category_name=document.getElementById('categoryname').value;
 			var by=sessionStorage['mail'];
 			add_category_db(category_name,by);
 			$.bootbar.success("<p align='center'>add sites to new category.</p>");
-			
+			temp_flag=1;
 				var html3='	<div class="example" pid="'+category_name+'">';
 				html3+='<nav class="cl-effect-'+design_collection[random]+'"> <a href="#" class="confirm"  id="'+category_name+'" ';
 				html3+='class="box" data-tooltip=""><span data-hover=" &nbsp; '+category_name+'">'+category_name+'</span></a></nav></div>';
@@ -257,21 +280,14 @@ var category_name=document.getElementById('categoryname').value;
 	//alert('in');
 	i=1;
   })
- // $( this ).dialog( "close" );
- // $('.info').css('color','blue');
-  $('.info').addClass('alert-info');
+ 
+ $('.info').addClass('alert-info');
   }
   else{
- //$('.msg').css('display','block');
- // $('.errmsg1').css('display','block');
  
-$('.info').removeClass('alert-info');
-$('.info').removeClass('alert-danger');
- $('.info').addClass('alert-danger');
- //$('.info').css('color','red');
- //$.bootbar.danger("please give valid category name");
   }
 }
+return true;
 //}	
 }
 

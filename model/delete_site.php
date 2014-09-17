@@ -13,7 +13,11 @@ $mysqli = new mysqli($hostname, $username, $password, $database);
    }else{
  
    }
+   if($tblname=='categories'){
+	$sql="DELETE  FROM `$tblname` WHERE `category`=? and `added_by`=?";
+	}else{
 	$sql="DELETE  FROM `$tblname` WHERE `sitename`=? and `by`=?";
+	}
 	
 	
 	  if($stmt = $mysqli -> prepare($sql)) {

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Sep 10, 2014 at 05:32 PM
+-- Generation Time: Sep 10, 2014 at 05:31 PM
 -- Server version: 5.5.24-log
 -- PHP Version: 5.3.13
 
@@ -23,23 +23,30 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `deleted_sites`
+-- Table structure for table `categories`
 --
 
-CREATE TABLE IF NOT EXISTS `deleted_sites` (
-  `sitename` varchar(50) NOT NULL,
-  `by` varchar(50) NOT NULL,
-  `report_count` varchar(5) NOT NULL
+CREATE TABLE IF NOT EXISTS `categories` (
+  `category` varchar(20) NOT NULL,
+  `added_by` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `deleted_sites`
+-- Dumping data for table `categories`
 --
 
-INSERT INTO `deleted_sites` (`sitename`, `by`, `report_count`) VALUES
-('my_temp', 'ragu@ragu.com', '3'),
-('www.cricbuzz.com', 'temp@dfx.v', '3'),
-('helloweb', 'ragu@ragu.com', '3');
+INSERT INTO `categories` (`category`, `added_by`) VALUES
+('my_owns', 'ragu@ragu.ragu'),
+('videos', 'admin'),
+('cricket', 'admin'),
+('news', 'admin'),
+('entertainment', 'admin'),
+('education', 'admin'),
+('video_tutorial', 'admin'),
+('second', 'second@ragu.com'),
+('test_second', 'second@ragu.com'),
+('temp', 'second@ragu.com'),
+('success', 'second@ragu.com');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

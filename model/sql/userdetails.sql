@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 24, 2014 at 06:45 PM
+-- Generation Time: Sep 10, 2014 at 05:33 PM
 -- Server version: 5.5.24-log
 -- PHP Version: 5.3.13
 
@@ -27,23 +27,23 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `userdetails` (
+  `screen_name` varchar(50) NOT NULL,
   `user_name` varchar(50) NOT NULL,
-  `hash` varchar(1500) NOT NULL
+  `hash` varchar(1500) NOT NULL,
+  `password` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `userdetails`
 --
 
-INSERT INTO `userdetails` (`user_name`, `hash`) VALUES
-('ragupathi@ragu.com', '08f4f57d45858c5b4b062d6aadae2fc714edff2911a8bb2a0839c2c7d384ca7ea6df50c12aad6b99b0808c9058e44a2551878b98a8157ead15b477972f1dbcb4'),
-('ragu@ragu.com', 'd6d925d1bd21def404b252a4d32e9ae96d050a0ae9d1f6bf35499c2d3f2460dc642b178d6e6988f35b3d0be6c9f265b722ee84c3566b678d482f2f238adcd9d0'),
-('abc@abc.com', '96f975e773ef37f2fe91d7916fc1456deda20b4f95e2354c3caf42657a1aa6558ff3335221804544b4646cb33c8d25a40e476b444b32722bd06cbb5ae88fea52'),
-('', 'cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e'),
-('temp@dfx.v', '4aed42dd871471dbb89f55db4b088c85a5bc5396bd1c233ca2d3c3921a319bd38ae36c08bc9ad6ab601acfb07eae670fca0e3cb20b27c562427cffb5c61a0cf9'),
-('ragu@gmail.com', '002797a72ab3da191706217828530660cfc5e4e291406593867bec87c75315a8795252975aab781abd11a8d60a95a9edc1a7e34d65283dd8ee132b07184cd057'),
-('hhb', 'ef0c5c5de68738461a21fea19ecbb560851936294cc2a760f1b1868856e67dd6e5625a14e7c37483d9b569ec27205da7a63180414e1c20bc4e1c636303690288'),
-('test@test.com', '045b45ad1b02b7e0de222e19c77a4e765851378a1eb2202e346cde5f979a3217e83454921dfebe3e4e27bb5cc8de91ce68ed75682bd87c1e323146d94c7a2b31');
+INSERT INTO `userdetails` (`screen_name`, `user_name`, `hash`, `password`) VALUES
+('helloworld', 'helloworld@hello.com', 'fda75a3b31d9ee00977af8605fcbcddf6d9a62f4f114e9525da3b077703358cb4da3e02d30f418ccb0390aa319b7618390f3442810c93d0a1de33fcc97659349', 'kG6Dfdpbjcu6xDT8uiVnqatKqdGT/gi47S+zIDJlK2E='),
+('helloworld', 'ragu@ragu.ragu', 'e8f151cff6b8dd7d95337836a16083e7c5125e0ce21b9e2ff32bfdae0f19be95bf7657cd813201091d29d2e22812a679c21e36da70e5822204ed651cc93412ca', 'pDNmSPehUNXJAj+EH9t9l04aks6cxwdcRW0fIXOmIUs='),
+('a', 'a@b.c', 'c6454e18cf075f30442add8f73bf7193f1a03f83599f4bcdfc37c680868eb9b20efdaa8de403ccb52cf8ebcf4b2b9466abd10e6c0027ea067319fa17ea51c547', 'Gd65s1qqdkuZ3+xwRbwej5xgBxIrvNksSz5dvjkYcCE='),
+('abc', 'abc@abc.abc', '4c6fc12426a63bdc517ce81799e7e79852c35029c3ecfae093cdd00ab0c14c1bdb3cc0de9b37623717cede0edb00b25b3b5e621ebac60ff61ee58ac77e8aa4db', 'Gd65s1qqdkuZ3+xwRbwej5xgBxIrvNksSz5dvjkYcCE='),
+('first', 'first@ragu.com', '7c7e848c8b832b2d62f3521a1674d97154b016b4d0fb69cefec575acd64db04aab53c04ae667c2c42a334dc0bf3a2d6bd6a53d04ee116c6f588876a2911cf62d', 'cMuSQI7IpqjQ5G6Q47mgEoqAUJhzWO4ba52M9YcTLO8='),
+('second', 'second@ragu.com', '0535a51fe31945edc62685fd7c25ecc6e92e275e3fff46f67cc02e89e818b121c3f69462c9ecf593872c867b4d80d222ba7bb26ef9f5c1883ec378aba012676e', 'cJHHM8K5KUgM6feneVlaLWUTjJ0SIg9MPtGc1RoftjE=');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

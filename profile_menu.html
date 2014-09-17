@@ -17,7 +17,7 @@
 
 	
 <link href="css/jquery-ui1.css" rel="stylesheet">
-<link rel="stylesheet" href="css/reset.css">
+
 <link rel="stylesheet" href="css/examples.css">
 <link rel="stylesheet" href="css/darktooltip.css">
 <link href="css/font-awesome.css" rel="stylesheet">
@@ -41,7 +41,9 @@
 
 <style>
 
-
+.count123{
+background:red;
+}
 </style>
   
 	
@@ -69,19 +71,32 @@
    
    <tr><td>
    
-   <div class="demo"><p  class='titl'>Shared Sites   <span class="icon-share"> </span></p><hr>
+   <div class="demo"><p  class='titl' >Shared Sites <b class='count123' id="a"></b> <span class="icon-share"> </span></p><hr>
    <div class="content"><ul class="added_site"></ul><p class="err1 alert alert-dismissable alert-danger"> link removed successfully </p></div></div>
 	
    </td>
    
    <td>
    
-   <div class="demo"><p class='titl'>Liked Sites  <span class="icon-thumbs-up"> </span></p><hr>
+   <div class="demo"><p class='titl'>Liked Sites <b class='count123' id="b"></b>   <span class="icon-thumbs-up"> </span></p><hr>
    <div class="content">	
    <ul class="liked_site">
    </ul><p class="err2 alert alert-dismissable alert-danger"> link removed </p></div></div>
    
-   </td></tr>
+   </td>
+   
+   <td>
+   
+   
+   <div class="demo"><p class='titl'>Added Category <b class='count123' id="c"></b>   <span class="icon-plus"> </span></p><hr>
+   <div class="content">	
+   <ul class="added_category">
+   </ul><p class="err3 alert alert-dismissable alert-danger"> link removed </p></div></div>
+   
+   
+   </td>
+   
+   </tr>
    
 </table>
 

@@ -8,7 +8,7 @@ $user_name=$_POST['mail'];
 $password=$_POST['password'];
 $hashval=hash(PBKDF2_HASH_ALGORITHM, $user_name);
 $result= array();
-$notes="text here";
+$notes="your notes here";
 $res1='';
 
 

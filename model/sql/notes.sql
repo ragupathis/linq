@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 24, 2014 at 06:45 PM
+-- Generation Time: Sep 10, 2014 at 05:32 PM
 -- Server version: 5.5.24-log
 -- PHP Version: 5.3.13
 
@@ -37,15 +37,24 @@ CREATE TABLE IF NOT EXISTS `notes` (
 --
 
 INSERT INTO `notes` (`user_name`, `notes`) VALUES
-('abc@abc.com', 'text here'),
-('hhb', 'text here'),
-('k', 'text here'),
-('ragu1', 'hello world'),
-('ragu@gmail.com', 'text here'),
-('ragu@ragu.com', 'am edited here   super '),
+('', 'text here'),
+('a@b.c', 'text here'),
+('abc@abc.abc', 'text here'),
+('abc@fdw.cw', 'text here'),
+('admin123@linkhere.in', 'text here'),
+('admin@linkhere.com', 'text here'),
+('admin@linkhere.in', 'gtrghrthr'),
+('first@ragu.com', 'text here'),
+('helloworld@hello.com', 'text here'),
+('ragu@linkhere.in', 'text here bcd'),
+('ragu@linkhere.info', 'text here'),
+('ragu@linkhere.net', 'text here'),
+('ragu@ragu.com', 'text here'),
+('ragu@ragu.ragu', 'text here'),
+('ragupathi@ragu.co', 'text here'),
 ('ragupathi@ragu.com', 'text here'),
-('temp@dfx.v', 'text here'),
-('test@test.com', 'text here here ');
+('second@ragu.com', 'text here'),
+('temp', 'text here');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

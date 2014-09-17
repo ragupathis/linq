@@ -17,6 +17,12 @@ function user_login(user_name,user_password){
 	    window.location='menu.html';}
 		else{
 		console.log('false');
+		document.getElementById('mailid').value='';
+		document.getElementById('signin-password').value='';
+		
+		document.getElementById('mailid').placeholder='please enter valid mail id';
+		document.getElementById('signin-password').placeholder='please enter valid password';
+	
 		}
 	});  
 }
@@ -30,15 +36,58 @@ $(document.body).on('mousedown','#signin',function(){
 	user_check();
 });
 
+
+$('#signin-password').keypress(function(e) {
+	if (e.which == '13') {
+		 e.preventDefault();
+
+		 user_check();
+	}
+	});
+
 $(document.body).on('mousedown','#signup',function(){
+
+add_user();
+});
+
+$('#signup-password').keypress(function(e) {
+	if (e.which == '13') {
+		 e.preventDefault();
+
+		 add_user();
+	}
+	});
+
+function add_user(){
+
 		//	alert('k');
 		var screen_name=document.getElementById('signup-username').value;
 		var userid=document.getElementById('signup-email').value;
 		var pwd=document.getElementById('signup-password').value;
+//		user_register(screen_name,userid,pwd);
+		
+
+   	var testEmail = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
+   	if(screen_name.length>3){
+	if(pwd.length>3){
+   	if  (!testEmail.test(userid)) {
+		//user_login(user_name);
+		//$('.lgfailed').css('display','block');
+		
+	}else{
 		user_register(screen_name,userid,pwd);
+	//	$( this ).dialog( "close" );
+	}}else{
+	$('.cd-error-message').css('display','block');
+	document.getElementById('signup-password').value='';
+	document.getElementById('signup-password').placeholder='password should be minimum 3 char';
+	}
+	}else{
+	document.getElementById('signup-username').value='';
+	document.getElementById('signup-username').placeholder='user name should be minimum 3 char';
+	}
 
-});
-
+}
 
 function user_check(){
 
@@ -47,9 +96,15 @@ function user_check(){
 	
    	var testEmail = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
    	
-   	if (!testEmail.test(user_name)) {
+   	if (!testEmail.test(user_name) && user_password.length<3) {
 		//user_login(user_name);
 		$('.lgfailed').css('display','block');
+		document.getElementById('mailid').value='';
+		document.getElementById('signin-password').value='';
+		
+		document.getElementById('mailid').placeholder='please enter valid mail id';
+		document.getElementById('signin-password').placeholder='please enter valid password';
+		
 	}else{
 		user_login(user_name,user_password);
 	//	$( this ).dialog( "close" );
@@ -67,11 +122,19 @@ function user_register(screen_name,mailid,password){
 	    result = result.substring(1, result.length - 1);
         var t = JSON.parse(result);	
 	    //console.log(t['hash']);
+		if(t['response']==='olduser'){
+		
+		document.getElementById('signup-email').value='';
+		document.getElementById('signup-email').placeholder='email id already exists';
+		
+		
+		}else{
 	    sessionStorage['hash']=t['hash'];
 	    sessionStorage['mail']=t['mail'];
 		sessionStorage['screen_name']=t['screen_name'];
 		sessionStorage['status_code']='first_login';
 	    window.location='menu.html';
+		}
 	});  
 
 }

@@ -68,7 +68,10 @@ function getRandomInt(min, max) {
         return Math.floor(Math.random() * (max - min )) + min;
     }
 function generate_category(){
-var user_names=sessionStorage['mail'];
+var user_names;
+if(sessionStorage['mail']){
+ user_names=sessionStorage['mail'];
+}else{    user_names='a'; }
 $.ajax({
         type: "POST",
 		
@@ -76,6 +79,7 @@ $.ajax({
 		data: {'user':user_names}
    	}).done(function(result) {
 	  result = result.substring(2, result.length - 1);
+	  console.log(result);
       var t = JSON.parse(result);	
 	  //console.log("category size"+t['1']);	
    	 random=getRandomInt(0,7);
@@ -206,11 +210,19 @@ generate_category();
 /* starting of  add new sites 	*/
 
 $(document.body).on('mousedown','.ok',function(){
-
 var categoryname =  $(this).attr( "btnid" );
+addsite(categoryname);
+
+
+});
+
+
+function addsite(categoryname){
+
+
 $('.'+categoryname+'err').removeClass('alert-info');
 $('.'+categoryname+'err').removeClass('alert-danger');
-sitename=document.getElementById(categoryname+'text').value;
+var sitename=document.getElementById(categoryname+'text').value;
 if(sitename.length>5){
 var visible=document.getElementById(categoryname+'visible').value;
 if(visible=='me'){
@@ -238,7 +250,7 @@ $('.'+categoryname+'err').css('display','block');}
 	 
 
 
-});
+}
 
 /* ending of  add new sites 	*/
 

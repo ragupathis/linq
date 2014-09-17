@@ -1,8 +1,9 @@
+
 .alert-messages {    
     top: 80px;
     left: 0;
     right: 0;
-    position: fixed;
+    position: absolute;
 	z-index: 100;
 }
 

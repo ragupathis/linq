@@ -40,7 +40,6 @@
 	<title>linksavers</title>
 </head>
 
-
 <style>
 body{
 background-color:silver;
@@ -101,11 +100,19 @@ height:50px;
 .fullback{
 width:100%;
 }
+.foot{
+height:40px;
+width:100%;
+margin-top:32%;
+background-color:white;
+position:absolute;
+}
 </style>
 
 <body id="home" >
 
 	<header role="banner" class="fullback">
+	
 		<div id="cd-logo"><a href="#"><img src="m/img/cd-logo.svg" alt="Logo"></a></div>
 
 		<nav class="main-nav">
@@ -154,7 +161,7 @@ width:100%;
 			<div id="cd-signup"> <!-- sign up form -->
 				<form class="cd-form">
 					<p class="fieldset">
-						<label class="image-replace cd-username" for="signup-screenname">Username</label>
+						<label class="image-replace cd-username" for="signup-username">Username</label>
 						<input class="full-width has-padding has-border" id="signup-username" type="text" placeholder="Username" required>
 						<span class="cd-error-message">Error message here!</span>
 					</p>
@@ -167,14 +174,14 @@ width:100%;
 
 					<p class="fieldset">
 						<label class="image-replace cd-password" for="signup-password">Password</label>
-						<input class="full-width has-padding has-border" id="signup-password" type="text"  placeholder="Password" required>
-						<a href="#0" class="hide-password">Hide</a>
+						<input class="full-width has-padding has-border" id="signup-password" type="password"  placeholder="Password" required>
+						<a href="#0" class="hide-password">Show</a>
 						<span class="cd-error-message">Error message here!</span>
 					</p>
 
 					<p class="fieldset">
-						<input type="checkbox" id="accept-terms">
-						<label for="accept-terms">I agree to the <a href="#0">Terms</a></label>
+						
+						<label for="accept-terms">By Clicking the Create Account button you agreed to the <a href="#0">Terms</a></label>
 					</p>
 
 					<p class="fieldset">
@@ -230,6 +237,9 @@ width:100%;
 				<p class="cd-form-bottom-message"><a href="#0">Back to log-in</a></p>
 			</div> <!-- cd-reset-password -->
 	</div>
+	
+	
+	
 <script src="js/jquery.js"></script>
 <script src="m/js/main.js"></script> <!-- Gem jQuery -->
 <script src="js/modernizr.custom1.js"></script>
@@ -239,5 +249,9 @@ width:100%;
 <script src="js/js.js"> </script>
 <script src="bootbar.js"></script>
 
+<footer class='foot'>
+
+</footer>
 </body>
+
 </html>

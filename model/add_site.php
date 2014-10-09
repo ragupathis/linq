@@ -4,6 +4,7 @@
 $site=$_POST['sitename'];
 $category=$_POST['category'];
 $visible=$_POST['visible'];
+$result= array();	
 
 $by=$_POST['user_name'];
 $mysqli = new mysqli($hostname, $username, $password, $database);
@@ -20,8 +21,9 @@ $mysqli = new mysqli($hostname, $username, $password, $database);
 	  if($stmt = $mysqli -> prepare($sql)) {
 			$stmt->bind_param('ssss', $site,$category, $by,$visible);
 			$stmt->execute();
+			$result['status']='true';
 			if ($stmt->errno) {
-			  echo "FAILURE!!! " . $stmt->error();
+			//  echo "FAILURE!!! " . $stmt->error();
 			}
 			$stmt->close();
 			
@@ -32,6 +34,6 @@ $mysqli = new mysqli($hostname, $username, $password, $database);
 	  }
 	  
 
-
+echo var_export(json_encode($result)); 
 	
 ?>

@@ -2,40 +2,28 @@
 <html lang="en">
 <head>
   
-       
-   <!-- CSS -->
-   <link rel="stylesheet" href="css/main_sticky.css?version=1" />
-   <link rel="stylesheet" href="css/html5sticky.css?version=1" />
-
-   <link rel="stylesheet" type="text/css" href="css1/component.css" />
-		<link rel="stylesheet" type="text/css" href="css1/content.css" />
 		 <script>!window.jQuery && document.write(unescape('%3Cscript src="js/jquery1.6.2.js"%3E%3C/script%3E'))</script>
-
-		<script src="js1/modernizr.custom.js"></script>
-   
-   <link href='http://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' />
-
-	
-<link href="css/jquery-ui1.css" rel="stylesheet">
-
-<link rel="stylesheet" href="css/examples.css">
-<link rel="stylesheet" href="css/darktooltip.css">
+<link href="css/common.css" rel="stylesheet">
 <link href="css/font-awesome.css" rel="stylesheet">
-<link href="css/font-awesome-ie7.css" rel="stylesheet">
+
        
 <link rel="stylesheet" href="bootbar.css">
 
-<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
- 		
-	   
- 
 
-<link rel="stylesheet" type="text/css" href="css/link/component.css" />
 <link rel="stylesheet" href="css/profile.css">
 
-	
-	<link rel="stylesheet" href="m/css/reset.css"> <!-- CSS reset -->
-	<link rel="stylesheet" href="m/css/style.css"> <!-- Gem style -->
+<link href="css/metro-bootstrap.css" rel="stylesheet">
+   
+<link href="css/font-awesome.css" rel="stylesheet">
+<link href="css/font-awesome-ie7.css" rel="stylesheet">
+
+<link rel="stylesheet" type="text/css" href="css/link/component.css" />
+
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+
+
+	<link rel="stylesheet" href="css/reset_menu.css"> <!-- CSS reset -->
+	<link rel="stylesheet" href="css/style_menu.css"> <!-- Gem style -->
 
 </head>
 
@@ -44,13 +32,57 @@
 .count123{
 background:red;
 }
+#demo{
+color:white;	!important
+}
+.label{
+width:220px;
+overflow:hidden;
+font-size:15px;
+}
+
+ .liked_site{
+height:200px;   !important
+width:300px; !important
+}
+.content{
+background-color:silver;
+width:100%;
+}
+.notification{
+
+margin-left: 10%;
+}
+.panel{
+padding:5px;
+padding-left:20px;
+}
+.titl{
+font-size:20px;
+}
+.site{
+padding-left:5px;
+
+color:white;
+}
+.linklbl{
+
+padding-left:5px;
+
+color:white;
+
+}
+
+.site{
+padding-top:2%;
+}
 </style>
   
 	
 	
-<body>
+<body class="metro">
 	<header role="banner">
-		<div id="cd-logo"><a href="#"><img src="m/img/cd-logo.svg" alt="Logo"></a></div>
+		<div id="cd-logo"><a href="https://www.linksavers.com"><img src="img/logo.png" alt="Logo"></a></div>
 
 		<nav class="main-nav">
 			<ul  id="menu_list">
@@ -62,54 +94,59 @@ background:red;
 		</nav>
 	</header>
 
+	<div class="loader">
+  <span class="l-1"></span>
+  <span class="l-2"></span>
+  <span class="l-3"></span>
+  <span class="l-4"></span>
+  <span class="l-5"></span>
+  <span class="l-6"></span>
+</div>
 
    <div id="main">
        <div class="clear">&nbsp;</div>
    </div>
-   
-   <table>
-   
-   <tr><td>
-   
-   <div class="demo"><p  class='titl' >Shared Sites <b class='count123' id="a"></b> <span class="icon-share"> </span></p><hr>
-   <div class="content"><ul class="added_site"></ul><p class="err1 alert alert-dismissable alert-danger"> link removed successfully </p></div></div>
-	
-   </td>
-   
-   <td>
-   
-   <div class="demo"><p class='titl'>Liked Sites <b class='count123' id="b"></b>   <span class="icon-thumbs-up"> </span></p><hr>
-   <div class="content">	
-   <ul class="liked_site">
-   </ul><p class="err2 alert alert-dismissable alert-danger"> link removed </p></div></div>
-   
-   </td>
-   
-   <td>
-   
-   
-   <div class="demo"><p class='titl'>Added Category <b class='count123' id="c"></b>   <span class="icon-plus"> </span></p><hr>
-   <div class="content">	
-   <ul class="added_category">
-   </ul><p class="err3 alert alert-dismissable alert-danger"> link removed </p></div></div>
-   
-   
-   </td>
-   
-   </tr>
-   
-</table>
+  
+  
 
+	 <div class="panel">
+                            <div class="panel-header ribbed-blue  fg-white">
+                               <p  class='titl' class="active"><a href="#" title="You Added Sites">Added Sites<span class=" notification" class='count123'  id="a"></span></a> <span class="icon-share"> </span></p>
+                            </div>
+                            <div class="panel-content">
+                                <div class="content ribbed-green "><ul class="site added_site"></ul></div><p class="err1 alert alert-dismissable alert-danger"> link removed successfully </p>
+							</div>
+                        </div>
+	
+
+      <div class="panel " >
+                            <div class="panel-header ribbed-blue  fg-white">
+                              <p class='titl' class="inactive"><a href="#" title="You liked sites">Liked Sites<span  class="notification" class='count123' id="b"></span></a>   <span class="icon-thumbs-up"> </span></p>
+                            </div>
+                            <div class="panel-content">
+                                <div class="content ribbed-green bg-lightBlue fg-white"><ul class="liked_site site"></ul></div><p class="err2 alert alert-dismissable alert-danger"> link removed successfully </p>
+							</div>
+                        </div>
+
+   <div class="panel">
+                            <div class="panel-header ribbed-blue  fg-white">
+                              <p class='titl' class="inactive"><a href="#" title="You have added categories"> Category<span class="notification" class='count123' id="c"></span></a>    <span class="icon-plus"> </span></p>
+                            </div>
+                            <div class="panel-content">
+                                <div class="content ribbed-green "><ul class="added_category site"></ul></div><p class="err3 alert alert-dismissable alert-danger"> link removed successfully </p>
+							</div>
+                        </div>
+
+
+</div>
+           
 
 </body>
-
-
-  <script src="m/js/main1.js"></script> <!-- Gem jQuery -->
-    <script src="js/respond.min.js"></script>
-    <script src="js/modernizr.custom.23610.js"></script>
-    <script src="js/html5sticky.js"></script>
-    <script src="js/prettyDate.js"></script>
-	<script type='text/javascript' src='js/script1.js'></script>
+<script src="js/common.js"></script>
+<script src="js/session_details.js">	</script>
+<script src="js/main1.js"></script> <!-- Gem jQuery -->
+   
+<script type='text/javascript' src='js/script1.js'></script>
 
 <script src="bootbar.js"></script>
 </html>

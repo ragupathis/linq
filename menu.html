@@ -4,43 +4,59 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
-<!--
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min3.css" />
-<link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.css" />
-
-<link rel="stylesheet" href="css/reset.css">
-
-<link rel="stylesheet" type="text/css" href="css/link/normalize.css" />
--->
+<link rel="stylesheet" href="css/common.css">
 <link rel="stylesheet" href="css/examples.css">
 <link rel="stylesheet" href="css/darktooltip.css">
 <link href="css/font-awesome.css" rel="stylesheet">
-<link href="css/font-awesome-ie7.css" rel="stylesheet">
+
 
 <link rel="stylesheet" type="text/css" href="css/link/component.css" />
 <link href="css/main.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
 
-<script src="js/modernizr.js"></script> <!-- Modernizr -->
-   <link rel="stylesheet" type="text/css" href="css1/component.css" />
-		<link rel="stylesheet" type="text/css" href="css1/content.css" />
-		 <script>!window.jQuery && document.write(unescape('%3Cscript src="js/jquery1.6.2.js"%3E%3C/script%3E'))</script>
+   <link rel="stylesheet" type="text/css" href="css/component.css" />
+		<link rel="stylesheet" type="text/css" href="css/content.css" />
+		 
+		<script src="js/jquery.js"></script>
+		<script src="js/modernizr.custom.js"></script>
 
-		<script src="js1/modernizr.custom.js"></script>
 
-
-<link rel="stylesheet" href="bootbar.css">
-
+<link rel="stylesheet" href="css/bootbar.css">
+  <link href="css/metro-bootstrap1.css" rel="stylesheet">
+ 
 	
-	<link rel="stylesheet" href="m/css/reset.css"> <!-- CSS reset -->
-	<link rel="stylesheet" href="m/css/style.css"> <!-- Gem style -->
+	<link rel="stylesheet" href="css/reset_menu.css"> <!-- CSS reset -->
+	<link rel="stylesheet" href="css/style_menu.css"> <!-- Gem style -->
 	<script src="js/modernizr.js"></script> <!-- Modernizr -->
-  	
-	<title>linksavers</title>
+<title>linksavers - social bookmarking network - save and share your links</title>
 </head>
 
 <style>
+.feedbackerr,.signinerr,.emailerr,.usernameerr,.passworderr{
+display:none;
+}
+.term{
+background-color:blue;
+}
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    /*-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.8);*/ 
+    -webkit-border-radius: 10px;
+    background-color:white;
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background:gray; 
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
 body{
 background-color:silver;
 
@@ -49,7 +65,7 @@ background-color:silver;
 margin-top:50px;
 }
 .username{
-color:gray;
+
 }
 .container-fluid{
 height:70px;
@@ -65,55 +81,69 @@ font-size:15px;
 }
 select{
 font-size:12px;
-height:22px;
+height:24px;
 }
 .example{
 padding:5px;
+padding-top:10px;
 }
 .icon-gift , .icon-tint , .icon-off , .icon-user , .icon-eye-open{
 margin-top:5px;
 //color:red;
 }
-.lgfailed{
+.lgfailed,.category_errmsg{
 display:none;
 }
 .content li{
 float:none;
 }
+.label{
+width:250px;
+overflow:hidden;
+font-size:15px;
+background-color:#8b9dc3;
+}
 .content{
-overflow:scroll;
+/*overflow:scroll;*/
 }
 .icon-ban-circle:hover{
 color:red;
 }
-.ui-autocomplete{
-z-index:20000;
-font-size:10px;
-background-color:red;
-overflow-y:scroll;
-overflow-x:ellipse;
-height:100px;
-}
+
 #categoryname,#mailid, #newmail, #newpass, #newpass1, #pass{
 height:50px;
 }
 .fullback{
 width:100%;
 }
-.foot{
-height:40px;
-width:100%;
-margin-top:32%;
-background-color:white;
-position:absolute;
+
+.mine{
+width:70%;
+height:100%;
 }
+.mine1{
+width:100%;
+
+height:100%;
+float:left;
+}
+.demo{
+background-color:#8b9dc3;
+}
+.scnt{
+float:right;
+}
+p{
+text-transform: capitalize;
+}
+
+
+
+
 </style>
-
-<body id="home" >
-
-	<header role="banner" class="fullback">
+<header role="banner" >
 	
-		<div id="cd-logo"><a href="#"><img src="m/img/cd-logo.svg" alt="Logo"></a></div>
+		<div id="cd-logo"><a href="https://www.linksavers.com"><img src="img/logo.png" alt="Logo"></a></div>
 
 		<nav class="main-nav">
 			<ul  id="menu_list">
@@ -145,7 +175,7 @@ position:absolute;
 						<label class="image-replace cd-password" for="signin-password">Password</label>
 						<input class="full-width has-padding has-border" id="signin-password" type="password"  placeholder="Password">
 						<a href="#0" class="hide-password">Show</a>
-						<span class="cd-error-message">Error message here!</span>
+						<span class="signinerr">Please check username and password</span>
 					</p>
 
 				
@@ -163,25 +193,25 @@ position:absolute;
 					<p class="fieldset">
 						<label class="image-replace cd-username" for="signup-username">Username</label>
 						<input class="full-width has-padding has-border" id="signup-username" type="text" placeholder="Username" required>
-						<span class="cd-error-message">Error message here!</span>
+						<span class="usernameerr">Please enter valid username</span>
 					</p>
 
 					<p class="fieldset">
 						<label class="image-replace cd-email" for="signup-email">E-mail</label>
 						<input class="full-width has-padding has-border" id="signup-email" type="email" placeholder="E-mail" required>
-						<span class="cd-error-message">Error message here!</span>
+						<span class="emailerr">Please enter valid mail id!</span>
 					</p>
 
 					<p class="fieldset">
 						<label class="image-replace cd-password" for="signup-password">Password</label>
 						<input class="full-width has-padding has-border" id="signup-password" type="password"  placeholder="Password" required>
 						<a href="#0" class="hide-password">Show</a>
-						<span class="cd-error-message">Error message here!</span>
+						<span class="passworderr">Password should be minimum 4 characters!</span>
 					</p>
 
 					<p class="fieldset">
 						
-						<label for="accept-terms">By Clicking the Create Account button you agreed to the <a href="#0">Terms</a></label>
+						<!--<label for="accept-terms">By Clicking the Create Account button you agreed to the <a href="#0" class="term">Terms</a></label>-->
 					</p>
 
 					<p class="fieldset">
@@ -193,17 +223,17 @@ position:absolute;
 			</div> <!-- cd-signup -->
 
 			<div id="cd-reset-password"> <!-- reset password form -->
-				<p class="cd-form-message">Lost your password? Please enter your email address. You will receive a link to create a new password.</p>
+				<p class="cd-form-message">Lost your password? Please enter your email address. You will receive a password.</p>
 
 				<form class="cd-form">
 					<p class="fieldset">
 						<label class="image-replace cd-email" for="reset-email">E-mail</label>
 						<input class="full-width has-padding has-border" id="reset-email" type="email" placeholder="E-mail">
-						<span class="cd-error-message">Error message here!</span>
+						<span class="forgeterr"></span>
 					</p>
 
 					<p class="fieldset">
-						<input class="full-width has-padding" type="submit" value="Reset password">
+						<input class="full-width has-padding" type="submit" id="reset_pwd" value="Reset password">
 					</p>
 				</form>
 
@@ -238,20 +268,70 @@ position:absolute;
 			</div> <!-- cd-reset-password -->
 	</div>
 	
+<body id="home" class="metro" >
+
+<div class="loader">
+  <span class="l-1"></span>
+  <span class="l-2"></span>
+  <span class="l-3"></span>
+  <span class="l-4"></span>
+  <span class="l-5"></span>
+  <span class="l-6"></span>
+</div>
+
+	<table><tr>
 	
+	<td class="mine"></td>
+	<td class="mine1">
+	<div class="cornertext">  <div class="accordion span3 place-left margin10" data-role="accordion" data-closeany="false">
+                                    <div class="accordion-frame">
+                                        <a class="heading ribbed-blue fg-white" href="#">Save & Share Links</a>
+                                       
+                                    </div>
+                                    <div class="accordion-frame">
+                                        <a class="heading ribbed-blue fg-white" href="#">Create your own categories</a>
+                                       
+                                    </div>
+                                    <div class="accordion-frame">
+                                        <a class="heading ribbed-blue fg-white" href="#">Share your links </a>
+                                     
+									</div>    
+									<div class="accordion-frame">
+                                        <a class="heading ribbed-blue fg-white" href="#">Free to use</a>
+                                       
+                                    </div>
+                                    <div class="accordion-frame">
+                                        <a class="heading  ribbed-blue fg-white" href="#">Save private links</a>
+                                       
+                                    </div>
+                                    <div class="accordion-frame">
+                                        <a class="heading ribbed-blue fg-white" href="#">like others link</a>
+                                     
+									</div> 									
+			</div>	
 	
+	</td>
+	
+	</tr>
+	
+	</table>
+	
+<script>
+
+</script>
+	
+<script src="js/common.js"></script>
 <script src="js/jquery.js"></script>
-<script src="m/js/main.js"></script> <!-- Gem jQuery -->
+<script src="js/main.js"></script> <!-- Gem jQuery -->
 <script src="js/modernizr.custom1.js"></script>
 <script src="js/jquery-1.10.2.min.js"></script>
 <script type="text/javascript" src="js/script.js">	</script>
 <script src="js/jquery.darktooltip.js"></script>
 <script src="js/js.js"> </script>
-<script src="bootbar.js"></script>
+<script src="js/bootbar.js"></script>
 
-<footer class='foot'>
 
-</footer>
+  	
 </body>
 
 </html>

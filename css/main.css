@@ -1,9 +1,7 @@
 .navbar{
 margin-top:-30px;
 }
-.ragu{
-background-color:silver;
-}
+
 i{
 float:right;
 }
@@ -17,8 +15,8 @@ padding-top:5px;
 }
 .demo{
 font-size:18px;
-width:380px;
-border-radius:15px ;
+width:385px;
+
 padding:2px;
 }
 .content{
@@ -112,7 +110,7 @@ width:65%;
 .demo{
 font-size:14px;
 width:280px;
-border-radius:15px ;
+
 padding:2px;
 }
 hr{
@@ -125,7 +123,7 @@ width:280px;
 }
 
 .dark-tooltip.medium {
-    border-radius: 14px;
+    
     font-size: 14px;
     padding: 10px;
     width: 290px;
@@ -141,7 +139,7 @@ width:280px;
 .demo{
 font-size:14px;
 width:300px;
-border-radius:15px ;
+
 padding:2px;
 }
 hr{
@@ -154,7 +152,7 @@ width:280px;
 }
 
 .dark-tooltip.medium {
-    border-radius: 14px;
+    
     font-size: 14px;
     padding: 10px;
     width: 310px;
@@ -171,7 +169,7 @@ width:280px;
 .demo{
 font-size:14px;
 width:340px;
-border-radius:15px ;
+
 padding:2px;
 }
 hr{
@@ -184,7 +182,7 @@ width:320px;
 }
 
 .dark-tooltip.medium {
-    border-radius: 14px;
+  
     font-size: 14px;
     padding: 10px;
     width: 340px;
@@ -201,7 +199,7 @@ width:320px;
 .demo{
 font-size:14px;
 width:360px;
-border-radius:15px ;
+
 padding:2px;
 }
 hr{
@@ -214,7 +212,7 @@ width:340px;
 }
 
 .dark-tooltip.medium {
-    border-radius: 14px;
+    
     font-size: 14px;
     padding: 10px;
     width: 360px;

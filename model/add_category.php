@@ -25,14 +25,14 @@ $mysqli = new mysqli($hostname, $username, $password, $database);
 				$array['status']=0;
 			  //echo "FAILURE!!! " . $stmt->error();
 			}else{
-				$array['status']=1;
+				$array['status']='true';
 			}
 			$stmt->close();
 			
 			
 			
 	  }else {
-		$array['status']=0;
+		$array['status']='false';
 		//echo "fail";
 		
 	  }

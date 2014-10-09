@@ -31,7 +31,6 @@ $sql1="INSERT INTO `userdetails`(`screen_name`,`user_name`,`hash`,`password`) VA
 $sql2="INSERT INTO `useranalyst`(`user_name`,`hash`,`ip_address`) VALUES (?,?,? )";
 
 
-$sql3="INSERT INTO `notes`(`user_name`,`notes`) VALUES (?,? )";
 
 	  if($stmt = $mysqli -> prepare($sql)) 
 	  {
@@ -67,12 +66,6 @@ $sql3="INSERT INTO `notes`(`user_name`,`notes`) VALUES (?,? )";
 			}
 			
 			
-			if($stmt = $mysqli -> prepare($sql3)) {
-				  $stmt -> bind_param('ss',$user_name,$notes);
-				  $stmt -> execute();
-				  $stmt -> close();
-					  
-			}
 			
 				
 				

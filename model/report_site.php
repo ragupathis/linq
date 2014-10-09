@@ -20,7 +20,7 @@ $mysqli = new mysqli($hostname, $username, $password, $database);
 	$sql="INSERT INTO `deleted_sites`(`sitename`,`by`,`report_count`) VALUES (?,?,? )";
 	$sql1="UPDATE sitelist SET `report_count`=? where `sitename`=?";
 	$sql2="SELECT `report_count`,`by` FROM `sitelist` where `sitename`=?";
-	$sql3="DELETE from `sitelist` where `sitename`=?";
+	$sql3="UPDATE  sitelist SET `visible`=? where `sitename`=?";
 	$sql4="DELETE from `likedsites` where `sitename`=?";
 	$sql5="SELECT `by` FROM `report_details` where `sitename`=? and `by`=?";
 	$sql6="INSERT INTO `report_details`(`sitename`,`by`) VALUES (?,? )";
@@ -81,7 +81,7 @@ $mysqli = new mysqli($hostname, $username, $password, $database);
 	  }
 	  
 	    if($stmt = $mysqli -> prepare($sql3)) {
-			$stmt->bind_param('s', $site);
+			$stmt->bind_param('ss',$add_by, $site);
 			$stmt->execute();
 			if ($stmt->errno) {
 			  echo "FAILURE!!! " . $stmt->error();

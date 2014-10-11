@@ -352,20 +352,20 @@ document.getElementById('categoryname').placeholder='This category already avail
 			add_category_db(category_name,by);
 			$.bootbar.success("<p align='center'>add sites to new category.</p>");
 			temp_flag=1;
-				var html3='	<div class="example" pid="'+category_name+'">';
+				var html3='	<div class="ls_example" pid="'+category_name+'">';
 				html3+='<nav class="cl-effect-'+design_collection[random]+'"> <a href="#" class="confirm"  id="'+category_name+'" ';
 				html3+='class="box" data-tooltip=""><span data-hover=" &nbsp; '+category_name+'">'+category_name+'</span></a></nav></div>';
 				$('body').append(html3);
 
 				 $('.errmsg').css('display','none');
 				 document.getElementById('categoryname').value='';
-			var html= '<div class="demo">'+category_name+' <hr><div class="content">	<ul class="'+category_name+'">';
+			var html= '<div class="ls_demo">'+category_name+' <hr><div class="ls_content">	<ul class="'+category_name+'">';
 	html+='</ul></div>';
 	// code to generate add site feature to account holders  - start
 
 	//if(user){
 	html+='	<hr>  <div class="new"> <table><tr><td class="first_td"> <p class="vis">Add new site</p><input type="text" name="site" ';
-	html+='class="site input-xlarge search-query" id="'+category_name+'text"  placeholder="www.guvi.in" >';
+	html+='class="ls_site input-xlarge search-query" id="'+category_name+'text"  placeholder="type your link " >';
 	html+='<button btnid="'+category_name+'" id="as" class="btn btn-primary ok">Add</button> <input type="hidden" id="'+ category_name +'" class="temp"/> &nbsp;'; html+='</td><td><br> <i class="icon-eye-open" title="who can see ?"></i>';
 	html+='<select id="'+category_name+'visible" title="who can see ?" class="input-small btn-default"> <option selected value="Public">Public</option>';
 	html+='<option value="me">Only Me</option></select></td></tr></table><br><p class="'+category_name+'err errmsg alert alert-dismissable alert-messages1 " >';

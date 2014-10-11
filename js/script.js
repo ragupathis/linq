@@ -112,8 +112,10 @@ $.ajax({
 		sessionStorage['site_cnt']=parseInt(sessionStorage['site_cnt'])+1;
 $('#site_c').text(sessionStorage['site_cnt']);
 
+var tsitename=sitename.replace(/\\/g,'');
+
  $('.'+categoryname+'err').addClass('alert-info'); 
-$('.'+categoryname).append('<li> <a class="label" href="https://'+sitename+'" target="_blank">'+sitename+'</a><i class="icon-ban-circle" uid='+sitename+' id='+sitename+' title="report '+sitename+'"></i><i class="icon-thumbs-up" uid='+sitename+' id='+sitename+' title="like '+sitename+'"> </i> <i class="icon-facebook" title="share it on facebook"></i> <i class="icon-twitter" title="share it on twitter"></i> </li>');
+$('.'+categoryname).append('<li> <a class="label" href="https://'+sitename+'" target="_blank">'+sitename+'</a> <i class="icon-ban-circle" id="'+sitename+'" uid='+categoryname+' title="report'+sitename+'"></i> <i class="icon-thumbs-up" id="'+sitename+'" uid='+categoryname+' title="like'+sitename+'"></i><i class="icon-facebook" title="share it on facebook"></i> <i class="icon-twitter" title="share it on twitter"></i></li>');
 $('.'+categoryname+'err').html('your link added successfully');
 $('.'+categoryname+'err').css('display','block');
 }else{
@@ -148,18 +150,18 @@ $.ajax({
 	var category_name=t[id];
 	sessionStorage['category'+[id]]=t[id];
 	
-	var html3='	<div class="example" pid="'+category_name+'" >';
+	var html3='	<div class="ls_example" pid="'+category_name+'" >';
 	html3+='	<nav class="cl-effect-'+design_collection[random]+'"> <a href="#" class="confirm"  id="'+category_name+'" class="box" data-tooltip="">';
 	html3+='<span data-hover=" &nbsp; '+category_name+'" >'+category_name+'</span></a></nav></div>';
-	$('.mine').append(html3);
+	$('.ls_mine').append(html3);
 
-	var html= '<div class=" demo " >'+category_name +'<span class="scnt count_'+category_name+'"></span> <hr><div class=" content ">	<ul class="'+category_name+'">';
+	var html= '<div class=" ls_demo " >'+category_name +'<span class="scnt count_'+category_name+'"></span> <hr><div class="ls_content ">	<ul class="'+category_name+'">';
 	html+='</ul></div>';
 	// code to generate add site feature to account holders  - start
 
 	
 	html+='	<hr>  <div class="new"> <table><tr><td class="first_td"> <p class="vis">Add new site</p><input type="text" name="site" ';
-	html+='class="site input-xlarge search-query" id="'+category_name+'text"  placeholder="www.guvi.in" >';
+	html+='class="ls_site input-xlarge search-query" id="'+category_name+'text"  placeholder="type your link " >';
 	html+='<button btnid="'+category_name+'" id="as" class="btn btn-primary ok">Add</button> <input type="hidden" id="'+ category_name +'" class="temp"/> &nbsp;'; html+='</td><td><br> <i class="icon-eye-open" title="who can see ?"></i>';
 	html+='<select id="'+category_name+'visible" title="who can see ?" class="input-small btn-default"> <option selected value="Public">Public</option>';
 	html+='<option value="me">Only Me</option></select></td></tr></table><br><p class="'+category_name+'err errmsg alert alert-dismissable alert-messages1 " >';
@@ -289,7 +291,7 @@ addsite(categoryname);
 /* starting of add sites while clicking enter button  */
 
 
-$(document.body).on('keypress','.site',function(e){
+$(document.body).on('keypress','.ls_site',function(e){
 
 if (e.which == '13') {
 		 e.preventDefault();
@@ -355,7 +357,7 @@ $('.'+categoryname+'err').css('display','block');}
 
 /*   fetch sites when click category 	*/
 
-$(document.body).on('mousedown','.example',function(){
+$(document.body).on('mousedown','.ls_example',function(){
 $('.loader').css('display','block');
 var userid='';
 var category_temp =  $(this).attr( "pid" );

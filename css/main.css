@@ -13,13 +13,13 @@ float:left;
 padding-left:5px;
 padding-top:5px;
 }
-.demo{
+.ls_demo{
 font-size:18px;
 width:385px;
 
 padding:2px;
 }
-.content{
+.ls_content{
 height:200px;
 overflow-y: scroll;
 
@@ -32,7 +32,7 @@ body{
 background:#B0C4DE;
 color:#4169E1;
 }
-.example{
+.ls_example{
 line-height:30px;
 padding-left:30px;
 }
@@ -107,7 +107,7 @@ width:65%;
 	body{
 		font-size:6px
 	}
-.demo{
+.ls_demo{
 font-size:14px;
 width:280px;
 
@@ -116,7 +116,7 @@ padding:2px;
 hr{
 width:280px;
 }
-.content{
+.ls_content{
 height:150px;
 overflow-y: scroll;
 width:280px;
@@ -136,7 +136,7 @@ width:280px;
 	body{
 		font-size:8px
 	}
-.demo{
+.ls_demo{
 font-size:14px;
 width:300px;
 
@@ -145,7 +145,7 @@ padding:2px;
 hr{
 width:280px;
 }
-.content{
+.ls_content{
 height:170px;
 overflow-y: scroll;
 width:280px;
@@ -166,7 +166,7 @@ width:280px;
 	body{
 		font-size:8px
 	}
-.demo{
+.ls_demo{
 font-size:14px;
 width:340px;
 
@@ -175,7 +175,7 @@ padding:2px;
 hr{
 width:320px;
 }
-.content{
+.ls_content{
 height:170px;
 overflow-y: scroll;
 width:320px;
@@ -196,7 +196,7 @@ width:320px;
 	body{
 		font-size:12px
 	}
-.demo{
+.ls_demo{
 font-size:14px;
 width:360px;
 
@@ -205,7 +205,7 @@ padding:2px;
 hr{
 width:340px;
 }
-.content{
+.ls_content{
 height:170px;
 overflow-y: scroll;
 width:340px;
@@ -219,3 +219,5 @@ width:340px;
 }
 
 }
+
+

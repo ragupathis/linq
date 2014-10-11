@@ -29,53 +29,7 @@
 
 <style>
 
-.count123{
-background:red;
-}
-#demo{
-color:white;	!important
-}
-.label{
-width:220px;
-overflow:hidden;
-font-size:15px;
-}
 
- .liked_site{
-height:200px;   !important
-width:300px; !important
-}
-.content{
-background-color:silver;
-width:100%;
-}
-.notification{
-
-margin-left: 10%;
-}
-.panel{
-padding:5px;
-padding-left:20px;
-}
-.titl{
-font-size:20px;
-}
-.site{
-padding-left:5px;
-
-color:white;
-}
-.linklbl{
-
-padding-left:5px;
-
-color:white;
-
-}
-
-.site{
-padding-top:2%;
-}
 </style>
   
 	
@@ -114,7 +68,7 @@ padding-top:2%;
                                <p  class='titl' class="active"><a href="#" title="You Added Sites">Added Sites<span class=" notification" class='count123'  id="a"></span></a> <span class="icon-share"> </span></p>
                             </div>
                             <div class="panel-content">
-                                <div class="content ribbed-green "><ul class="site added_site"></ul></div><p class="err1 alert alert-dismissable alert-danger"> link removed successfully </p>
+                                <div class="ls_content ribbed-green "><ul class="site added_site"></ul></div><p class="err1 alert alert-dismissable alert-danger"> link removed successfully </p>
 							</div>
                         </div>
 	
@@ -124,7 +78,7 @@ padding-top:2%;
                               <p class='titl' class="inactive"><a href="#" title="You liked sites">Liked Sites<span  class="notification" class='count123' id="b"></span></a>   <span class="icon-thumbs-up"> </span></p>
                             </div>
                             <div class="panel-content">
-                                <div class="content ribbed-green bg-lightBlue fg-white"><ul class="liked_site site"></ul></div><p class="err2 alert alert-dismissable alert-danger"> link removed successfully </p>
+                                <div class="ls_content ribbed-green bg-lightBlue fg-white"><ul class="liked_site site"></ul></div><p class="err2 alert alert-dismissable alert-danger"> link removed successfully </p>
 							</div>
                         </div>
 
@@ -133,7 +87,7 @@ padding-top:2%;
                               <p class='titl' class="inactive"><a href="#" title="You have added categories"> Category<span class="notification" class='count123' id="c"></span></a>    <span class="icon-plus"> </span></p>
                             </div>
                             <div class="panel-content">
-                                <div class="content ribbed-green "><ul class="added_category site"></ul></div><p class="err3 alert alert-dismissable alert-danger"> link removed successfully </p>
+                                <div class="ls_content ribbed-green "><ul class="added_category site"></ul></div><p class="err3 alert alert-dismissable alert-danger"> Category removed successfully </p>
 							</div>
                         </div>
 
@@ -142,11 +96,13 @@ padding-top:2%;
            
 
 </body>
+
 <script src="js/common.js"></script>
 <script src="js/session_details.js">	</script>
+<script src="bootbar.js"></script>
 <script src="js/main1.js"></script> <!-- Gem jQuery -->
    
 <script type='text/javascript' src='js/script1.js'></script>
 
-<script src="bootbar.js"></script>
+
 </html>

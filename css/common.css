@@ -48,3 +48,33 @@
  
 .loader span.l-6 { background: #9b59b6; }
 
+
+
+.icon-facebook:hover , .icon-twitter:hover{
+color:blue;
+}
+.icon-facebook,.icon-twitter,.icon-remove-circle{
+color:white;
+}
+
+
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    /*-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.8);*/ 
+    -webkit-border-radius: 10px;
+    background-color:white;
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background:gray; 
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}

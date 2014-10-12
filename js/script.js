@@ -17,7 +17,7 @@ function display_link_count(userid){
 	
 	  result = result.substring(2, result.length - 1);
         var t = JSON.parse(result);	
-	console.log(t.count);
+	//console.log(t.count);
 	/*var text_val='<p>added link count '+t['count']+'</p>';
 	text_val+='<p>you liked link count'+t['like_count']+'</p>';
 	text_val+='<p>you added category '+t['cate_count']+'</p>';*/
@@ -52,15 +52,20 @@ var temp="";
 	
 	  result = result.substring(2, result.length - 1);
         var t = JSON.parse(result);	
-	console.log(t.count);
+	//console.log(t.count);
 	//$('.count_'+categorynames).html(t.count);
 	sessionStorage['site_size']=t.count;
 	$('.count_'+categorynames).html(sessionStorage['site_size']);
 	for(var i=1;i<=t.count;i++){
-	console.log(t[i]);
+	//console.log(t[i]);
 	//t[i]=t[i].replace('\\','');
 	t[i]=t[i].replace(/\\/g,'');
-	 temp+='<li> <a class="label" title='+t[i]+' href="https://'+t[i]+'" target="_blank">'+t[i]+'</a><i class="icon-ban-circle" uid='+categorynames+' id='+t[i]+' title="report '+t[i]+'"></i><i class="icon-thumbs-up" uid='+categorynames+' id='+t[i]+' title="like '+t[i]+'"></i> <a target="_blank" href="https://www.www.com"><i class="icon-facebook"></i> </a><i class="icon-twitter"></i> </li>';
+	
+	var title_temp=t['desc'+i].replace(/ /g,'');
+	if(title_temp===''){
+	title_temp=t[i];
+	}
+	 temp+='<li> <a class="label" title='+title_temp+' href="https://'+t[i]+'" target="_blank">'+t[i]+'</a><i class="icon-ban-circle" uid='+categorynames+' id='+t[i]+' title="report '+t[i]+'"></i><i class="icon-thumbs-up" uid='+categorynames+' id='+t[i]+' title="like '+t[i]+'"></i><a target="_blank" href="https://www.facebook.com/sharer.php?u=http://'+t[i]+'"><i class="icon-facebook" ></i> </a> <a target="_blank" href="http://twitter.com/home?status=Linksavers%20https://'+t[i]+'"><i  class="icon-twitter"></i> </a></li>';
 	}
 	$('.'+categorynames).html(temp);
 	});  
@@ -78,10 +83,10 @@ var temp="";
 	
 	  result = result.substring(1, result.length - 1);
      var t = JSON.parse(result);	
-	  console.log(t['response']);
+	  //console.log(t['response']);
 	  if((t['response'])==='newuser'){
-	  console.log(t['hash']);
-	    console.log(t['response']); 
+	  //console.log(t['hash']);
+	    //console.log(t['response']); 
 		sessionStorage['hash']=t['hash'];
 		sessionStorage['mail']=t['mail'];
 		sessionStorage['screen_name']=t['screen_name'];
@@ -90,7 +95,7 @@ var temp="";
 	}
 	 if((t['response'])==='olduser'){
 	 $('.already').css('display','block');
-	console.log( "old user");
+	//console.log( "old user");
 	}
 	});  
 }
@@ -102,9 +107,10 @@ $.ajax({
 		url: 'model/add_site.php',			
 		data: {'sitename':sitename,'category':categoryname,'user_name':user_name,'visible':visible}
    	}).done(function(result) {
+	try{
 	result = result.substring(2, result.length - 1);
      var t = JSON.parse(result);	
-	  
+//	  $('.loader').css('display','none');
 	  if(t['status']==='true'){
 	sessionStorage['site_size']=parseInt(sessionStorage['site_size'])+1;
 	$('.count_'+categoryname).html(sessionStorage['site_size']);
@@ -112,17 +118,33 @@ $.ajax({
 		sessionStorage['site_cnt']=parseInt(sessionStorage['site_cnt'])+1;
 $('#site_c').text(sessionStorage['site_cnt']);
 
-var tsitename=sitename.replace(/\\/g,'');
 
  $('.'+categoryname+'err').addClass('alert-info'); 
-$('.'+categoryname).append('<li> <a class="label" href="https://'+sitename+'" target="_blank">'+sitename+'</a> <i class="icon-ban-circle" id="'+sitename+'" uid='+categoryname+' title="report'+sitename+'"></i> <i class="icon-thumbs-up" id="'+sitename+'" uid='+categoryname+' title="like'+sitename+'"></i><i class="icon-facebook" title="share it on facebook"></i> <i class="icon-twitter" title="share it on twitter"></i></li>');
+$('.'+categoryname).append('<li> <a class="label" href="https://'+sitename+'" target="_blank">'+sitename+'</a> <i class="icon-ban-circle" id="'+sitename+'" uid='+categoryname+' title="report'+sitename+'"></i> <i class="icon-thumbs-up" id="'+sitename+'" uid='+categoryname+' title="like'+sitename+'"></i><a target="_blank" href="https://www.facebook.com/sharer.php?u=http://'+sitename+'"><i class="icon-facebook" title="share it on facebook"></i></a><a target="_blank" href="http://twitter.com/home?status=Linksavers%20https://'+sitename+'"> <i class="icon-twitter" title="share it on twitter"></i></a></li>');
 $('.'+categoryname+'err').html('your link added successfully');
 $('.'+categoryname+'err').css('display','block');
+$('.loader').css('display','none');
 }else{
 $('.'+categoryname+'err').html('Error !!! Sorry try again');
 $('.'+categoryname+'err').css('display','block');
+$('.loader').css('display','none');
 }
+	}
+	catch(err){
+//	$('.loader').css('display','none');
+		sessionStorage['site_size']=parseInt(sessionStorage['site_size'])+1;
+	$('.count_'+categoryname).html(sessionStorage['site_size']);
 	
+		sessionStorage['site_cnt']=parseInt(sessionStorage['site_cnt'])+1;
+$('#site_c').text(sessionStorage['site_cnt']);
+
+
+ $('.'+categoryname+'err').addClass('alert-info'); 
+$('.'+categoryname).append('<li> <a class="label" href="https://'+sitename+'" target="_blank">'+sitename+'</a> <i class="icon-ban-circle" id="'+sitename+'" uid='+categoryname+' title="report'+sitename+'"></i> <i class="icon-thumbs-up" id="'+sitename+'" uid='+categoryname+' title="like'+sitename+'"></i><a target="_blank" href="https://www.facebook.com/sharer.php?u=http://'+sitename+'"><i class="icon-facebook" title="share it on facebook"></i></a><a target="_blank" href="http://twitter.com/home?status=Linksavers%20https://'+sitename+'"> <i class="icon-twitter" title="share it on twitter"></i></a></li>');
+$('.'+categoryname+'err').html('link added successfully');
+$('.'+categoryname+'err').css('display','block');
+$('.loader').css('display','none');
+	}
 	}); 
 	
 }
@@ -141,7 +163,7 @@ $.ajax({
 		data: {'user':user_names}
    	}).done(function(result) {
 	  result = result.substring(2, result.length - 1);
-	  console.log(result);
+	  //console.log(result);
       var t = JSON.parse(result);	
 	  //console.log("category size"+t['1']);	
    	 random=getRandomInt(0,6);
@@ -164,8 +186,9 @@ $.ajax({
 	html+='class="ls_site input-xlarge search-query" id="'+category_name+'text"  placeholder="type your link " >';
 	html+='<button btnid="'+category_name+'" id="as" class="btn btn-primary ok">Add</button> <input type="hidden" id="'+ category_name +'" class="temp"/> &nbsp;'; html+='</td><td><br> <i class="icon-eye-open" title="who can see ?"></i>';
 	html+='<select id="'+category_name+'visible" title="who can see ?" class="input-small btn-default"> <option selected value="Public">Public</option>';
-	html+='<option value="me">Only Me</option></select></td></tr></table><br><p class="'+category_name+'err errmsg alert alert-dismissable alert-messages1 " >';
-	html+='Please Login to add </p></div>';
+	html+='<option value="me">Only Me</option></select></td></tr>';
+	html+='<div class="loader"> <span class="l-1"></span><span class="l-2"></span><span class="l-3"></span><span class="l-4"></span>';
+  html+='<span class="l-5"></span><span class="l-6"></span></div></p></div></table><br><p class="'+category_name+'err errmsg alert alert-dismissable alert-messages1 " >';
 	
 	// code to generate add site feature to account holders - end 
 	$("#"+category_name).attr('data-tooltip',html);
@@ -334,6 +357,9 @@ if(sessionStorage['hash'])
 {
 var user=sessionStorage['mail'];
 //console.log(visible);
+$('.loader').css('display','block');
+$('.'+categoryname+'err').html('Please wait !!!');
+$('.'+categoryname+'err').css('display','block');
 add_site(sitename,categoryname,user,visible);
 
 
@@ -444,4 +470,17 @@ $("#signup_btn").click(function(){
 signup_details();
 });
 
+/*
+$(document.body).on('mousedown','.icon-facebook',function(){
 
+var url=$(this).attr( "url" );
+alert(url);
+
+});
+
+$(document.body).on('mousedown','.icon-twitter',function(){
+
+var url=$(this).attr( "url" );
+alert(url);
+
+});*/

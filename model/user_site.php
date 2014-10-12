@@ -20,7 +20,7 @@ $mysqli = new mysqli($hostname, $username, $password, $database);
 	
 	
 	$sql1="SELECT count(`category`) FROM `sitelist` WHERE `category`=? and (`visible`=? OR `visible`=?)";
-	$sql2 = "SELECT `sitename` FROM `sitelist`  WHERE `category`=? and (`visible`=? OR `visible`=?) order by `likes` desc";
+	$sql2 = "SELECT `sitename`,`description` FROM `sitelist`  WHERE `category`=? and (`visible`=? OR `visible`=?) order by `likes` desc";
 	
 
 	
@@ -45,9 +45,10 @@ $mysqli = new mysqli($hostname, $username, $password, $database);
 		$stmt1 -> bind_param('sss', $category,$public,$private);
 		$stmt1 -> execute();
 		for($i=1;$i<=$count;$i++){
-		$stmt1 -> bind_result($site);
+		$stmt1 -> bind_result($site,$descr);
 		$stmt1 -> fetch();
 		 $sitename[$i]=$site;
+		 $sitename['desc'.$i]=$descr;
 		}
 		$stmt1 -> close();	
 		//echo $sitename1;

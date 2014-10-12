@@ -323,7 +323,7 @@ $('.category_errmsg').html('Please remove invalid characters !');
 
 for(inc=1;inc<=sessionStorage['category_count'];inc++){
 
-console.log(sessionStorage['category'+[inc]]);
+//console.log(sessionStorage['category'+[inc]]);
 if(category_name.toUpperCase()===sessionStorage['category'+[inc]].toUpperCase()){
 category_available='true';
 
@@ -368,8 +368,11 @@ document.getElementById('categoryname').placeholder='This category already avail
 	html+='class="ls_site input-xlarge search-query" id="'+category_name+'text"  placeholder="type your link " >';
 	html+='<button btnid="'+category_name+'" id="as" class="btn btn-primary ok">Add</button> <input type="hidden" id="'+ category_name +'" class="temp"/> &nbsp;'; html+='</td><td><br> <i class="icon-eye-open" title="who can see ?"></i>';
 	html+='<select id="'+category_name+'visible" title="who can see ?" class="input-small btn-default"> <option selected value="Public">Public</option>';
-	html+='<option value="me">Only Me</option></select></td></tr></table><br><p class="'+category_name+'err errmsg alert alert-dismissable alert-messages1 " >';
-	html+='Please Login to add </p></div>';
+	html+='<option value="me">Only Me</option></select></td></tr>';
+	html+='<div class="loader"> <span class="l-1"></span><span class="l-2"></span><span class="l-3"></span><span class="l-4"></span>';
+  html+='<span class="l-5"></span><span class="l-6"></span></div></p></div></table><br><p class="'+category_name+'err errmsg alert alert-dismissable alert-messages1 " >';
+	/*</table><br><p class="'+category_name+'err errmsg alert alert-dismissable alert-messages1 " >';
+	html+='Please Login to add </p></div>';*/
 				$("#"+category_name).attr('data-tooltip',html);
 				//console.log(html);
 				$("#"+category_name).attr('data-tooltip',html);
@@ -403,8 +406,8 @@ return true;
 
 
 function add_category_db(user_name,new_category){
-console.log(user_name);
-console.log(new_category);
+//console.log(user_name);
+//console.log(new_category);
 
     $.ajax({
         type: "POST",
@@ -414,14 +417,14 @@ console.log(new_category);
 	    result = result.substring(2, result.length - 1);
         var t = JSON.parse(result);	
 	    
-		console.log(t['status']);
+		//console.log(t['status']);
 		if(t['status']==='true'){
-		console.log('true'); 
+		//console.log('true'); 
 		sessionStorage['cate_cnt']=parseInt(sessionStorage['cate_cnt'])+1;
 	  $('#cate_c').text(sessionStorage['cate_cnt']);
 		}
 		else{
-		console.log('false');
+		//console.log('false');
 		}
 		
 		 

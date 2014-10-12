@@ -1,7 +1,7 @@
 $(document).ready( function(){
 
 
-	$('#def').darkTooltip();
+	$('#ls_def').darkTooltip();
 
 	$('.confirm').darkTooltip({
 		trigger:'click',

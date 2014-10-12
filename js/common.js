@@ -7,12 +7,12 @@ var _timing = _pageWidth + 3500;
     // execute this function sometime later:
     setTimeout(function($) { 
       _item.removeClass("jmp");
-      _item.css({"left": '110%'});
+      _item.css({"left": '96%'});
       /* console.log("loop"); */
     }, 180*i); //move each dot one after the other, transition handled by CSS
     setTimeout(function($) { 
       _item.addClass("jmp");
-      _item.css({"left": '-10%'});
+      _item.css({"left": '0%'});
       /* console.log("de-loop"); */
     }, 3000 + 180*i); //move each dot one back to start in order, transition removed via <.jmp> class
 }); //RUN ONCE OUT OF LOOP, AVOID DELAY
@@ -30,16 +30,16 @@ $(".loader span").each(function (i) {
     // execute this function sometime later:
     setTimeout(function($) { 
       _item.removeClass("jmp");
-      _item.css({"left": '110%'});
+      _item.css({"left": '96%'});
       /* console.log("loop"); */
     }, 180*i); //move each dot one after the other, transition handled by CSS
     setTimeout(function($) { 
       _item.addClass("jmp");
-      _item.css({"left": '-10%'});
+      _item.css({"left": '0%'});
       /* console.log("de-loop"); */
     }, 3000 + 180*i); //move each dot one back to start in order, transition removed via <.jmp> class
 });
 }, _timing);
 
-$('.loader').css('display','none');
+//$('.loader').css('display','none');
 });

@@ -15,7 +15,7 @@ $mysqli = new mysqli($hostname, $username, $password, $database);
    }
 	
 	$sql1="SELECT count(`by`) FROM `sitelist` WHERE `by`=?";
-	$sql2 = "SELECT `sitename` FROM `sitelist` where `by`=?";	
+	$sql2 = "SELECT `sitename`,`description` FROM `sitelist` where `by`=?";	
 	//$sql3 = "SELECT `notes` FROM `notes` where `user_name`=?";	
 	$sql4="SELECT count(`category`) FROM `categories` where `added_by`=?";
 	$sql5="SELECT `category` FROM `categories` where `added_by`=?";
@@ -57,9 +57,10 @@ $mysqli = new mysqli($hostname, $username, $password, $database);
 		$stmt1 -> bind_param('s', $by);
 		$stmt1 -> execute();
 		for($i=1;$i<=$count;$i++){
-		$stmt1 -> bind_result($site);
+		$stmt1 -> bind_result($site,$desc);
 		$stmt1 -> fetch();
 		 $sitename[$i]=$site;
+		 $sitename['desc'.$i]=$desc;
 		}
 		$stmt1 -> close();	
 		//echo $sitename1;

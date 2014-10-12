@@ -1,9 +1,9 @@
 
 .loader {
-  z-index: 99;
+  z-index: 1199;
   position: fixed;
-  top: 10px;
-  width: 100%;
+  top: 300px;
+  width: 50%;
 }
  
 .loader > span {
@@ -16,10 +16,10 @@
   -ms-border-radius: 5px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
-  margin: 0px;
+
   position: fixed;
   top: 2px;
-  left: -10%;
+  left:0%;
   transition: 2.8s all cubic-bezier(0.030, 0.615, 0.995, 0.415);
   -o-transition: 2.8s all cubic-bezier(0.030, 0.615, 0.995, 0.415);
   -ms-transition: 2.8s all cubic-bezier(0.030, 0.615, 0.995, 0.415);

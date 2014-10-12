@@ -8,7 +8,7 @@ function user_login(user_name,user_password){
 	    result = result.substring(1, result.length - 1);
         var t = JSON.parse(result);	
 	    //console.log(t['hash']);
-		console.log(t['screen_name']);
+		//console.log(t['screen_name']);
 		if(t['status']==='yes'){
 		sessionStorage['screen_name']=t['screen_name'];
 	    sessionStorage['hash']=t['hash'];
@@ -16,7 +16,7 @@ function user_login(user_name,user_password){
 		sessionStorage['status_code']='first_login';
 	    window.location='menu.html';}
 		else{
-		console.log('false');
+		//console.log('false');
 	//	document.getElementById('mailid').value='';
 	//	document.getElementById('signin-password').value='';
 		$('.signinerr').css('display','block');

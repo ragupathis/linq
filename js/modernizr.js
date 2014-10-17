@@ -504,12 +504,12 @@ window.Modernizr = (function( window, document, undefined ) {
     };
 
     // Per 1.6:
-    // This used to be Modernizr.historymanagement but the longer
+    // This used to be Modernizr.ls_historymanagement but the longer
     // name has been deprecated in favor of a shorter and property-matching one.
     // The old API is still available in 1.6, but as of 2.0 will throw a warning,
     // and in the first release thereafter disappear entirely.
-    tests['history'] = function() {
-      return !!(window.history && history.pushState);
+    tests['ls_history'] = function() {
+      return !!(window.ls_history && ls_history.pushState);
     };
 
     tests['draganddrop'] = function() {

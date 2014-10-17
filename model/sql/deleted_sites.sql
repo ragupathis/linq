@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Sep 10, 2014 at 05:32 PM
+-- Generation Time: Oct 17, 2014 at 08:50 AM
 -- Server version: 5.5.24-log
 -- PHP Version: 5.3.13
 
@@ -39,7 +39,9 @@ CREATE TABLE IF NOT EXISTS `deleted_sites` (
 INSERT INTO `deleted_sites` (`sitename`, `by`, `report_count`) VALUES
 ('my_temp', 'ragu@ragu.com', '3'),
 ('www.cricbuzz.com', 'temp@dfx.v', '3'),
-('helloweb', 'ragu@ragu.com', '3');
+('helloweb', 'ragu@ragu.com', '3'),
+('test.com', 'ragupathi@ragu.com', '3'),
+('link.com', 'test@test.com', '3');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

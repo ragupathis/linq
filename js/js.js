@@ -70,8 +70,10 @@ function add_user(){
 
 		//	alert('k');
 		var screen_name=document.getElementById('signup-username').value;
+		screen_name=screen_name.trim();
 		var userid=document.getElementById('signup-email').value;
 		var pwd=document.getElementById('signup-password').value;
+		pwd=pwd.trim();
 //		user_register(screen_name,userid,pwd);
 		
 $('.usernameerr').css('display','none');

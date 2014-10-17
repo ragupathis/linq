@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Sep 10, 2014 at 05:32 PM
+-- Generation Time: Oct 17, 2014 at 08:50 AM
 -- Server version: 5.5.24-log
 -- PHP Version: 5.3.13
 
@@ -38,7 +38,6 @@ CREATE TABLE IF NOT EXISTS `likedsites` (
 INSERT INTO `likedsites` (`sitename`, `by`) VALUES
 ('www.guvi.com', 'admin@linkhere.com'),
 ('abcdef', 'admin@linkhere.in'),
-('test.com', 'admin@linkhere.in'),
 ('www.linq.com', 'admin@linkhere.in'),
 ('my_test_web', 'admin@linkhere.in'),
 ('www.linkhere.in', 'admin@linkhere.in'),
@@ -50,8 +49,6 @@ INSERT INTO `likedsites` (`sitename`, `by`) VALUES
 ('www.linq123.com', 'admin123@linkhere.in'),
 ('www.tamil.com', 'admin@linkhere.in'),
 ('www.abcdefghijklmnopqrstuvwxyz.com', 'admin@linkhere.in'),
-('test.com', 'ragu@linkhere.in'),
-('link.com', 'str@str.com'),
 ('www.google.com', 'ragu@linkhere.info'),
 ('https:\\/\\/www.linkhere.in\\/', 'admin@linkhere.in'),
 ('www.cricinfo.com', 'ragu@ragu.com'),
@@ -59,7 +56,32 @@ INSERT INTO `likedsites` (`sitename`, `by`) VALUES
 ('www.guvi.com', 'ragu@ragu.ragu'),
 ('www.google.com', 'ragu@ragu.ragu'),
 ('www.csbvhvshvhvhhvbbvbvcbc.com\\/dsbhbhdbhvdv\\/fdsfsd.htm', 'ragu@ragu.ragu'),
-('www.csbvhvshvhvhhvbbvbvcbc.com\\/dsbhbhdbhvdv\\/fdsfsd.html', 'ragu@ragu.ragu');
+('www.csbvhvshvhvhhvbbvbvcbc.com\\/dsbhbhdbhvdv\\/fdsfsd.html', 'ragu@ragu.ragu'),
+('www.guvi.in', 'mm.sridevi@gmail.com'),
+('www.guvi.in', 'davidparthipan@gmail.com'),
+('www.business.com', 'first@ragu.com'),
+('www.timesofindia.com', 'first@ragu.com'),
+('www.facebook.com', 'second@ragu.com'),
+('www.ragupathi.com\\/achievement.html', 'second@ragu.com'),
+('www.guvi.in', 'priya@priya.com'),
+('www.hindu.com', 'priya@priya.com'),
+('www.google.com', 'priya@priya.com'),
+('www.test.com', 'priya@priya.com'),
+('www.test.com/test', 'priya@priya.com'),
+('www.linksavers.com/awards.html', 'priya@priya.com'),
+('www.amazings.com', 'priya@priya.com'),
+('www.linksavers.com', 'priya@priya.com'),
+('www.abcdefghijklmnopqrstuvwxyz.com', 'priya@priya.com'),
+('www.fb.com', 'priya@priya.com'),
+('www.guvi.com', 'second@ragu.com'),
+('www.cricinfo.com', 'priya@priya.com'),
+('www.thehindu.com', 'priya@priya.com'),
+('www.youtube.com', 'second@ragu.com'),
+('www.xyz.com', 'priya@priya.com'),
+('www.goal.com', 'priya@priya.com'),
+('www.dinamalarbn.com', 'priya@priya.com'),
+('www.starm.com', 'priya@priya.com'),
+('www.starmusiq.com', 'priya@priya.com');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

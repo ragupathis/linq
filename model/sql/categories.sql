@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Sep 10, 2014 at 05:31 PM
+-- Generation Time: Oct 17, 2014 at 08:49 AM
 -- Server version: 5.5.24-log
 -- PHP Version: 5.3.13
 
@@ -36,17 +36,35 @@ CREATE TABLE IF NOT EXISTS `categories` (
 --
 
 INSERT INTO `categories` (`category`, `added_by`) VALUES
-('my_owns', 'ragu@ragu.ragu'),
-('videos', 'admin'),
-('cricket', 'admin'),
-('news', 'admin'),
-('entertainment', 'admin'),
-('education', 'admin'),
+('News', 'admin'),
+('Business', 'admin'),
+('Sports', 'admin'),
+('Entertainment', 'admin'),
+('Education', 'admin'),
+('test', 'admin'),
 ('video_tutorial', 'admin'),
-('second', 'second@ragu.com'),
-('test_second', 'second@ragu.com'),
-('temp', 'second@ragu.com'),
-('success', 'second@ragu.com');
+('Cricket', 'admin'),
+('SOCIAL', 'admin'),
+('My_favourite', 'first@ragu.com'),
+('abc', 'admin'),
+('def', 'admin'),
+('ghi', 'admin'),
+('social_net', 'admin'),
+('search_engi', 'admin'),
+('web_develop', 'admin'),
+('cinema', 'admin'),
+('america', 'admin'),
+('terrorist', 'admin'),
+('peace', 'admin'),
+('global', 'admin'),
+('science', 'admin'),
+('inventions', 'admin'),
+('aero', 'admin'),
+('sample', 'priya@priya.com'),
+('qwerty', 'priya@priya.com'),
+('Abced_fghijkl', 'priya@priya.com'),
+('Social_Network', 'priya@priya.com'),
+('history', 'priya@priya.com');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

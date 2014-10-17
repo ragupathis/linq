@@ -65,7 +65,7 @@ var temp="";
 	if(title_temp===''){
 	title_temp=t[i];
 	}
-	 temp+='<li> <a class="label" title='+title_temp+' href="https://'+t[i]+'" target="_blank">'+t[i]+'</a><i class="icon-ban-circle" uid='+categorynames+' id='+t[i]+' title="report '+t[i]+'"></i><i class="icon-thumbs-up" uid='+categorynames+' id='+t[i]+' title="like '+t[i]+'"></i><a target="_blank" href="https://www.facebook.com/sharer.php?u=http://'+t[i]+'"><i class="icon-facebook" ></i> </a> <a target="_blank" href="http://twitter.com/home?status=Linksavers%20https://'+t[i]+'"><i  class="icon-twitter"></i> </a></li>';
+	 temp+='<li> <a class="label" title='+title_temp+' href="https://'+t[i]+'" target="_blank">'+t[i]+'</a><i class="icon-ban-circle" uid='+categorynames+' id='+t[i]+' title="report '+t[i]+'"></i><i class="icon-thumbs-up" uid='+categorynames+' id='+t[i]+' title="like '+t[i]+'"></i><a target="_blank" href="https://www.facebook.com/sharer.php?u=http://'+t[i]+'"><i class="icon-facebook" title="share it on facebook"></i> </a> <a target="_blank" href="http://twitter.com/home?status=Linksavers%20https://'+t[i]+'"><i  class="icon-twitter" title="share it on twitter"></i> </a></li>';
 	}
 	$('.'+categorynames).html(temp);
 	});  

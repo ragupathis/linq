@@ -352,7 +352,7 @@ document.getElementById('categoryname').placeholder='This category already avail
 			add_category_db(category_name,by);
 			$.bootbar.success("<p align='center'>add sites to new category.</p>");
 			temp_flag=1;
-				var html3='	<div class="ls_example" pid="'+category_name+'">';
+				var html3='	<div class="ls_example" pid="'+category_name+'" >';
 				html3+='<nav class="cl-effect-'+design_collection[random]+'"> <a href="#" class="confirm"  id="'+category_name+'" ';
 				html3+='class="box" data-tooltip=""><span data-hover=" &nbsp; '+category_name+'">'+category_name+'</span></a></nav></div>';
 				$('body').append(html3);

@@ -50,6 +50,7 @@ function user_details(user_name)
 	$('#a').text(t.count);
 	$('#b').text(t.like_count);
 	$('#c').text(t.cate_count);
+	$('.loader').css('display','none');
 	});   
 }
 

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Sep 10, 2014 at 05:32 PM
+-- Generation Time: Oct 17, 2014 at 08:50 AM
 -- Server version: 5.5.24-log
 -- PHP Version: 5.3.13
 
@@ -44,17 +44,22 @@ INSERT INTO `notes` (`user_name`, `notes`) VALUES
 ('admin123@linkhere.in', 'text here'),
 ('admin@linkhere.com', 'text here'),
 ('admin@linkhere.in', 'gtrghrthr'),
-('first@ragu.com', 'text here'),
+('davidparthipan@gmail.com', 'your notes here'),
+('first@ragu.com', 'my notes here'),
 ('helloworld@hello.com', 'text here'),
+('mm.sridevi@gmail.com', 'your notes here<br />this is  a test<br />'),
+('priya@priya.com', 'awesome....'),
 ('ragu@linkhere.in', 'text here bcd'),
 ('ragu@linkhere.info', 'text here'),
 ('ragu@linkhere.net', 'text here'),
+('ragu@ragu.co', 'your notes here'),
 ('ragu@ragu.com', 'text here'),
 ('ragu@ragu.ragu', 'text here'),
 ('ragupathi@ragu.co', 'text here'),
 ('ragupathi@ragu.com', 'text here'),
 ('second@ragu.com', 'text here'),
-('temp', 'text here');
+('temp', 'text here'),
+('third@ragu.com', 'your notes here');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

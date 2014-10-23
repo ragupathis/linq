@@ -145,12 +145,12 @@ padding:2px;
 hr{
 width:280px;
 }
+
 .ls_content{
 height:170px;
 overflow-y: scroll;
 width:280px;
 }
-
 .dark-tooltip.medium {
     
     font-size: 14px;
@@ -166,6 +166,7 @@ width:280px;
 	body{
 		font-size:8px
 	}
+	
 .ls_demo{
 font-size:14px;
 width:340px;

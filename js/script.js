@@ -36,6 +36,7 @@ text_val+='<div class="accordion-frame"><a class="heading ribbed-blue   fg-white
 	
 	
 	$('.cornertext').html(text_val);
+	$('.cornertextsmall').html(text_val);
 	}); 
 
 }
@@ -219,6 +220,7 @@ $.ajax({
 	
 	  result = result.substring(2, result.length - 1);
       var t = JSON.parse(result);
+	  $('.loader').css('display','none');
 	   $('.'+category_temp+'err').removeClass('alert-info');
 	    $('.'+category_temp+'err').removeClass('alert-danger');
 	  if(t['replay']==='you liked'){
@@ -245,6 +247,7 @@ $.ajax({
 	
 	  result = result.substring(2, result.length - 1);
       var t = JSON.parse(result);	
+	  $('.loader').css('display','none');
 	  $('.'+cat_name+'err').removeClass('alert-info');
 	    $('.'+cat_name+'err').removeClass('alert-danger');
 	  if(t['replay']==='you reported'){
@@ -390,6 +393,8 @@ var category_temp =  $(this).attr( "pid" );
 if(sessionStorage['mail']){
 userid=sessionStorage['mail'];}
 else{  userid='';  }
+var load_temp='<img src="img/loading-bars.svg">';
+$('.'+category_temp).html(load_temp);
 fetch_site(category_temp,userid);
 });
 
@@ -402,6 +407,9 @@ if(sessionStorage['mail']){
 var site_name=$(this).attr( "id" );
 var user=sessionStorage['mail'];
 var category_temp =  $(this).attr( "uid" );
+$('.'+category_temp+'err').html('Please wait !!!');
+$('.'+category_temp+'err').css('display','block');
+$('.loader').css('display','block');
 liked_site(category_temp,site_name,user);
 }
 else{
@@ -419,6 +427,9 @@ if(sessionStorage['mail']){
 var site_name=$(this).attr( "id" );
 //alert(site_name);
 var user=sessionStorage['mail'];
+$('.'+cat_name+'err').html('Please wait !!!');
+$('.'+cat_name+'err').css('display','block');
+$('.loader').css('display','block');
 report_site(cat_name,site_name,user);
 
 }

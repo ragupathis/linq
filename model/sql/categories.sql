@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 17, 2014 at 08:49 AM
+-- Generation Time: Oct 17, 2014 at 01:15 PM
 -- Server version: 5.5.24-log
 -- PHP Version: 5.3.13
 
@@ -41,25 +41,25 @@ INSERT INTO `categories` (`category`, `added_by`) VALUES
 ('Sports', 'admin'),
 ('Entertainment', 'admin'),
 ('Education', 'admin'),
-('test', 'admin'),
-('video_tutorial', 'admin'),
+('Shopping', 'admin'),
+('Photography', 'admin'),
 ('Cricket', 'admin'),
 ('SOCIAL', 'admin'),
 ('My_favourite', 'first@ragu.com'),
-('abc', 'admin'),
-('def', 'admin'),
-('ghi', 'admin'),
-('social_net', 'admin'),
-('search_engi', 'admin'),
+('Travel', 'admin'),
+('Football', 'admin'),
+('World Records', 'admin'),
+('Social_Network', 'admin'),
+('Search_Engine', 'admin'),
 ('web_develop', 'admin'),
-('cinema', 'admin'),
-('america', 'admin'),
-('terrorist', 'admin'),
-('peace', 'admin'),
-('global', 'admin'),
-('science', 'admin'),
-('inventions', 'admin'),
-('aero', 'admin'),
+('Multi-Sports ', 'admin'),
+('Magazines', 'admin'),
+('Organizations', 'admin'),
+('Weblogs', 'admin'),
+('Employment ', 'admin'),
+('Science', 'admin'),
+('Website Design', 'admin'),
+('History', 'admin'),
 ('sample', 'priya@priya.com'),
 ('qwerty', 'priya@priya.com'),
 ('Abced_fghijkl', 'priya@priya.com'),

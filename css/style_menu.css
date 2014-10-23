@@ -168,7 +168,7 @@ header[role=banner]::after {
     background: transparent;
   }
   .main-nav a.cd-signin, .main-nav a.cd-signup, .main-nav a.cd-add_category,  .main-nav a.cd-wishlist   , .main-nav a.cd-profile  , .main-nav a.cd-signout{
-    padding: .4em 0.8em;
+    padding: 0.3em 0.5em;
     border: 1px solid rgba(255, 255, 255, 0.6);
     /*border-radius: 50em;*/
   }

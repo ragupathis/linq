@@ -282,7 +282,28 @@ $('#categoryname').keypress(function(e) {
 	}
 	});
 
+if(sessionStorage['hash']){
 
+
+//alert('login');
+
+
+}else{
+
+//alert('logout');
+var panel='<div class="accordion span3 place-left margin10" data-role="accordion" data-closeany="false"> <div class="accordion-frame">';
+    panel+='<a class="heading ribbed-blue fg-white" href="#">Save & Share Links</a> </div> <div class="accordion-frame">';
+    panel+='<a class="heading ribbed-blue fg-white" href="#">Create your own categories</a> </div>	<div class="accordion-frame">';
+panel+='<a class="heading ribbed-blue fg-white" href="#">Share your links </a> </div> <div class="accordion-frame">';
+panel+='<a class="heading ribbed-blue fg-white" href="#">Free to use</a>  </div> <div class="accordion-frame">';
+panel+='<a class="heading  ribbed-blue fg-white" href="#">Save private links</a>  </div> <div class="accordion-frame">';
+panel+='<a class="heading ribbed-blue fg-white" href="#">like others link</a> </div> ';
+panel+=' <div class="accordion-frame"><a class="heading ribbed-blue fg-white" href="team.html">Help</a> </div> ';
+panel+=' <div class="accordion-frame"><a class="heading ribbed-blue fg-white" href="team.html">About</a> </div> ';
+$('.cornertext').html(panel);
+
+$('.cornertextsmall').html(panel);
+}
 	
 });
 

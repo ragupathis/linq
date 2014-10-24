@@ -94,7 +94,7 @@ header[role=banner]::after {
   margin-right: 5%;
   width: 44px;
   height: 100%;
-  background: url("../img/cd-icon-menu.svg") no-repeat center center;
+  background: url("../img/menu.png") no-repeat center center;
   cursor: pointer;
   z-index: 3000;
 }

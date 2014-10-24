@@ -30,7 +30,8 @@ function display_link_count(userid){
 	   var text_val='<div class="accordion span3 place-left margin10" data-role="accordion" data-closeany="false">';
 text_val+='<div class="accordion-frame"><a class="heading ribbed-blue fg-white" href="profile_menu.html">added link count :<span id="site_c">'+sessionStorage['site_cnt']+'</span></a></div>	';
 text_val+='<div class="accordion-frame"><a class="heading ribbed-blue fg-white" href="profile_menu.html">you liked link count :<span id="like_c">'+sessionStorage['like_cnt']+'</span></div>';
-text_val+='<div class="accordion-frame"><a class="heading ribbed-blue   fg-white" href="profile_menu.html">you added category :<span id="cate_c">'+sessionStorage['cate_cnt']+'</span></div></div>';
+text_val+='<div class="accordion-frame"><a class="heading ribbed-blue   fg-white" href="profile_menu.html">you added category :<span id="cate_c">'+sessionStorage['cate_cnt']+'</span></div>';
+text_val+='<div class="accordion-frame"><a class="heading ribbed-blue   fg-white" href="help.html">Help</div><div class="accordion-frame"><a class="heading ribbed-blue   fg-white" href="team.html">About</div></div>';
  
 	
 	
@@ -393,7 +394,7 @@ var category_temp =  $(this).attr( "pid" );
 if(sessionStorage['mail']){
 userid=sessionStorage['mail'];}
 else{  userid='';  }
-var load_temp='<img src="img/loading-bars.svg">';
+var load_temp='<img src="img/Preloader.gif">';
 $('.'+category_temp).html(load_temp);
 fetch_site(category_temp,userid);
 });

@@ -11,7 +11,7 @@ body {
 	
 }
 
-nav a {
+div nav a {
 	position: relative;
 	display: inline-block;
 	
@@ -23,6 +23,9 @@ nav a {
 	font-weight: 400;
 	text-shadow: 0 0 1px rgba(255,255,255,0.3);
 	font-size: 1.35em;
+}
+nav a{
+text-transform: capitalize;
 }
 
 nav a:hover,
@@ -138,6 +141,7 @@ decoration:none;  !important
 /* Effect 8: border slight translate */
 .cl-effect-8 a {
 	padding: 10px 20px;
+	color:#3b5998;
 }
 
 .cl-effect-8 a::before,
@@ -224,6 +228,7 @@ decoration:none;  !important
 	padding: 0 20px;
 	height: 45px;
 	line-height: 45px;
+	color:#3b5998;
 }
 
 .cl-effect-14 a::before,

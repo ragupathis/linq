@@ -179,7 +179,7 @@ $.ajax({
 	html3+='<span data-hover=" &nbsp; '+category_name+'" >'+category_name+'</span></a></nav></div>';
 	$('.ls_mine').append(html3);
 
-	var html= '<div class=" ls_demo " >'+category_name +'<span class="scnt count_'+category_name+'"></span> <hr><div class="ls_content ">	<ul class="'+category_name+'">';
+	var html= '<div class=" ls_demo lss_'+category_name+'" >'+category_name +'<span class="scnt count_'+category_name+'"></span> <hr><div class="ls_content ">	<ul class="'+category_name+'">';
 	html+='</ul></div>';
 	// code to generate add site feature to account holders  - start
 
@@ -266,11 +266,6 @@ $.ajax({
 $(document).ready(function(){
 
 if(sessionStorage['hash']){
-//document.getElementById('logout').innerHTML='<p id="testi"><span class="icon-off"></span>logout</p>';
-//$('#logout').css('display','block');
-//$('#signup').css('display','none');
-//$('.username').html('<span class="icon-user"></span> &nbsp; '+sessionStorage['mail']);
-
 
 
 if(sessionStorage['status_code']==='first_login'){
@@ -285,13 +280,6 @@ display_link_count(sessionStorage['mail']);
 
 var temp_val='<p><label>User Name</label><input type="text" id="mailid" placeholder="mail id"/></p><p><label>Password</label><input type="password" id="pass" /></p>';
 temp_val+='<p><button id="signin">SignIn</button></p>';
-/*
-document.getElementById('logout').innerHTML='<span class="icon-circle-arrow-down"></span>login';
-document.getElementById('forms').innerHTML=temp_val;
-*/
-
-//$('#login').css('display','block');
-//$('#logout').css('display','none');
 
 $('#add_category').css('display','none');
 $('#profile').css('display','none');
@@ -496,3 +484,15 @@ var url=$(this).attr( "url" );
 alert(url);
 
 });*/
+
+$(document.body).on('mousedown','.dark-tooltip',function(){
+//alert('wow');
+$('.dark-tooltip').removeClass('ls_active');
+$(this).addClass('ls_removeopacity');
+$(this).addClass('ls_active');
+//var idd=$(this).attr('pid');
+//$('.ls_demo').removeClass('ls_active');
+//$('.lss_'+idd).addClass('ls_active');
+
+
+});

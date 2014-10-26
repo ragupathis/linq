@@ -81,7 +81,7 @@
 				this.contentType='text';
 			}
 			//Create tooltip container
-			this.tooltip = $("<ins class = 'dark-tooltip " + this.options.theme + " " + this.options.size + " " 
+			this.tooltip = $("<ins class =  'dark-tooltip " + this.options.theme + " " + this.options.size + " " 
 				+ this.options.gravity + "'><div>" + this.content + "</div><div class = 'tip'></div></ins>");
 			this.tip = this.tooltip.find(".tip");
 			

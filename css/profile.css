@@ -120,7 +120,7 @@ overflow:hidden;
 font-size:15px;
 }
 .ls_content{
-width:100%;
+width:83%;
 overflow-y:scroll;
 height:300px;
 }
@@ -144,7 +144,7 @@ padding:5px;
 height:300px;
 
 overflow-y: scroll;
-width:100%;
+width:96%;
 }
 
 }
@@ -152,7 +152,7 @@ width:100%;
 
 
 
-@media(min-width:400px){
+@media(max-width:400px){
 	body{
 		font-size:8px
 	}
@@ -162,12 +162,15 @@ width:150px;
 
 padding:5px;
 }
-
+.panel{
+padding:0px;  !important
+margin-left:0px;	!important
+}
 .ls_content{
 
 height:300px;
 overflow-y:scroll;
-width:100%;
+width:99%;
 }
 
 }
@@ -190,7 +193,7 @@ padding:5px;
 
 height:400px;
 overflow-y:scroll;
-width:100%;
+width:96%;
 }
 
 }
@@ -214,7 +217,7 @@ padding:5px;
 
 height:400px;
 overflow-y:scroll;
-width:100%;
+width:96%;
 }
 
 }
@@ -237,6 +240,10 @@ padding:5px;
 height:400px;
 overflow-y:scroll;
 width:100%;
+}
+.panel{
+
+margin-left:5%;	!important
 }
 
 }

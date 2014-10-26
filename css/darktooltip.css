@@ -33,7 +33,7 @@
 .dark-tooltip ul.confirm li{ padding:10px;float:left;margin:5px;min-width:25px;-webkit-border-radius:3px;-moz-border-radius:3px;-o-border-radius:3px;border-radius:3px;}
 
 /* themes */
-.dark-tooltip.dark{ background-color:#8b9dc3; color:#fff; }
+.dark-tooltip.dark{ background-color:#8b9daa; color:#fff;opacity:0; }
 .dark-tooltip.light{ background-color:#ebedf3; color:#1B1E24; }
 
 .dark-tooltip.dark.south .tip{ border-color: #1B1E24 transparent transparent transparent; _border-color: #1B1E24 #000000 #000000 #000000; _filter: progid:DXImageTransform.Microsoft.Chroma(color='#000000'); }

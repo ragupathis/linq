@@ -137,9 +137,17 @@ $('#c').text(sessionStorage['t_cate_count']);
 /*   logout   */
 
 $('#logout').click(function(){
+//alert('log out successfully');
+if(sessionStorage['hash']){
 sessionStorage['hash']='';
 sessionStorage['mail']='';
+sessionStorage['screen_name']='';
+if(sessionStorage['status_code']==='second_login'){
+sessionStorage['status_code']='logout_first';
+}
 window.location='menu.html';
-});
+}else{
 
+}
+});
 

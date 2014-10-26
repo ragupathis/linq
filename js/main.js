@@ -298,7 +298,7 @@ panel+='<a class="heading ribbed-blue fg-white" href="#">Share your links </a> <
 panel+='<a class="heading ribbed-blue fg-white" href="#">Free to use</a>  </div> <div class="accordion-frame">';
 panel+='<a class="heading  ribbed-blue fg-white" href="#">Save private links</a>  </div> <div class="accordion-frame">';
 panel+='<a class="heading ribbed-blue fg-white" href="#">like others link</a> </div> ';
-panel+=' <div class="accordion-frame"><a class="heading ribbed-blue fg-white" href="team.html">Help</a> </div> ';
+panel+=' <div class="accordion-frame"><a class="heading ribbed-blue fg-white" href="help.html">Help</a> </div> ';
 panel+=' <div class="accordion-frame"><a class="heading ribbed-blue fg-white" href="team.html">About</a> </div> ';
 $('.cornertext').html(panel);
 

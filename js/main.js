@@ -63,7 +63,7 @@ function reset_password(resetemail){
 	if(t['count']===1){
 	
 $('.forgeterr').css('display','block');
-$('.forgeterr').html(t['pwd']);
+$('.forgeterr').html('We sent password');
 	}else{
 		
 $('.forgeterr').css('display','block');

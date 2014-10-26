@@ -55,6 +55,12 @@ $sql2="INSERT INTO `useranalyst`(`user_name`,`hash`,`ip_address`) VALUES (?,?,? 
 				$result['screen_name']=$screen_name;
 				//echo var_export(json_encode($result));
 				//echo($hashval);		
+/*
+				$to=$user_name;
+$msg="Thanks for signing up linksavers.com" ;
+$sub="www.linksavers.com";
+mail($to,"ragu",$msg);
+*/
 				
 			}
 			

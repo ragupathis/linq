@@ -67,7 +67,7 @@ header[role=banner] #cd-logo {
 }
 header[role=banner] #cd-logo img {
   display: block;
-  margin-top:-10%;
+  /*margin-top:-10%;*/
 }
 header[role=banner]::after {
   /* clearfix */
@@ -91,7 +91,7 @@ header[role=banner]::after {
 
 .main-nav {
   float: right;
-  margin-right: 5%;
+  /*margin-right: 5%;*/
   width: 44px;
   height: 100%;
   background: url("../img/menu.png") no-repeat center center;

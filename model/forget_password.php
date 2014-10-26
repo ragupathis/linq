@@ -49,25 +49,34 @@ $mysqli = new mysqli($hostname, $username, $password, $database);
 		$stmt1 -> fetch();
 		
 		$stmt1 -> close();	
-		$result['pwd']=$pwd;
+		//$result['pwd']=$pwd;
+		$temp_password=$pwd;
 		
 	$cryptKey  = 'qJB0rGaetTREUB1xGUVI05fyCp';
 	
-	$password  = rtrim( mcrypt_decrypt( MCRYPT_RIJNDAEL_256, md5( $cryptKey ), base64_decode( $result['pwd'] ), MCRYPT_MODE_CBC, md5( md5( $cryptKey ) ) ), "\0");
+	$password  = rtrim( mcrypt_decrypt( MCRYPT_RIJNDAEL_256, md5( $cryptKey ), base64_decode( $temp_password ), MCRYPT_MODE_CBC, md5( md5( $cryptKey ) ) ), "\0");
 	
 	//echo $password;
-	$result['pwd']=$password;
+	//$result['pwd']=$password;
 
+/*  mail to send password   */	
+$to=$user_name;
+$msg="Hi User , \n\n password : " . $password ;
+$sub="www.linksavers.com";
+mail($to,$msg,$msg);
+
+/*  mail to send password   */	
 		
 	}else{ 
 	
-
+$result['status']='true';
 	
 	}
 	
 	}
 	else{
 	$result['pwd']="";
+	$result['status']='true';
 	}
 	
 	echo var_export(json_encode($result)); 

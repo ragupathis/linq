@@ -15,7 +15,7 @@ $mysqli = new mysqli($hostname, $username, $password, $database);
    }
 	
 	$sql1="SELECT count(`by`) FROM `sitelist` WHERE `by`=?";
-	$sql2 = "SELECT `sitename`,`description` FROM `sitelist` where `by`=?";	
+	$sql2 = "SELECT DISTINCT `sitename`,`description` FROM `sitelist` where `by`=?";	
 	//$sql3 = "SELECT `notes` FROM `notes` where `user_name`=?";	
 	$sql4="SELECT count(`category`) FROM `categories` where `added_by`=?";
 	$sql5="SELECT `category` FROM `categories` where `added_by`=?";

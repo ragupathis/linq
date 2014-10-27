@@ -179,7 +179,7 @@ $.ajax({
 	html3+='<span data-hover=" &nbsp; '+category_name+'" >'+category_name+'</span></a></nav></div>';
 	$('.ls_mine').append(html3);
 
-	var html= '<div class=" ls_demo lss_'+category_name+'" >'+category_name +'<span class="scnt count_'+category_name+'"></span> <hr><div class="ls_content ">	<ul class="'+category_name+'">';
+	var html= '<div class=" ls_demo lss_'+category_name+'" >'+category_name +'<i class="icon-remove scnt"></i> <hr><div class="ls_content ">	<ul class="'+category_name+'">';
 	html+='</ul></div>';
 	// code to generate add site feature to account holders  - start
 
@@ -207,7 +207,9 @@ $.ajax({
 	i=1;
   })
   
-//}	
+//}
+$('.loader').css('display','none');
+	
 }); 
 
 }
@@ -495,4 +497,15 @@ $(this).addClass('ls_active');
 //$('.lss_'+idd).addClass('ls_active');
 
 
+});
+
+$(document.body).on('mousedown','.scnt',function(){
+//alert('wow');
+$('.dark-tooltip').css('display','none');
+});
+
+
+$(document.body).on('mousedown','.confirm',function(){
+//alert('wow');
+$('.dark-tooltip').css('display','none');
 });

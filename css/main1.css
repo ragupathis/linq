@@ -5,7 +5,7 @@ display:none;
 
 body{
 background-color:#e9eaed;
-background:url('../img/bg_tile.png');
+background:url('http://zhukov.github.io/webogram/img/bg_tile.png')  ;
 }
 
 .container-fluid{

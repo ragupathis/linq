@@ -20,7 +20,7 @@ $mysqli = new mysqli($hostname, $username, $password, $database);
 	
 	
 	$sql1="SELECT count(`category`) FROM `sitelist` WHERE `category`=? and (`visible`=? OR `visible`=?)";
-	$sql2 = "SELECT `sitename`,`description` FROM `sitelist`  WHERE `category`=? and (`visible`=? OR `visible`=?) order by `likes` desc";
+	$sql2 = "SELECT DISTINCT `sitename`,`description` FROM `sitelist`  WHERE `category`=? and (`visible`=? OR `visible`=?) order by `likes` desc";
 	
 
 	
@@ -47,8 +47,13 @@ $mysqli = new mysqli($hostname, $username, $password, $database);
 		for($i=1;$i<=$count;$i++){
 		$stmt1 -> bind_result($site,$descr);
 		$stmt1 -> fetch();
+	if($site==''){
+	//echo 'null value';
+	$sitename['count']=($sitename['count']-1);
+	}else{
+	//echo 'null not';
 		 $sitename[$i]=$site;
-		 $sitename['desc'.$i]=$descr;
+		 $sitename['desc'.$i]=$descr;}
 		}
 		$stmt1 -> close();	
 		//echo $sitename1;

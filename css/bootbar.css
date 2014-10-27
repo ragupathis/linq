@@ -8,11 +8,11 @@
 
 
 .alert-messages1 {    
-    bottom: -10px;
+    bottom: -5%;
     left: 0;
     right: 0;
     position: fixed;
-	z-index: 100;
+	z-index: 9999;
 }
 
 

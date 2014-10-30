@@ -22,7 +22,6 @@ $mysqli = new mysqli($hostname, $username, $password, $database);
 	$sql1="SELECT count(`category`) FROM `sitelist` WHERE `category`=? and (`visible`=? OR `visible`=?)";
 	$sql2 = "SELECT DISTINCT `sitename`,`description` FROM `sitelist`  WHERE `category`=? and (`visible`=? OR `visible`=?) order by `likes` desc";
 	
-
 	
 	if($stmt1 = $mysqli -> prepare($sql1)) 
 	{	

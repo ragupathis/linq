@@ -30,12 +30,12 @@ function user_login(user_name,user_password){
 
 			
 			
-			
+	/*		
 $(document.body).on('mousedown','#signin',function(){
 		//	alert('k');
 	user_check();
 });
-
+*/
 
 $('#signin-password').keypress(function(e) {
 	if (e.which == '13') {
@@ -52,12 +52,12 @@ $('#signin-password').keypress(function(e) {
 		 user_check();
 	}
 	});
-
+/*
 $(document.body).on('mousedown','#signup',function(){
 
 add_user();
 });
-
+*/
 $('#signup-password').keypress(function(e) {
 	if (e.which == '13') {
 		 e.preventDefault();
@@ -66,44 +66,72 @@ $('#signup-password').keypress(function(e) {
 	}
 	});
 
+$('#signup-email').keypress(function(e) {
+	if (e.which == '13') {
+		 e.preventDefault();
+
+		 add_user();
+	}
+	});
+	
+$('#signup-username').keypress(function(e) {
+	if (e.which == '13') {
+		 e.preventDefault();
+
+		 add_user();
+	}
+	});
+	
 function add_user(){
 
-		//	alert('k');
+		
 		var screen_name=document.getElementById('signup-username').value;
 		screen_name=screen_name.trim();
 		var userid=document.getElementById('signup-email').value;
 		var pwd=document.getElementById('signup-password').value;
 		pwd=pwd.trim();
-//		user_register(screen_name,userid,pwd);
-		
-$('.usernameerr').css('display','none');
-$('.emailerr').css('display','none');
-$('.passworderr').css('display','none');
-		
+	var flag_temp=0;
+	
    	var testEmail = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
    	if(screen_name.length>3){
-	if(pwd.length>3){
-   	if  (!testEmail.test(userid)) {
-		//user_login(user_name);
-		//$('.lgfailed').css('display','block');
-		$('.emailerr').css('display','block');
-	}else{
-		user_register(screen_name,userid,pwd);
-	//	$( this ).dialog( "close" );
-	}}else{
-	$('.cd-error-message').css('display','block');
-	//document.getElementById('signup-password').value='';
-	//document.getElementById('signup-password').placeholder='password should be minimum 3 char';
-	$('.passworderr').css('display','block');
+	
+	$('.usernameerr').css('color','#505260');
+	$('.usernameerr').css('display','none');
+	flag_temp=flag_temp+1;
 	}
-	}else{
-	//document.getElementById('signup-username').value='';
-	//document.getElementById('signup-username').placeholder='user name should be minimum 3 char';
-	$('.usernameerr').html('please enter more than three characters');
+	else{
+	
 	$('.usernameerr').css('display','block');
+	$('.usernameerr').css('color','red');
+	
+	}
+	if(pwd.length>3){
+	$('.passworderr').css('display','none');
+	$('.passworderr').css('color','#505260');
+	flag_temp=flag_temp+1;
+	}else{
+	//$('.passworderr').css('display','block');
+	$('.passworderr').css('display','block');
+	$('.passworderr').css('color','red');
+	}
+   	if  (!testEmail.test(userid)) {
+		$('.emailerr').html('Please enter valid email id');
+		$('.emailerr').css('display','block');
+		$('.emailerr').css('color','red');
+		
+	}else{
+		flag_temp=flag_temp+1;
+	$('.emailerr').css('display','none');
+	$('.emailerr').css('color','#505260');
+	}
+	
+	if(flag_temp===3){
+	user_register(screen_name,userid,pwd);
+	}
+	
 	}
 
-}
+
 
 function user_check(){
 
@@ -143,6 +171,7 @@ function user_register(screen_name,mailid,password){
 		//document.getElementById('signup-email').value='';
 		document.getElementById('signup-email').placeholder='email id already exists';
 		$('.emailerr').html("email id already exists");
+		$('.emailerr').css('color','red');
 		$('.emailerr').css('display','block');
 		
 		}else{

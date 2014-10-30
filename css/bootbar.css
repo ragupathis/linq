@@ -11,7 +11,7 @@
     bottom: -5%;
     left: 0;
     right: 0;
-    position: fixed;
+    position: absolute;
 	z-index: 9999;
 }
 

@@ -15,13 +15,13 @@ $mysqli = new mysqli($hostname, $username, $password, $database);
    }
 	
 	$sql1="SELECT count(`by`) FROM `sitelist` WHERE `by`=?";
-	$sql2 = "SELECT DISTINCT `sitename`,`description` FROM `sitelist` where `by`=?";	
+	$sql2 = "SELECT  `sitename`,`description` FROM `sitelist` where `by`=?";	
 	//$sql3 = "SELECT `notes` FROM `notes` where `user_name`=?";	
 	$sql4="SELECT count(`category`) FROM `categories` where `added_by`=?";
 	$sql5="SELECT `category` FROM `categories` where `added_by`=?";
 		
-	$sql6="SELECT  count(DISTINCT  `sitename`) FROM `likedsites` WHERE `by`=?";
-	$sql7="SELECT DISTINCT  `sitename` FROM `likedsites` WHERE `by`=?";	
+	$sql6="SELECT  count(  `sitename`) FROM `likedsites` WHERE `by`=?";
+	$sql7="SELECT   `sitename` FROM `likedsites` WHERE `by`=?";	
 	
 	
 	/*
@@ -59,8 +59,11 @@ $mysqli = new mysqli($hostname, $username, $password, $database);
 		for($i=1;$i<=$count;$i++){
 		$stmt1 -> bind_result($site,$desc);
 		$stmt1 -> fetch();
+		if($site==''){
+		$sitename['count']=$sitename['count']-1;
+		}else{
 		 $sitename[$i]=$site;
-		 $sitename['desc'.$i]=$desc;
+		 $sitename['desc'.$i]=$desc;   }
 		}
 		$stmt1 -> close();	
 		//echo $sitename1;

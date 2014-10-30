@@ -57,7 +57,7 @@ var temp="";
 	//console.log(t.count);
 	//$('.count_'+categorynames).html(t.count);
 	sessionStorage['site_size']=t.count;
-	$('.count_'+categorynames).html(sessionStorage['site_size']);
+	//$('.count_'+categorynames).html(sessionStorage['site_size']);
 	for(var i=1;i<=t.count;i++){
 	//console.log(t[i]);
 	//t[i]=t[i].replace('\\','');
@@ -67,7 +67,7 @@ var temp="";
 	if(title_temp===''){
 	title_temp=t[i];
 	}
-	 temp+='<li> <a class="label" title='+title_temp+' href="https://'+t[i]+'" target="_blank">'+t[i]+'</a><i class="icon-ban-circle" uid='+categorynames+' id='+t[i]+' title="report '+t[i]+'"></i><i class="icon-thumbs-up" uid='+categorynames+' id='+t[i]+' title="like '+t[i]+'"></i><a target="_blank" href="https://www.facebook.com/sharer.php?u=http://'+t[i]+'"><i class="icon-facebook" title="share it on facebook"></i> </a> <a target="_blank" href="http://twitter.com/home?status=Linksavers%20https://'+t[i]+'"><i  class="icon-twitter" title="share it on twitter"></i> </a></li>';
+	 temp+='<li> <a class="label" title='+title_temp+' href="http://'+t[i]+'" target="_blank">'+t[i]+'</a><i class="icon-ban-circle" uid='+categorynames+' id='+t[i]+' title="report '+t[i]+'"></i><i class="icon-thumbs-up" uid='+categorynames+' id='+t[i]+' title="like '+t[i]+'"></i><a target="_blank" href="http://www.facebook.com/sharer.php?u=http://'+t[i]+'"><i class="icon-facebook" title="share it on facebook"></i> </a> <a target="_blank" href="http://twitter.com/home?status=Linksavers%20http://'+t[i]+'"><i  class="icon-twitter" title="share it on twitter"></i> </a></li>';
 	}
 	$('.'+categorynames).html(temp);
 	});  
@@ -122,7 +122,7 @@ $('#site_c').text(sessionStorage['site_cnt']);
 
 
  $('.'+categoryname+'err').addClass('alert-info'); 
-$('.'+categoryname).append('<li> <a class="label" href="https://'+sitename+'" target="_blank">'+sitename+'</a> <i class="icon-ban-circle" id="'+sitename+'" uid='+categoryname+' title="report'+sitename+'"></i> <i class="icon-thumbs-up" id="'+sitename+'" uid='+categoryname+' title="like'+sitename+'"></i><a target="_blank" href="https://www.facebook.com/sharer.php?u=http://'+sitename+'"><i class="icon-facebook" title="share it on facebook"></i></a><a target="_blank" href="http://twitter.com/home?status=Linksavers%20https://'+sitename+'"> <i class="icon-twitter" title="share it on twitter"></i></a></li>');
+$('.'+categoryname).append('<li> <a class="label" href="http://'+sitename+'" target="_blank">'+sitename+'</a> <i class="icon-ban-circle" id="'+sitename+'" uid='+categoryname+' title="report'+sitename+'"></i> <i class="icon-thumbs-up" id="'+sitename+'" uid='+categoryname+' title="like'+sitename+'"></i><a target="_blank" href="http://www.facebook.com/sharer.php?u=http://'+sitename+'"><i class="icon-facebook" title="share it on facebook"></i></a><a target="_blank" href="http://twitter.com/home?status=Linksavers%20http://'+sitename+'"> <i class="icon-twitter" title="share it on twitter"></i></a></li>');
 $('.'+categoryname+'err').html('your link added successfully');
 $('.'+categoryname+'err').css('display','block');
 $('.loader').css('display','none');
@@ -142,7 +142,7 @@ $('#site_c').text(sessionStorage['site_cnt']);
 
 
  $('.'+categoryname+'err').addClass('alert-info'); 
-$('.'+categoryname).append('<li> <a class="label" href="https://'+sitename+'" target="_blank">'+sitename+'</a> <i class="icon-ban-circle" id="'+sitename+'" uid='+categoryname+' title="report'+sitename+'"></i> <i class="icon-thumbs-up" id="'+sitename+'" uid='+categoryname+' title="like'+sitename+'"></i><a target="_blank" href="https://www.facebook.com/sharer.php?u=http://'+sitename+'"><i class="icon-facebook" title="share it on facebook"></i></a><a target="_blank" href="http://twitter.com/home?status=Linksavers%20https://'+sitename+'"> <i class="icon-twitter" title="share it on twitter"></i></a></li>');
+$('.'+categoryname).append('<li> <a class="label" href="http://'+sitename+'" target="_blank">'+sitename+'</a> <i class="icon-ban-circle" id="'+sitename+'" uid='+categoryname+' title="report'+sitename+'"></i> <i class="icon-thumbs-up" id="'+sitename+'" uid='+categoryname+' title="like'+sitename+'"></i><a target="_blank" href="http://www.facebook.com/sharer.php?u=http://'+sitename+'"><i class="icon-facebook" title="share it on facebook"></i></a><a target="_blank" href="http://twitter.com/home?status=Linksavers%20http://'+sitename+'"> <i class="icon-twitter" title="share it on twitter"></i></a></li>');
 $('.'+categoryname+'err').html('link added successfully');
 $('.'+categoryname+'err').css('display','block');
 $('.loader').css('display','none');
@@ -229,6 +229,7 @@ $.ajax({
 	  if(t['replay']==='you liked'){
 	  sessionStorage['like_cnt']=parseInt(sessionStorage['like_cnt'])+1;
 	  $('#like_c').text(sessionStorage['like_cnt']);
+
 	  $('.'+category_temp+'err').addClass('alert-info');  }
 	  else{
 	  $('.'+category_temp+'err').addClass('alert-danger');

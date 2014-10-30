@@ -3,7 +3,7 @@ var flag_value=0;
 
 if(sessionStorage['hash']){
 // for menu changes inn dynamic 
-var menu_temp='<ul><li><a class="cd-signu" href="#0" id="ttt">Profile</a></li>';
+var menu_temp='<ul><li><a class="cd-signu" href="#0" id="ttt">'+sessionStorage['screen_name']+'</a></li>';
 menu_temp+='<li><a  href="#0" class="cd-signin" id="in">Sign in</a></li><li><a class="cd-signup" href="#0" id="out">Sign up</a></li>';
 menu_temp+='<li><a  href="#0" id="logout">Sign Out</a></li></ul>';
 //$('.main-nav').html(menu_temp);

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 17, 2014 at 01:15 PM
+-- Generation Time: Oct 28, 2014 at 06:23 AM
 -- Server version: 5.5.24-log
 -- PHP Version: 5.3.13
 
@@ -36,35 +36,44 @@ CREATE TABLE IF NOT EXISTS `categories` (
 --
 
 INSERT INTO `categories` (`category`, `added_by`) VALUES
-('News', 'admin'),
-('Business', 'admin'),
-('Sports', 'admin'),
-('Entertainment', 'admin'),
 ('Education', 'admin'),
-('Shopping', 'admin'),
-('Photography', 'admin'),
-('Cricket', 'admin'),
-('SOCIAL', 'admin'),
-('My_favourite', 'first@ragu.com'),
-('Travel', 'admin'),
-('Football', 'admin'),
-('World Records', 'admin'),
-('Social_Network', 'admin'),
-('Search_Engine', 'admin'),
-('web_develop', 'admin'),
-('Multi-Sports ', 'admin'),
-('Magazines', 'admin'),
-('Organizations', 'admin'),
-('Weblogs', 'admin'),
-('Employment ', 'admin'),
+('Books', 'admin'),
+('Employment', 'admin'),
+('News', 'admin'),
 ('Science', 'admin'),
-('Website Design', 'admin'),
+('Computer', 'admin'),
+('Software', 'admin'),
+('Hardware', 'admin'),
+('Hacking', 'admin'),
+('Graphics', 'admin'),
+('Magazine', 'admin'),
+('Weblogs', 'admin'),
 ('History', 'admin'),
-('sample', 'priya@priya.com'),
-('qwerty', 'priya@priya.com'),
-('Abced_fghijkl', 'priya@priya.com'),
-('Social_Network', 'priya@priya.com'),
-('history', 'priya@priya.com');
+('Web_Development', 'admin'),
+('Business', 'admin'),
+('Shopping', 'admin'),
+('Entertainment', 'admin'),
+('Movies', 'admin'),
+('Music', 'admin'),
+('Food', 'admin'),
+('Pets', 'admin'),
+('Photography', 'admin'),
+('Travel', 'admin'),
+('Vehicle', 'admin'),
+('Comics', 'admin'),
+('Organizations', 'admin'),
+('Regional', 'admin'),
+('Television', 'admin'),
+('Health', 'admin'),
+('Beauty', 'admin'),
+('Games', 'admin'),
+('MobileApps', 'admin'),
+('Cricket', 'admin'),
+('Football', 'admin'),
+('MultiSports', 'admin'),
+('Video', 'admin'),
+('SocialNetwok', 'admin'),
+('Cooking', 'admin');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

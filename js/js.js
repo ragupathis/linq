@@ -30,12 +30,12 @@ function user_login(user_name,user_password){
 
 			
 			
-	/*		
+		
 $(document.body).on('mousedown','#signin',function(){
 		//	alert('k');
 	user_check();
 });
-*/
+
 
 $('#signin-password').keypress(function(e) {
 	if (e.which == '13') {
@@ -52,12 +52,12 @@ $('#signin-password').keypress(function(e) {
 		 user_check();
 	}
 	});
-/*
+
 $(document.body).on('mousedown','#signup',function(){
 
 add_user();
 });
-*/
+
 $('#signup-password').keypress(function(e) {
 	if (e.which == '13') {
 		 e.preventDefault();

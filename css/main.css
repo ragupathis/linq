@@ -5,7 +5,7 @@ margin-top:-30px;
 i{
 float:right;
 }
-.icon-thumbs-up:hover{
+.icon-thumbs-up:hover,.icon-facebook:hover,.icon-twitter:hover{
 color:blue;
 }
 .icon-share{
@@ -16,7 +16,7 @@ padding-top:5px;
 .ls_demo{
 font-size:18px;
 width:385px;
-
+background-image:url('../img/bg.png');
 padding:2px;
 }
 .ls_content{

@@ -19,7 +19,7 @@ function user_details(user_name)
 	  t[i]=t[i].replace(/\\/g,'');
 	  temp+='<li class="ad_'+add_class+'"> <a class="linklbl label" href="http://'+t[i]+'" target="_blank" title="'+t['desc'+i]+'">'+t[i]+'</a><i class="icon-remove-circle remove_sites" title="remove '+ t[i]+'" id="'+t[i]+'"></i></i> <a target="_blank" href="http://www.facebook.com/sharer.php?u=http://'+t[i]+'"><i class="icon-facebook" title="share it on facebook"></i></a><a target="_blank" href="http://twitter.com/home?status=Linksavers%20http://'+t[i]+'">  <i class="icon-twitter" title="share it on twitter"></i></a> </li>';
 	}
-	$('.added_site').append(temp);
+	$('.added_site').html(temp);
 	
 	
 	// code to display added categories
@@ -28,7 +28,7 @@ function user_details(user_name)
 	// t[i]=t[i].replace(/\\/g,'');
 	  temp+='<li class="c_'+t['cate'+i]+' linklbl"> '+t['cate'+i]+'<i class="icon-remove-circle remove_category" title="remove '+ t['cate'+i]+'" id='+t['cate'+i]+'></i></li>';
 	}
-	$('.added_category').append(temp);
+	$('.added_category').html(temp);
 	
 	// code to display liked sites 
 	temp='';
@@ -41,7 +41,7 @@ function user_details(user_name)
 	    //console.log(t[i]);
 	    temp+='<li class="li_'+temp_class+'"> <a class="linklbl label" href="http://'+t['likes'+i]+'" title="'+t['likes'+i]+'" target="_blank">'+t['likes'+i]+'</a><i class="icon-thumbs-down" title="dislike '+t['likes'+i]+'" id="'+t['likes'+i]+'"></i></i>  <a target="_blank" href="http://www.facebook.com/sharer.php?u=http://'+t['likes'+i]+'"><i class="icon-facebook" title="share it on facebook"></i><a target="_blank" href="http://twitter.com/home?status=Linksavers%20http://'+t['likes'+i]+'">  <i class="icon-twitter" title="share it on twitter"></i> </li>';
 	}
-	$('.liked_site').append(temp);
+	$('.liked_site').html(temp);
 	
 	sessionStorage['t_count']=t.count;
 	sessionStorage['t_like_count']=t.like_count;

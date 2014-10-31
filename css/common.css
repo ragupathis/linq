@@ -50,14 +50,16 @@
 
 
 
-.icon-facebook:hover , .icon-twitter:hover{
+.icon-facebook , .icon-twitter {
 color:blue;
 }
-.icon-facebook,.icon-twitter,.icon-remove-circle{
-color:white;
+ .icon-ban-circle{
+color:red;
 }
 
-
+a{
+color:;
+}
 
 ::-webkit-scrollbar {
     width: 12px;

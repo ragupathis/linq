@@ -41,7 +41,7 @@ height:30px;
 width:250px;
 overflow:hidden;
 font-size:15px;
-background-color:#8b9dc3;
+color:blue;
 
 }
 
@@ -61,15 +61,20 @@ height:100%;
 .ls_mine1{
 width:100%;
 
+
 height:100%;
 float:left;
 }
 .ls_demo{
 background-color:#8b9dc3;
+color:#3b5998;
 }
 .scnt{
 float:right;
 }
 p{
 text-transform: capitalize;
+}
+.icon-remove{
+color:red;
 }

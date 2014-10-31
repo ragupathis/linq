@@ -32,15 +32,39 @@
 	<link rel="icon" href="img/logo.jpg" type="image/ico" >
 <title>linksavers - social bookmarking network - save and share your links</title>
 </head>
+
 <style>
 .ls_active{
 z-index:15000;
 opacity:1;
 }
-
+footer{
+background-color:#3b5998;
+height:40px;
+color:white;
+}
+footer p{
+text-align:center;
+}
 .ls_removeopacity{
 opacity:0.4;
 }
+
+.label:hover{
+color:blue; !important
+}
+
+#ls_tooltip{
+	position:absolute;
+	border:1px solid #333;
+	background:#f7f5d1;
+	padding:2px 5px;
+	color:#333;
+	display:none;
+	z-index:99999;
+	}	
+	
+	
 </style>
 <header role="banner" >
 	
@@ -215,39 +239,17 @@ opacity:0.4;
 	
 	</td>
 	<td class="ls_mine1">
-	<div class="cornertext">  <!--<div class="accordion span3 place-left margin10" data-role="accordion" data-closeany="false">
-                                    <div class="accordion-frame">
-                                        <a class="heading ribbed-blue fg-white" href="#">Save & Share Links</a>
-                                       
-                                    </div>
-                                    <div class="accordion-frame">
-                                        <a class="heading ribbed-blue fg-white" href="#">Create your own categories</a>
-                                       
-                                    </div>
-                                    <div class="accordion-frame">
-                                        <a class="heading ribbed-blue fg-white" href="#">Share your links </a>
-                                     
-									</div>    
-									<div class="accordion-frame">
-                                        <a class="heading ribbed-blue fg-white" href="#">Free to use</a>
-                                       
-                                    </div>
-                                    <div class="accordion-frame">
-                                        <a class="heading  ribbed-blue fg-white" href="#">Save private links</a>
-                                       
-                                    </div>
-                                    <div class="accordion-frame">
-                                        <a class="heading ribbed-blue fg-white" href="#">like others link</a>
-                                     
-									</div> 									
-			</div>	-->
+	<div class="cornertext"> 
 	</div>
 	</td>
 	
 	</tr>
 	
 	</table>
+	<footer>
+	<p><a href="#" class="ls_tooltip" title="testing">copyrights @ linksavers.com  </a></p>
 	
+	</footer>
 <script>
 
 </script>

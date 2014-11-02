@@ -17,7 +17,7 @@ function user_details(user_name)
 		add_class=add_class.replace(/\//g,'_');
 	  
 	  t[i]=t[i].replace(/\\/g,'');
-	  temp+='<li class="ad_'+add_class+'"> <a class="linklbl label" href="http://'+t[i]+'" target="_blank" title="'+t['desc'+i]+'">'+t[i]+'</a><i class="icon-remove-circle remove_sites" title="remove '+ t[i]+'" id="'+t[i]+'"></i></i> <a target="_blank" href="http://www.facebook.com/sharer.php?u=http://'+t[i]+'"><i class="icon-facebook" title="share it on facebook"></i></a><a target="_blank" href="http://twitter.com/home?status=Linksavers%20http://'+t[i]+'">  <i class="icon-twitter" title="share it on twitter"></i></a> </li>';
+	  temp+='<li class="ad_'+add_class+'"> <a class="linklbl ls_label" href="http://'+t[i]+'" target="_blank" title="'+t['desc'+i]+'">'+t[i]+'</a><i class="icon-remove-circle remove_sites" title="remove '+ t[i]+'" id="'+t[i]+'"></i></i> <a target="_blank" href="http://www.facebook.com/sharer.php?u=http://'+t[i]+'"><i class="icon-facebook" title="share it on facebook"></i></a><a target="_blank" href="http://twitter.com/home?status=Linksavers%20http://'+t[i]+'">  <i class="icon-twitter" title="share it on twitter"></i></a> </li>';
 	}
 	$('.added_site').html(temp);
 	
@@ -39,7 +39,7 @@ function user_details(user_name)
 		temp_class=temp_class.replace(/\./g,'_');
 		temp_class=temp_class.replace(/\//g,'_');
 	    //console.log(t[i]);
-	    temp+='<li class="li_'+temp_class+'"> <a class="linklbl label" href="http://'+t['likes'+i]+'" title="'+t['likes'+i]+'" target="_blank">'+t['likes'+i]+'</a><i class="icon-thumbs-down" title="dislike '+t['likes'+i]+'" id="'+t['likes'+i]+'"></i></i>  <a target="_blank" href="http://www.facebook.com/sharer.php?u=http://'+t['likes'+i]+'"><i class="icon-facebook" title="share it on facebook"></i><a target="_blank" href="http://twitter.com/home?status=Linksavers%20http://'+t['likes'+i]+'">  <i class="icon-twitter" title="share it on twitter"></i> </li>';
+	    temp+='<li class="li_'+temp_class+'"> <a class="linklbl ls_label" href="http://'+t['likes'+i]+'" title="'+t['likes'+i]+'" target="_blank">'+t['likes'+i]+'</a><i class="icon-thumbs-down" title="dislike '+t['likes'+i]+'" id="'+t['likes'+i]+'"></i></i>  <a target="_blank" href="http://www.facebook.com/sharer.php?u=http://'+t['likes'+i]+'"><i class="icon-facebook" title="share it on facebook"></i><a target="_blank" href="http://twitter.com/home?status=Linksavers%20http://'+t['likes'+i]+'">  <i class="icon-twitter" title="share it on twitter"></i> </li>';
 	}
 	$('.liked_site').html(temp);
 	

@@ -40,9 +40,6 @@ padding-left:30px;
 a:hover{
 text-decoration:none;
 }
-.icon-eye-close:hover{
-color:red;
-}
 
 .icon-tint,icon-user,icon-off,icon-star-empty,icon-ban-circle{
 float:left;
@@ -85,6 +82,9 @@ color:blue;
 width:65%;
 }
 
+.icon-eye-open{
+cursor:default !important ;
+}
 @media(max-width:1110px){
 	body{
 		font-size:10px

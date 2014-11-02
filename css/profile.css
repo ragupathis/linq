@@ -2,8 +2,8 @@
 i{
 float:right;
 }
-.icon-remove-circle:hover,.icon-thumbs-down:hover{
-color:red;
+.icon-remove-circle,.icon-thumbs-down{
+
 cursor:pointer;
 }
 .ls_demo{
@@ -63,7 +63,7 @@ color:#FFFAF0;
 #ls_demo{
 color:white;	!important
 }
-.label{
+.ls_label{
 width:200px;
 overflow:hidden;
 font-size:15px;
@@ -104,7 +104,9 @@ color:white;
 .ls_site{
 padding-top:2%;
 }
-
+li{
+line-height:10px;  !important
+}
 @media(max-width:320px){
 	body{
 		font-size:12px
@@ -115,7 +117,7 @@ width:300px;
 
 
 }
-.label{
+.ls_label{
 width:150px;
 overflow:hidden;
 font-size:15px;

@@ -391,8 +391,8 @@ document.getElementById('categoryname').placeholder='This category already avail
 	//if(user){
 	html+='	<hr>  <div class="new"> <table><tr><td class="first_td"> <p class="vis">Add new site</p><input type="text" name="site" ';
 	html+='class="ls_site input-xlarge search-query" id="'+category_name+'text"  placeholder="type your link " >';
-	html+='<button btnid="'+category_name+'" id="as" class="btn btn-primary ok">Add</button> <input type="hidden" id="'+ category_name +'" class="temp"/> &nbsp;'; html+='</td><td><br> <i class="icon-eye-open" title="who can see ?"></i>';
-	html+='<select id="'+category_name+'visible" title="who can see ?" class="input-small btn-default"> <option selected value="Public">Public</option>';
+	html+='<button btnid="'+category_name+'" id="as" class="btn btn-primary ok">Add</button> <input type="hidden" id="'+ category_name +'" class="temp"/> &nbsp;'; html+='</td><td><br> <i class="icon-eye-open ls_tooltip" title="who can see ?"></i>';
+	html+='<select id="'+category_name+'visible" title="who can see ?" class="ls_tooltip input-small btn-default"> <option selected value="Public">Public</option>';
 	html+='<option value="me">Only Me</option></select></td></tr>';
 	html+='<div class="loader"> <span class="l-1"></span><span class="l-2"></span><span class="l-3"></span><span class="l-4"></span>';
   html+='<span class="l-5"></span><span class="l-6"></span></div></p></div></table><br><p class="'+category_name+'err errmsg alert alert-dismissable alert-messages1 " >';

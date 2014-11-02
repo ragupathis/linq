@@ -685,7 +685,7 @@ hr {
   margin: 20px 0;
   border: 0;
   border-top: 1px solid #eeeeee;
-  border-bottom: 1px solid blue;
+  border-bottom: 1px solid #8b9daa;
 }
 
 abbr[title],
@@ -2987,7 +2987,7 @@ button.close {
 
 .btn:hover,
 .btn:focus {
-  color: #333333;
+  color: white;
   text-decoration: none;
   background-position: 0 -15px;
   -webkit-transition: background-position 0.1s linear;

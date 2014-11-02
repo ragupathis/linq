@@ -11,7 +11,7 @@
 
 
 this.tooltip = function(){	
-//alert('ff');
+
 	/* CONFIG */		
 		xOffset = 10;
 		yOffset = 20;		
@@ -20,9 +20,14 @@ this.tooltip = function(){
 	/* END CONFIG */		
 //	$(document.body).on('mouseover',".ls_tooltip",function(e){
 	$(".ls_tooltip").hover(function(e){	
-	//alert('ok');
+	
 		this.t = this.title;
-		this.title = "";									  
+	if(this.t==='undefined'){
+	this.t="Please wait...";
+	}
+    
+	this.t=this.t.replace(/_/g,' ');
+    	this.title = "";									  
 		$("body").append("<p id='ls_tooltip'>"+ this.t +"</p>");
 		$("#ls_tooltip")
 			.css("top",(e.pageY - xOffset) + "px")
@@ -35,6 +40,7 @@ this.tooltip = function(){
     });	
 	//$("a.ls_tooltip").mousemove(function(e){
 	$(document.body).on('mousemove',".ls_tooltip",function(e){
+	
 		$("#ls_tooltip")
 			.css("top",(e.pageY - xOffset) + "px")
 			.css("left",(e.pageX + yOffset) + "px");

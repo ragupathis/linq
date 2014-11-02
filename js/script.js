@@ -50,7 +50,14 @@ var temp="";
 		data: {'category':categorynames,'user':userid}
        
    	}).done(function(result) {
-	$('.loader').css('display','none');
+		window.include=function(){function f(){b--;b||c()}var a=arguments,d=document,b=a.length,c;
+  arguments[b-1]instanceof Function?(b--,c=a[a.length-1]):c=function(){};
+  for(var e=0;e<b;e++)a=d.createElement("script"),a.src=arguments[e],a.onload=a.onerror=f,
+  (d.head||d.getElementsByTagName("head")[0]).appendChild(a)};
+//if(i==0){
+  include('js/tooltip_main.js', function() {
+	
+  })
 	
 	  result = result.substring(2, result.length - 1);
         var t = JSON.parse(result);	
@@ -67,16 +74,11 @@ var temp="";
 	if(title_temp===''){
 	title_temp=t[i].toLowerCase();
 	}
-	 temp+='<li> <a class="ls_label ls_tooltip" title='+title_temp+' href="http://'+t[i]+'" target="_blank">'+t[i]+'</a><i class="icon-ban-circle ls_tooltip" uid='+categorynames+' id='+t[i]+' title="report '+t[i]+'"></i><i class="icon-thumbs-up ls_tooltip" uid='+categorynames+' id='+t[i]+' title="like '+t[i]+'"></i><a target="_blank" href="http://www.facebook.com/sharer.php?u=http://'+t[i]+'"><i class="icon-facebook ls_tooltip" title="share it on facebook"></i> </a> <a target="_blank" href="http://twitter.com/home?status=Linksavers%20http://'+t[i]+'"><i  class="icon-twitter ls_tooltip" title="share it on twitter"></i> </a></li>';
+	 temp+='<li> <a class="ls_label label ls_tooltip" title='+title_temp+' href="http://'+t[i]+'" target="_blank">'+t[i]+'</a><i class="icon-ban-circle ls_tooltip" uid='+categorynames+' id='+t[i]+' title="report '+t[i]+'"></i><i class="icon-thumbs-up ls_tooltip" uid='+categorynames+' id='+t[i]+' title="like '+t[i]+'"></i><a target="_blank" href="http://www.facebook.com/sharer.php?u=http://'+t[i]+'"><i class="icon-facebook ls_tooltip" title="share it on facebook"></i> </a> <a target="_blank" href="http://twitter.com/home?status=Linksavers%20http://'+t[i]+'"><i  class="icon-twitter ls_tooltip" title="share it on twitter"></i> </a></li>';
 	}
-		window.include=function(){function f(){b--;b||c()}var a=arguments,d=document,b=a.length,c;
-  arguments[b-1]instanceof Function?(b--,c=a[a.length-1]):c=function(){};
-  for(var e=0;e<b;e++)a=d.createElement("script"),a.src=arguments[e],a.onload=a.onerror=f,
-  (d.head||d.getElementsByTagName("head")[0]).appendChild(a)};
-//if(i==0){
-  include('js/tooltip_main.js', function() {
 	
-  })
+  $('.loader').css('display','none');
+	
 	$('.'+categorynames).html(temp);
 	});  
 }

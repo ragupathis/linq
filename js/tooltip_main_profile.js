@@ -39,8 +39,8 @@ this.tooltip = function(){
 		this.title = this.t;		
 		$("#ls_tooltip").remove();
     });	
-	//$("a.ls_tooltip").mousemove(function(e){
-	$(document.body).on('mousemove',".ls_tooltip",function(e){
+	$("a.ls_tooltip").mousemove(function(e){
+	//$(document.body).on('mousemove',".ls_tooltip",function(e){
 	
 		$("#ls_tooltip")
 			.css("top",(e.pageY - xOffset) + "px")

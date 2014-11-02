@@ -17,7 +17,10 @@ function user_details(user_name)
 		add_class=add_class.replace(/\//g,'_');
 	  
 	  t[i]=t[i].replace(/\\/g,'');
-	  temp+='<li class="ad_'+add_class+'"> <a class="linklbl ls_label" href="http://'+t[i]+'" target="_blank" title="'+t['desc'+i]+'">'+t[i]+'</a><i class="icon-remove-circle remove_sites" title="remove '+ t[i]+'" id="'+t[i]+'"></i></i> <a target="_blank" href="http://www.facebook.com/sharer.php?u=http://'+t[i]+'"><i class="icon-facebook" title="share it on facebook"></i></a><a target="_blank" href="http://twitter.com/home?status=Linksavers%20http://'+t[i]+'">  <i class="icon-twitter" title="share it on twitter"></i></a> </li>';
+	  if(t['desc'+i]===''){
+	  t['desc'+i]=t[i];
+	  }
+	  temp+='<li class="ad_'+add_class+'"> <a class="linklbl ls_label label ls_tooltip" href="http://'+t[i]+'" target="_blank" title="'+t['desc'+i]+'">'+t[i]+'</a><i class="icon-remove-circle remove_sites ls_tooltip" title="remove '+ t[i]+'" id="'+t[i]+'"></i></i> <a target="_blank" href="http://www.facebook.com/sharer.php?u=http://'+t[i]+'"><i class="icon-facebook ls_tooltip" title="share it on facebook"></i></a><a target="_blank" href="http://twitter.com/home?status=Linksavers%20http://'+t[i]+'">  <i class="icon-twitter ls_tooltip" title="share it on twitter"></i></a> </li>';
 	}
 	$('.added_site').html(temp);
 	
@@ -26,7 +29,7 @@ function user_details(user_name)
 	 temp='';
 	 for(var i=1;i<=t.cate_count;i++){
 	// t[i]=t[i].replace(/\\/g,'');
-	  temp+='<li class="c_'+t['cate'+i]+' linklbl"> '+t['cate'+i]+'<i class="icon-remove-circle remove_category" title="remove '+ t['cate'+i]+'" id='+t['cate'+i]+'></i></li>';
+	  temp+='<li class="c_'+t['cate'+i]+' linklbl"> '+t['cate'+i]+'<i class="icon-remove-circle remove_category ls_tooltip" title="remove '+ t['cate'+i]+'" id='+t['cate'+i]+'></i></li>';
 	}
 	$('.added_category').html(temp);
 	
@@ -39,7 +42,7 @@ function user_details(user_name)
 		temp_class=temp_class.replace(/\./g,'_');
 		temp_class=temp_class.replace(/\//g,'_');
 	    //console.log(t[i]);
-	    temp+='<li class="li_'+temp_class+'"> <a class="linklbl ls_label" href="http://'+t['likes'+i]+'" title="'+t['likes'+i]+'" target="_blank">'+t['likes'+i]+'</a><i class="icon-thumbs-down" title="dislike '+t['likes'+i]+'" id="'+t['likes'+i]+'"></i></i>  <a target="_blank" href="http://www.facebook.com/sharer.php?u=http://'+t['likes'+i]+'"><i class="icon-facebook" title="share it on facebook"></i><a target="_blank" href="http://twitter.com/home?status=Linksavers%20http://'+t['likes'+i]+'">  <i class="icon-twitter" title="share it on twitter"></i> </li>';
+	    temp+='<li class="li_'+temp_class+'"> <a class="linklbl ls_label label ls_tooltip" href="http://'+t['likes'+i]+'" title="'+t['likes'+i]+'" target="_blank">'+t['likes'+i]+'</a><i class="icon-thumbs-down ls_tooltip" title="dislike '+t['likes'+i]+'" id="'+t['likes'+i]+'"></i></i>  <a target="_blank" href="http://www.facebook.com/sharer.php?u=http://'+t['likes'+i]+'"><i class="icon-facebook ls_tooltip" title="share it on facebook"></i><a target="_blank" href="http://twitter.com/home?status=Linksavers%20http://'+t['likes'+i]+'">  <i class="icon-twitter ls_tooltip" title="share it on twitter"></i> </li>';
 	}
 	$('.liked_site').html(temp);
 	
@@ -50,6 +53,16 @@ function user_details(user_name)
 	$('#a').text(t.count);
 	$('#b').text(t.like_count);
 	$('#c').text(t.cate_count);
+	
+			window.include=function(){function f(){b--;b||c()}var a=arguments,d=document,b=a.length,c;
+  arguments[b-1]instanceof Function?(b--,c=a[a.length-1]):c=function(){};
+  for(var e=0;e<b;e++)a=d.createElement("script"),a.src=arguments[e],a.onload=a.onerror=f,
+  (d.head||d.getElementsByTagName("head")[0]).appendChild(a)};
+//if(i==0){
+  include('js/tooltip_main_profile.js', function() {
+	
+  })
+	
 	$('.loader').css('display','none');
 	});   
 }

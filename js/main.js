@@ -14,7 +14,7 @@ var temp='<ul class="cd-switcher"><li><a href="#0">Add Category</a></li><li><a h
 temp+='<div id="cd-login"> <!-- add new category form -->	<p class="cd-form-message">Please enter your new category name</p>';
 temp+='	<form class="cd-form">	<p class="fieldset"><label class="image-replace " for="reset-email">Category Name</label>';
 temp+='<input class="full-width has-padding has-border" id="categoryname" type="text" placeholder="Category Name">';
-temp+='<span class="category_errmsg">Category Already Found</span></p><p class="fieldset">';
+temp+='<span class="category_errmsg">category length 1-15 characters</span></p><p class="fieldset">';
 temp+='<input class="full-width has-padding" type="submit"  id="newcategorybtn" value="Add">	</p></form>';
 temp+='	</div> <!-- cd-reset-password -->';
 
@@ -239,6 +239,7 @@ $('.cd-add_category').fadeIn(500);
 	
 	$('#new_category').click(function(){
 	var feedback=document.getElementById('search_category').value;
+	feedback=feedback.trim();
 	if(feedback){
 	//alert(feedback);
 	user_name=sessionStorage['mail'];
@@ -380,7 +381,7 @@ document.getElementById('categoryname').placeholder='This category already avail
 				var html3='	<div class="ls_example" pid="'+category_name+'" >';
 				html3+='<nav class="cl-effect-'+design_collection[random]+'"> <a href="#" class="confirm"  id="'+category_name+'" ';
 				html3+='class="box" data-tooltip=""><span data-hover=" &nbsp; '+category_name+'">'+category_name+'</span></a></nav></div>';
-				$('body').append(html3);
+				$('.ls_mine').append(html3);
 
 				 $('.errmsg').css('display','none');
 				 document.getElementById('categoryname').value='';
@@ -420,7 +421,7 @@ document.getElementById('categoryname').placeholder='This category already avail
   else{
  // alert('no');
  
- $('.category_errmsg').html('Please enter valid category name');
+ $('.category_errmsg').html('Please enter category name between 2-15 characters');
  $('.category_errmsg').css('display','block');
  $('.category_errmsg').css('color','red');
   }

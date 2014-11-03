@@ -132,7 +132,7 @@ $('#site_c').text(sessionStorage['site_cnt']);
 
 
  $('.'+categoryname+'err').addClass('alert-info'); 
-$('.'+categoryname).append('<li> <a class="ls_label" href="http://'+sitename+'" target="_blank">'+sitename+'</a> <i class="icon-ban-circle" id="'+sitename+'" uid='+categoryname+' title="report'+sitename+'"></i> <i class="icon-thumbs-up" id="'+sitename+'" uid='+categoryname+' title="like'+sitename+'"></i><a target="_blank" href="http://www.facebook.com/sharer.php?u=http://'+sitename+'"><i class="icon-facebook" title="share it on facebook"></i></a><a target="_blank" href="http://twitter.com/home?status=Linksavers%20http://'+sitename+'"> <i class="icon-twitter" title="share it on twitter"></i></a></li>');
+$('.'+categoryname).append('<li> <a class="ls_label label" href="http://'+sitename+'" target="_blank">'+sitename+'</a> <i class="icon-ban-circle" id="'+sitename+'" uid='+categoryname+' title="report'+sitename+'"></i> <i class="icon-thumbs-up" id="'+sitename+'" uid='+categoryname+' title="like'+sitename+'"></i><a target="_blank" href="http://www.facebook.com/sharer.php?u=http://'+sitename+'"><i class="icon-facebook" title="share it on facebook"></i></a><a target="_blank" href="http://twitter.com/home?status=Linksavers%20http://'+sitename+'"> <i class="icon-twitter" title="share it on twitter"></i></a></li>');
 $('.'+categoryname+'err').html('your link added successfully');
 $('.'+categoryname+'err').css('display','block');
 $('.loader').css('display','none');
@@ -343,14 +343,17 @@ function addsite(categoryname){
 $('.'+categoryname+'err').removeClass('alert-info');
 $('.'+categoryname+'err').removeClass('alert-danger');
 var sitename=document.getElementById(categoryname+'text').value;
+sitename=sitename.trim();
 sitename=sitename.replace(/ /g,'');
-
+sitename=sitename.replace(/https:\/\//g,'');
+sitename=sitename.replace(/http:\/\//g,'');
+sitename=sitename.replace(/www./g,'');
+alert(sitename);
+sitename='www.'+sitename;
 //t[i]=t[i].replace(/\\/g,'');
 
-
-sitename=sitename.substring(sitename.indexOf("www."));
-
 //alert(sitename);
+//sitename=sitename.substring(sitename.indexOf("www."));
 
 if(sitename.length>5){
 var visible=document.getElementById(categoryname+'visible').value;

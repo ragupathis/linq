@@ -86,9 +86,10 @@ $(document).ready(function(){
 
 if(sessionStorage['hash']){
 //$('.username').html('<span class="icon-user"></span> &nbsp; '+ sessionStorage['mail']);
+document.getElementById('pro_name').innerHTML='Welcome '+sessionStorage['screen_name']+'<i class="icon-user-md"></i>';
 user_details(sessionStorage['mail']);
 }else{
-window.location='menu.html';
+window.location='index.html';
 }
 });
 
@@ -158,7 +159,7 @@ sessionStorage['screen_name']='';
 if(sessionStorage['status_code']==='second_login'){
 sessionStorage['status_code']='logout_first';
 }
-window.location='menu.html';
+window.location='index.html';
 }else{
 
 }

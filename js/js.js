@@ -14,7 +14,7 @@ function user_login(user_name,user_password){
 	    sessionStorage['hash']=t['hash'];
 	    sessionStorage['mail']=t['mail'];
 		sessionStorage['status_code']='first_login';
-	    window.location='menu.html';}
+	    window.location='index.html';}
 		else{
 		//console.log('false');
 	//	document.getElementById('mailid').value='';
@@ -179,7 +179,7 @@ function user_register(screen_name,mailid,password){
 	    sessionStorage['mail']=t['mail'];
 		sessionStorage['screen_name']=t['screen_name'];
 		sessionStorage['status_code']='first_login';
-	    window.location='menu.html';
+	    window.location='index.html';
 		}
 	});  
 

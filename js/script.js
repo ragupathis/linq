@@ -28,9 +28,9 @@ function display_link_count(userid){
 	
 	
 	   var text_val='<div class="accordion span3 place-left margin10" data-role="accordion" data-closeany="false">';
-text_val+='<div class="accordion-frame"><a class="heading ribbed-blue fg-white" href="profile_menu.html">added link count :<span id="site_c">'+sessionStorage['site_cnt']+'</span></a></div>	';
-text_val+='<div class="accordion-frame"><a class="heading ribbed-blue fg-white" href="profile_menu.html">you liked link count :<span id="like_c">'+sessionStorage['like_cnt']+'</span></div>';
-text_val+='<div class="accordion-frame"><a class="heading ribbed-blue   fg-white" href="profile_menu.html">you added category :<span id="cate_c">'+sessionStorage['cate_cnt']+'</span></div>';
+text_val+='<div class="accordion-frame"><a class="heading ribbed-blue fg-white" href="profile.html">added link count :<span id="site_c">'+sessionStorage['site_cnt']+'</span></a></div>	';
+text_val+='<div class="accordion-frame"><a class="heading ribbed-blue fg-white" href="profile.html">you liked link count :<span id="like_c">'+sessionStorage['like_cnt']+'</span></div>';
+text_val+='<div class="accordion-frame"><a class="heading ribbed-blue   fg-white" href="profile.html">you added category :<span id="cate_c">'+sessionStorage['cate_cnt']+'</span></div>';
 text_val+='<div class="accordion-frame"><a class="heading ribbed-blue   fg-white" href="help.html">Help</div><div class="accordion-frame"><a class="heading ribbed-blue   fg-white" href="team.html">About</div></div>';
  
 	
@@ -103,7 +103,7 @@ var temp="";
 		sessionStorage['mail']=t['mail'];
 		sessionStorage['screen_name']=t['screen_name'];
 		sessionStorage['status_code']='first_login';
-		window.location='menu.html';
+		window.location='index.html';
 	}
 	 if((t['response'])==='olduser'){
 	 $('.already').css('display','block');
@@ -136,6 +136,8 @@ $('.'+categoryname).append('<li> <a class="ls_label label" href="http://'+sitena
 $('.'+categoryname+'err').html('your link added successfully');
 $('.'+categoryname+'err').css('display','block');
 $('.loader').css('display','none');
+document.getElementById(categoryname+'text').value='';
+
 }else{
 $('.'+categoryname+'err').html('Error !!! Sorry try again');
 $('.'+categoryname+'err').css('display','block');
@@ -156,6 +158,7 @@ $('.'+categoryname).append('<li> <a class="ls_label" href="http://'+sitename+'" 
 $('.'+categoryname+'err').html('link added successfully');
 $('.'+categoryname+'err').css('display','block');
 $('.loader').css('display','none');
+document.getElementById(categoryname+'text').value='';
 	}
 	}); 
 	
@@ -348,7 +351,7 @@ sitename=sitename.replace(/ /g,'');
 sitename=sitename.replace(/https:\/\//g,'');
 sitename=sitename.replace(/http:\/\//g,'');
 sitename=sitename.replace(/www./g,'');
-alert(sitename);
+//alert(sitename);
 sitename='www.'+sitename;
 //t[i]=t[i].replace(/\\/g,'');
 
@@ -469,7 +472,7 @@ sessionStorage['screen_name']='';
 if(sessionStorage['status_code']==='second_login'){
 sessionStorage['status_code']='logout_first';
 }
-window.location='menu.html';
+window.location='index.html';
 }else{
 
 }

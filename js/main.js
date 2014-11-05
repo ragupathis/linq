@@ -76,7 +76,7 @@ $('.forgeterr').html('your email id not registered');
 $('#ttt').click(function(event){
 
 //alert('ok');
-window.location="profile_menu.html";
+window.location="profile.html";
 event.preventDefault();
 });
 

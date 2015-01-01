@@ -42,6 +42,8 @@ decoration:none;  !important
 	-webkit-perspective: 1000px;
 	-moz-perspective: 1000px;
 	perspective: 1000px;
+	
+	text-align:center;
 }
 
 .cl-effect-2 a span {
@@ -58,6 +60,8 @@ decoration:none;  !important
 	-webkit-transform-style: preserve-3d;
 	-moz-transform-style: preserve-3d;
 	transform-style: preserve-3d;
+	width:200px;
+	text-align:center;
 }
 
 .csstransforms3d .cl-effect-2 a span::before {
@@ -97,6 +101,8 @@ decoration:none;  !important
 	color: #3b5998;
 	text-shadow: none;
 	font-weight: 700;
+	width:200px;		
+	text-align:center;
 }
 
 .cl-effect-7 a::before,
@@ -142,6 +148,8 @@ decoration:none;  !important
 .cl-effect-8 a {
 	padding: 10px 20px;
 	color:#3b5998;
+	width:200px;
+	text-align:center;
 }
 
 .cl-effect-8 a::before,
@@ -229,6 +237,8 @@ decoration:none;  !important
 	height: 45px;
 	line-height: 45px;
 	color:#3b5998;
+	width:200px;
+	text-align:center;
 }
 
 .cl-effect-14 a::before,
@@ -272,7 +282,7 @@ decoration:none;  !important
 .cl-effect-14 a:focus::before,
 .cl-effect-14 a:focus::after {
 	opacity: 1;
-	width:65px;
+	width:145px;
 }
 
 .cl-effect-14 a:hover::before,
@@ -299,6 +309,7 @@ decoration:none;  !important
 	-moz-perspective: 800px;
 	perspective: 800px;
 	width: 200px;
+	text-align:center;
 }
 
 .cl-effect-19 a span {
@@ -354,9 +365,13 @@ decoration:none;  !important
 /* Effect 20: 3D side */
 .cl-effect-20 a {
 	line-height: 2em;
+	
 	-webkit-perspective: 800px;
 	-moz-perspective: 800px;
 	perspective: 800px;
+	width:200px;
+	
+	
 }
 
 .cl-effect-20 a span {
@@ -377,6 +392,8 @@ decoration:none;  !important
 	-webkit-transform-origin: 0% 50%;
 	-moz-transform-origin: 0% 50%;
 	transform-origin: 0% 50%;
+	width:200px;
+	text-align:center;
 }
 
 .cl-effect-20 a span::before {
@@ -385,8 +402,8 @@ decoration:none;  !important
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background: #fff;
-	color: #2f4351;
+	background: #8b9dc3;
+	color: white;
 	content: attr(data-hover);
 	-webkit-transform: rotateX(270deg);
 	-moz-transform: rotateX(270deg);
@@ -398,6 +415,7 @@ decoration:none;  !important
 	-moz-transform-origin: 0 0;
 	transform-origin: 0 0;
 	pointer-events: none;
+	z-index:9998;
 }
 
 .cl-effect-20 a:hover span,

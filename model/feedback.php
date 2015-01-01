@@ -16,12 +16,14 @@ $datetime='';
 
 $sql="INSERT INTO `feedback`(`user`,`feedback`,`datetime`) VALUES (?,?,? )";
 
+$my_t=getdate(date("U"));
+$info=("$my_t[mday]-$my_t[mon]-$my_t[year] $my_t[hours]:$my_t[minutes]");
 
 
 	
 	if($stmt = $mysqli -> prepare($sql)) {
 		
-		$stmt -> bind_param('sss', $user_name,$feedback,$datetime);
+		$stmt -> bind_param('sss', $user_name,$feedback,$info);
 		
 		$stmt -> execute();
 		$stmt -> close();

@@ -79,6 +79,15 @@ color:blue;
 .first_td{
 width:65%;
 }
+.loader_img{
+width:60%;
+margin-left:20%;
+}
+
+.like_c,.site_c,.cate_c{
+padding:0 1% ;
+background-color:#8b9dc3;
+}
 
 .icon-eye-open{
 cursor:default !important ;

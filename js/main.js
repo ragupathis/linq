@@ -1,34 +1,7 @@
-var flag_value=0,temp_flag=0,category_available=0,feedback_flag;
+var flag_value=0,flag_value1=0,flag_value2=0,flag_value3=0,temp_flag=0,category_available=0,feedback_flag;
 
 
-if(sessionStorage['hash']){
-// for menu changes inn dynamic 
-var menu_temp='<ul><li><a href="#0" id="ttt" class="cd-profile">'+sessionStorage['screen_name']+'<i class="icon-user-md"></i></a></li>';
-menu_temp+='<li><a  href="#0" class="cd-signin" id="in">Sign in</a></li><li><a class="cd-signup" href="#0" id="out">Sign up</a></li>';
-menu_temp+='<li><a  href="#0" id="logout" class="cd-signout">Sign Out<i class="icon-off"></i></a></li></ul>';
-$('.main-nav').html(menu_temp);
-document.getElementById('in').innerHTML="add category<i class='icon-plus'></i>";
-document.getElementById('out').innerHTML="feedback<i class='icon-envelope'></i>";
 
-var temp='<ul class="cd-switcher"><li><a href="#0">Add Category</a></li><li><a href="#0">Feedback</a></li>	</ul>';
-temp+='<div id="cd-login"> <!-- add new category form -->	<p class="cd-form-message">Please enter your new category name</p>';
-temp+='	<form class="cd-form">	<p class="fieldset"><label class="image-replace " for="reset-email">Category Name</label>';
-temp+='<input class="full-width has-padding has-border" id="categoryname" type="text" placeholder="Category Name">';
-temp+='<span class="category_errmsg">category length 2-15 characters</span></p><p class="fieldset">';
-temp+='<input class="full-width has-padding" type="submit"  id="newcategorybtn" value="Add">	</p></form>';
-temp+='	</div> <!-- cd-reset-password -->';
-
-temp+='<div id="cd-signup"> <!-- add new category form -->	<p class="cd-form-message">Please Give Your Valuable Feedback</p>';
-temp+='	<form class="cd-form">	<p class="fieldset"><label class="image-replace " for="reset-email">Feedback</label>';
-temp+='<input class="full-width has-padding has-border" id="search_category" type="text" placeholder="Please Give Your Valuable Feedback">';
-temp+='<span class="feedbackerr">Please enter valid feedback here</span></p><p class="fieldset">';
-temp+='<input class="full-width has-padding" type="submit" id="new_category" value="Send">	</p></form>';
-temp+='	</div> <!-- cd-reset-password -->';
-$('.cd-user-modal-container').html(temp);
-
- //menu_temp='<li><a class="cd-signu" href="#0" id="ttt">Profile</a></li></ul>';
-//$('.main-nav').html(menu_temp);
-}
 
 function send_feedback(user_name,feedback){
 
@@ -67,6 +40,7 @@ $('.forgeterr').html('We sent password');
 	}else{
 		
 $('.forgeterr').css('display','block');
+$('.forgeterr').css('color','red');
 $('.forgeterr').html('your email id not registered');
 
 	}
@@ -80,7 +54,19 @@ window.location="profile.html";
 event.preventDefault();
 });
 
+$('#ttt1').click(function(event){
 
+//alert('ok');
+window.location="street.html";
+event.preventDefault();
+});
+
+$('#ttt2').click(function(event){
+
+//alert('ok');
+window.location="user_list.html";
+event.preventDefault();
+});
 
 $('#reset_pwd').click(function(event){
 var reset_email=document.getElementById('reset-email').value;
@@ -91,7 +77,9 @@ $('.forgeterr').css('display','none');
 
 }else{
 $('.forgeterr').css('display','block');
+$('.forgeterr').css('color','red');
 $('.forgeterr').html('Please enter email id');
+
 }
 });
 
@@ -116,10 +104,11 @@ jQuery(document).ready(function($){
 	//open modal
 	$main_nav.on('click', function(event){
 
-if(flag_value===0){
+if(flag_value===0 & flag_value1===0 & flag_value2===0 & flag_value3===0){
 		if( $(event.target).is($main_nav) ) {
 			// on mobile open the submenu
 			$(this).children('ul').toggleClass('is-visible');
+			//$('#mailid').focus();
 			
 		} else {
 			// on mobile close submenu
@@ -128,7 +117,7 @@ if(flag_value===0){
 			$form_modal.addClass('is-visible');	
 			//show the selected form
 			( $(event.target).is('.cd-signup') ) ? signup_selected() : login_selected();
-	
+			$('#mailid').focus();
 		}
 }
 	});
@@ -138,6 +127,32 @@ flag_value=1;
 });	
 	$('#ttt').mouseout(function(){
 flag_value=0;
+
+});	
+	
+		$('#ttt1').mouseover(function(){
+flag_value1=1;
+});	
+	$('#ttt1').mouseout(function(){
+flag_value1=0;
+
+});	
+
+	
+		$('#ttt2').mouseover(function(){
+flag_value2=1;
+});	
+	$('#ttt2').mouseout(function(){
+flag_value2=0;
+
+});	
+
+
+		$('.ttt3').mouseover(function(){
+flag_value3=1;
+});	
+	$('.ttt3').mouseout(function(){
+flag_value3=0;
 
 });	
 	
@@ -238,11 +253,14 @@ $('.cd-add_category').fadeIn(500);
 	
 	
 	$('#new_category').click(function(){
+	
+	$('#new_category').val('Please Wait...');
 	var feedback=document.getElementById('search_category').value;
 	feedback=feedback.trim();
 	if(feedback){
 	//alert(feedback);
-	user_name=sessionStorage['mail'];
+	user_name=localStorage.mail;
+	//user_name=sessionStorage['mail'];
 	send_feedback(user_name,feedback);
 	$form_modal.removeClass('is-visible');
 	//$.bootbar.success("<p align='center'>Thanks for your feedback.</p>");
@@ -255,6 +273,7 @@ $('.cd-add_category').fadeIn(500);
 	
 	}
 	else{
+	$('#new_category').val('Send');
 	//alert('sry');
 	$('.feedbackerr').css('display','block');
 	$('.feedbackerr').css('color','red');
@@ -262,6 +281,7 @@ $('.cd-add_category').fadeIn(500);
 	});
 
 $("#newcategorybtn").click(function(){
+			$("#newcategorybtn").val('Please Wait ...');
 			add_new_category()
 			if(temp_flag==1){
 			$form_modal.removeClass('is-visible');
@@ -274,7 +294,7 @@ $("#newcategorybtn").click(function(){
 $('#categoryname').keypress(function(e) {
 	if (e.which == '13') {
 		 e.preventDefault();
-
+$("#newcategorybtn").val('Please Wait ...');
 		add_new_category()
 			if(temp_flag==1){
 			$form_modal.removeClass('is-visible');
@@ -285,7 +305,7 @@ $('#categoryname').keypress(function(e) {
 	}
 	});
 
-if(sessionStorage['hash']){
+if(localStorage.hash){
 
 
 //alert('login');
@@ -302,7 +322,7 @@ panel+='<a class="heading ribbed-blue fg-white" href="#">Free to use</a>  </div>
 panel+='<a class="heading  ribbed-blue fg-white" href="#">Save private links</a>  </div> <div class="accordion-frame">';
 panel+='<a class="heading ribbed-blue fg-white" href="#">like others link</a> </div> ';
 panel+=' <div class="accordion-frame"><a class="heading ribbed-blue fg-white" href="help.html">Help</a> </div> ';
-panel+=' <div class="accordion-frame"><a class="heading ribbed-blue fg-white" href="team.html">About</a> </div> ';
+
 $('.cornertext').html(panel);
 
 $('.cornertextsmall').html(panel);
@@ -341,14 +361,16 @@ category_name=category_name.replace(" ","_");
 temp_flag=0;
 $('.category_errmsg').html('Please remove invalid characters !');
  $('.category_errmsg').css('display','block');
+ $("#newcategorybtn").val('Add');
 			}
 			else{	
 
 
-for(inc=1;inc<=sessionStorage['category_count'];inc++){
+for(inc=1;inc<=localStorage.category_count;inc++){
 
 //console.log(sessionStorage['category'+[inc]]);
-if(category_name.toUpperCase()===sessionStorage['category'+[inc]].toUpperCase()){
+//alert(localStorage['category'+[inc]].toUpperCase());
+if(category_name.toUpperCase()===localStorage['category'+[inc]].toUpperCase()){	
 category_available='true';
 
 }else{
@@ -362,7 +384,7 @@ if(category_available==='true')
 category_available=0;
 //document.getElementById('categoryname').value='';
 document.getElementById('categoryname').placeholder='This category already available ';
-
+$("#newcategorybtn").val('Add');
  $('.category_errmsg').html('category name already found');
  $('.category_errmsg').css('display','block');
  
@@ -374,9 +396,12 @@ document.getElementById('categoryname').placeholder='This category already avail
 			category_available=0;
 			//sessionStorage['category_count']=(sessionStorage['category_count'])++;
 			//sessionStorage['category'+sessionStorage['category_count']]=category_name;
-			var by=sessionStorage['mail'];
+			var by=localStorage.mail;
 			add_category_db(category_name,by);
 			$.bootbar.success("<p align='center'>add sites to new category.</p>");
+			localStorage.cate_cnt=parseInt(localStorage.cate_cnt)+1;
+			$('.cate_c').html(localStorage.cate_cnt);
+			
 			temp_flag=1;
 				var html3='	<div class="ls_example" pid="'+category_name+'" >';
 				html3+='<nav class="cl-effect-'+design_collection[random]+'"> <a href="#" class="confirm"  id="'+category_name+'" ';
@@ -385,7 +410,7 @@ document.getElementById('categoryname').placeholder='This category already avail
 
 				 $('.errmsg').css('display','none');
 				 document.getElementById('categoryname').value='';
-			var html= '<div class="ls_demo">'+category_name+' <hr><div class="ls_content">	<ul class="'+category_name+'">';
+			var html= '<div class="ls_demo">'+category_name+'<i class="icon-remove scnt"></i> <hr><div class="ls_content">	<ul class="'+category_name+'">';
 	html+='</ul></div>';
 	// code to generate add site feature to account holders  - start
 
@@ -424,6 +449,7 @@ document.getElementById('categoryname').placeholder='This category already avail
  $('.category_errmsg').html('Please enter category name between 2-15 characters');
  $('.category_errmsg').css('display','block');
  $('.category_errmsg').css('color','red');
+ $("#newcategorybtn").val('Add');
   }
   }
  
@@ -433,7 +459,7 @@ return true;
 }
 
 
-function add_category_db(user_name,new_category){
+function add_category_db(new_category,user_name){
 //console.log(user_name);
 //console.log(new_category);
 
@@ -444,12 +470,12 @@ function add_category_db(user_name,new_category){
    	}).done(function(result) {
 	    result = result.substring(2, result.length - 1);
         var t = JSON.parse(result);	
-	    
+	    $("#newcategorybtn").val('Add');
 		//console.log(t['status']);
 		if(t['status']==='true'){
 		//console.log('true'); 
-		sessionStorage['cate_cnt']=parseInt(sessionStorage['cate_cnt'])+1;
-	  $('#cate_c').text(sessionStorage['cate_cnt']);
+		localStorage.cate_cnt=parseInt(localStorage.cate_cnt)+1;
+	  $('#cate_c').text(localStorage.cate_cnt);
 		}
 		else{
 		//console.log('false');

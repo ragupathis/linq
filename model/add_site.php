@@ -1,12 +1,15 @@
  <?php
 	include('header.php');
-	
+	define("PBKDF2_HASH_ALGORITHM", "sha512");
 $site=$_POST['sitename'];
 $category=$_POST['category'];
 $visible=$_POST['visible'];
 $result= array();	
 
 $by=$_POST['user_name'];
+$user_name=$by;
+$hashval=hash(PBKDF2_HASH_ALGORITHM, $user_name);
+$site_c=0;
 $mysqli = new mysqli($hostname, $username, $password, $database);
 	if(mysqli_connect_errno()) {
       echo "Connection Failed: " . mysqli_connect_errno();
@@ -15,6 +18,9 @@ $mysqli = new mysqli($hostname, $username, $password, $database);
  
    }
    
+   $my_t=getdate(date("U"));
+$info=("$my_t[mday]-$my_t[mon]-$my_t[year] $my_t[hours]:$my_t[minutes]");
+
    
    $homepage = file_get_contents('http://'.$site);
 
@@ -25,13 +31,37 @@ $para=html_entity_decode(strip_tags($para,''));
 
 $desc=$para;
 	
-	$sql="INSERT INTO `sitelist`(`sitename`,`description`,`category`,`by`,`visible`) VALUES (?,?,?,?,? )";
+	$sql="INSERT INTO `sitelist`(`sitename`,`description`,`category`,`by`,`visible`,`datetime`) VALUES (?,?,?,?,?,? )";
 	
+	$sql1 = "SELECT `site_count` from `userdetails` where `hash` =?";
 	
+	$sql2="UPDATE `userdetails` SET `site_count`=? WHERE `hash`=?";
 	
-	
+	 if($stmt = $mysqli -> prepare($sql1)) 
+	  {
+		  $stmt -> bind_param('s', $hashval);
+		  $stmt -> execute();
+		  $stmt -> bind_result($res1);
+		  $stmt -> fetch();
+		  $stmt -> close();
+		  $site_c=$res1;
+		  $site_c=$site_c+1;
+	  }
+		  
+		  
+	 if($stmt = $mysqli -> prepare($sql2)) 
+	  {
+		  $stmt -> bind_param('ss', $site_c,$hashval);
+		  $stmt -> execute();
+		  
+		  $stmt -> fetch();
+		  $stmt -> close();
+		  
+	  }
+		  
+		
 	  if($stmt = $mysqli -> prepare($sql)) {
-			$stmt->bind_param('sssss', $site,$desc,$category, $by,$visible);
+			$stmt->bind_param('ssssss', $site,$desc,$category, $by,$visible,$info);
 			$stmt->execute();
 			$result['status']='true';
 			if ($stmt->errno) {
@@ -42,7 +72,7 @@ $desc=$para;
 			
 			
 	  }else {
-		echo "fail";
+	//	echo "fail";
 	  }
 	  
 

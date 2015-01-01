@@ -23,6 +23,13 @@ $mysqli = new mysqli($hostname, $username, $password, $database);
 	$sql6="SELECT  count(  `sitename`) FROM `likedsites` WHERE `by`=?";
 	$sql7="SELECT   `sitename` FROM `likedsites` WHERE `by`=?";	
 	
+	$sql8="SELECT  count( `to`) FROM `followers_list` WHERE `by`=?";
+	$sql9="SELECT   `to`,`to_screen_name` FROM `followers_list` WHERE `by`=?";	
+	
+	$sql10="SELECT  count(  `by`) FROM `followers_list` WHERE `to`=?";
+	$sql11="SELECT   `by`,`by_screen_name` FROM `followers_list` WHERE `to`=?";	
+	
+	
 	
 	/*
 	if($stmt1 = $mysqli -> prepare($sql3)) 
@@ -143,7 +150,79 @@ $mysqli = new mysqli($hostname, $username, $password, $database);
 	
 		
 	}else{
-	echo "sry";
+//	echo "sry";
+	}
+	
+	if($stmt1 = $mysqli -> prepare($sql8)) 
+	{	
+		
+		$stmt1 -> bind_param('s', $by);
+		$stmt1 -> execute();
+		
+		$stmt1 -> bind_result($count);
+		$stmt1 -> fetch();
+		$sitename['by_count']=$count;
+		$stmt1 -> close();	
+		
+	
+		
+	}else{ echo "u"; }
+	
+	if($stmt1 = $mysqli -> prepare($sql9)) 
+	{	
+		
+		$stmt1 -> bind_param('s', $by);
+		$stmt1 -> execute();
+		for($i=1;$i<=$count;$i++){
+		$stmt1 -> bind_result($usr,$usr_name);
+		$stmt1 -> fetch();
+		 $sitename['by'.$i]=$usr;
+		 $sitename['byname'.$i]=$usr_name;
+		}
+		$stmt1 -> close();	
+		//echo $sitename1;
+	
+	
+		
+	}else{
+//	echo "sry";
+	}
+	
+	if($stmt1 = $mysqli -> prepare($sql10)) 
+	{	
+		
+		$stmt1 -> bind_param('s', $by);
+		$stmt1 -> execute();
+		
+		$stmt1 -> bind_result($count);
+		$stmt1 -> fetch();
+		$sitename['to_count']=$count;
+		$stmt1 -> close();	
+		
+	
+		
+	}else{
+	//echo "u"; 
+	}
+	
+	if($stmt1 = $mysqli -> prepare($sql11)) 
+	{	
+		
+		$stmt1 -> bind_param('s', $by);
+		$stmt1 -> execute();
+		for($i=1;$i<=$count;$i++){
+		$stmt1 -> bind_result($tousr,$tousr_name);
+		$stmt1 -> fetch();
+		 $sitename['to'.$i]=$tousr;
+		 $sitename['toname'.$i]=$tousr_name;
+		}
+		$stmt1 -> close();	
+		//echo $sitename1;
+	
+	
+		
+	}else{
+//	echo "sry";
 	}
 
 	echo var_export(json_encode($sitename)); 

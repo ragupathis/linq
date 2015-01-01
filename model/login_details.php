@@ -16,15 +16,19 @@ $response=0;
 //$sql = "SELECT `hash` from `userdetails` where `hash` =?";
 //$sql1="INSERT INTO `userdetails`(`user_name`,`hash`) VALUES (?,? )";
 
-$sql2="INSERT INTO `useranalyst`(`user_name`,`hash`,`ip_address`) VALUES (?,?,? )";
+$sql2="INSERT INTO `useranalyst`(`user_name`,`hash`,`ip_address`,`datetime`) VALUES (?,?,?,? )";
 $sql3="SELECT `screen_name` from `userdetails` where `hash`=?";
+
+$my_t=getdate(date("U"));
+$info=("$my_t[mday]-$my_t[mon]-$my_t[year] $my_t[hours]:$my_t[minutes]");
+
 
 if($password!=''){
 		
 			$cryptKey  = 'qJB0rGaetTREUB1xGUVI05fyCp';
 			$password  = base64_encode( mcrypt_encrypt( MCRYPT_RIJNDAEL_256, md5( $cryptKey ), $password, MCRYPT_MODE_CBC, md5( md5( $cryptKey ) ) ) );
 
-			$sql = "SELECT count(*) from `userdetails` where `hash`=? AND `password`=?";
+			$sql = "SELECT count(*),`verified` from `userdetails` where `hash`=? AND `password`=?";
 		
 	}else{ 
 		$sql = "SELECT count(*) from userdetails where userid=?";
@@ -43,51 +47,28 @@ if($password!=''){
 
 		//var_dump($sql);
 		$stmt -> execute();
-		$stmt -> bind_result($response);
+		$stmt -> bind_result($response,$verified_resp);
 		$stmt -> fetch();
 		$stmt -> close();
 		
 		}
-if($response==1){
+if($response==1 ){
 
   
 				$result['hash'] = $hashval;
 				$result['mail'] = $user_name;	
 
-	/*  if($stmt = $mysqli -> prepare($sql)) 
-	//echo "success";
-	  {
-		  $stmt -> bind_param('s', $hashval);
-		  $stmt -> execute();
-		  $stmt -> bind_result($res1);
-		  $stmt -> fetch();
-		  $stmt -> close();
-		  
-		
-		
-		if(empty($res1))
-		{		*/
+			if($verified_resp=='yes'){
 			
 			$result['status']='yes';
-			/*if($stmt = $mysqli -> prepare($sql1)) {
-				  $stmt -> bind_param('ss',$user_name,$hashval);
-				  $stmt -> execute();
-				  $stmt -> close();
-				
-				
-				//echo var_export(json_encode($result));
-				//echo($hashval);				  
-			}
-			else{
-			$result['hash']=$res1;
-			$result['mail'] = $user_name;	
-			}		
-		*/
-		
-		
+			
+		}else{
+		$result['status']='yet';
+		}
+
 			if($stmt = $mysqli -> prepare($sql2)) 
 			{
-			  $stmt -> bind_param('sss',$user_name,$hashval,$ip);
+			  $stmt -> bind_param('ssss',$user_name,$hashval,$ip,$info);
 			  $stmt -> execute();
 			  $stmt -> close();	
 			}
@@ -108,7 +89,7 @@ if($response==1){
 	  }
 	  else
 	  {
-	   echo "Error fetching user info";
+	//   echo "Error fetching user info";
 	  }
 	echo var_export(json_encode($result));
 ?>

@@ -17,11 +17,14 @@ $mysqli = new mysqli($hostname, $username, $password, $database);
  
    }
 	
-	$sql="INSERT INTO `likedsites`(`sitename`,`by`) VALUES (?,? )";
+	$sql="INSERT INTO `likedsites`(`sitename`,`by`,`datetime`) VALUES (?,?,? )";
 	$sql1="UPDATE sitelist SET `likes`=? where `sitename`=?";
 	$sql2="SELECT `likes` FROM `sitelist` where `sitename`=?";
 	$sql3="SELECT `by` FROM `likedsites` where `sitename`=? and `by`=?";
 	
+	$my_t=getdate(date("U"));
+$info=("$my_t[mday]-$my_t[mon]-$my_t[year] $my_t[hours]:$my_t[minutes]");
+
 	
 	
 	if($stmt1 = $mysqli -> prepare($sql3)) 
@@ -60,7 +63,7 @@ $mysqli = new mysqli($hostname, $username, $password, $database);
 	$like_count++;
 	
 	  if($stmt = $mysqli -> prepare($sql)) {
-			$stmt->bind_param('ss', $site, $by);
+			$stmt->bind_param('sss', $site, $by,$info);
 			$stmt->execute();
 			if ($stmt->errno) {
 			  echo "FAILURE!!! " . $stmt->error();

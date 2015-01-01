@@ -7,19 +7,34 @@ function user_login(user_name,user_password){
    	}).done(function(result) {
 	    result = result.substring(1, result.length - 1);
         var t = JSON.parse(result);	
+		$('#signin').val('Login');
 	    //console.log(t['hash']);
 		//console.log(t['screen_name']);
 		if(t['status']==='yes'){
-		sessionStorage['screen_name']=t['screen_name'];
+		localStorage.screen_name=t['screen_name'];
+		localStorage.hash=t['hash'];
+		localStorage.mail=t['mail'];
+		localStorage.status_code='first_login';
+		
+		/*sessionStorage['screen_name']=t['screen_name'];
 	    sessionStorage['hash']=t['hash'];
 	    sessionStorage['mail']=t['mail'];
-		sessionStorage['status_code']='first_login';
+		sessionStorage['status_code']='first_login';*/
 	    window.location='index.html';}
+		else if(t['status']==='yet'){
+			$('.signinerr').css('display','block');
+			$('.signinerr').html('please verify your mail');
+		//document.getElementById('mailid').placeholder='please enter valid mail id';
+		//document.getElementById('signin-password').placeholder='please enter valid password';
+	
+		
+		}
 		else{
 		//console.log('false');
 	//	document.getElementById('mailid').value='';
 	//	document.getElementById('signin-password').value='';
 		$('.signinerr').css('display','block');
+		$('.signinerr').html('please check username and password');
 		document.getElementById('mailid').placeholder='please enter valid mail id';
 		document.getElementById('signin-password').placeholder='please enter valid password';
 	
@@ -33,6 +48,7 @@ function user_login(user_name,user_password){
 		
 $(document.body).on('mousedown','#signin',function(){
 		//	alert('k');
+		$('#signin').val('Please Wait...');
 	user_check();
 });
 
@@ -40,7 +56,7 @@ $(document.body).on('mousedown','#signin',function(){
 $('#signin-password').keypress(function(e) {
 	if (e.which == '13') {
 		 e.preventDefault();
-
+$('#signin').val('Please Wait...');
 		 user_check();
 	}
 	});
@@ -54,14 +70,14 @@ $('#signin-password').keypress(function(e) {
 	});
 
 $(document.body).on('mousedown','#signup',function(){
-
+$('signup').val('Please Wait...');
 add_user();
 });
 
 $('#signup-password').keypress(function(e) {
 	if (e.which == '13') {
 		 e.preventDefault();
-
+$('signup').val('Please Wait...');
 		 add_user();
 	}
 	});
@@ -69,7 +85,7 @@ $('#signup-password').keypress(function(e) {
 $('#signup-email').keypress(function(e) {
 	if (e.which == '13') {
 		 e.preventDefault();
-
+$('signup').val('Please Wait...');
 		 add_user();
 	}
 	});
@@ -77,7 +93,7 @@ $('#signup-email').keypress(function(e) {
 $('#signup-username').keypress(function(e) {
 	if (e.which == '13') {
 		 e.preventDefault();
-
+$('signup').val('Please Wait...');
 		 add_user();
 	}
 	});
@@ -149,6 +165,7 @@ function user_check(){
 		//document.getElementById('mailid').placeholder='please enter valid mail id';
 		//document.getElementById('signin-password').placeholder='please enter valid password';
 		$('.signinerr').css('display','block');
+		$('#signin').val('Login');
 	}else{
 		user_login(user_name,user_password);
 	//	$( this ).dialog( "close" );
@@ -165,6 +182,7 @@ function user_register(screen_name,mailid,password){
    	}).done(function(result) {
 	    result = result.substring(1, result.length - 1);
         var t = JSON.parse(result);	
+		$('signup').val('Create account');
 	    //console.log(t['hash']);
 		if(t['response']==='olduser'){
 		
@@ -175,11 +193,12 @@ function user_register(screen_name,mailid,password){
 		$('.emailerr').css('display','block');
 		
 		}else{
-	    sessionStorage['hash']=t['hash'];
+		
+	    /*sessionStorage['hash']=t['hash'];
 	    sessionStorage['mail']=t['mail'];
 		sessionStorage['screen_name']=t['screen_name'];
-		sessionStorage['status_code']='first_login';
-	    window.location='index.html';
+		sessionStorage['status_code']='first_login';*/
+	    window.location='thanks.html';
 		}
 	});  
 

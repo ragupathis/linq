@@ -18,7 +18,7 @@ $mysqli = new mysqli($hostname, $username, $password, $database);
 	
 	
 	$sql3 ="SELECT  count(`category`) FROM `categories` where `added_by`=? or `added_by`=?" ;	
-	$sql4 ="SELECT   `category` FROM `categories` where `added_by`=? or `added_by`=? ";
+	$sql4 ="SELECT   `category` FROM `categories` where `added_by`=? or `added_by`=? ORDER BY status desc";
 	
 	
 	if($stmt1 = $mysqli -> prepare($sql3)) 

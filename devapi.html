@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/examples.css">
+<link rel="stylesheet" href="css/darktooltip.css">
+<link href="css/font-awesome.css" rel="stylesheet">
+
+
+<link rel="stylesheet" type="text/css" href="css/link/component.css" />
+<link href="css/main.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+
+   
+		<link rel="stylesheet" type="text/css" href="css/content.css" />
+		 
+		<script src="js/jquery-1.10.2.min.js"></script>
+		<script src="js/modernizr.custom.js"></script>
+
+
+<link rel="stylesheet" href="css/bootbar.css">
+  <link href="css/metro-bootstrap1.css" rel="stylesheet">
+ 
+	
+	<link rel="stylesheet" href="css/reset_menu.css"> <!-- CSS reset -->
+	<link rel="stylesheet" href="css/style_menu.css"> <!-- Gem style -->
+<link rel="stylesheet" href="css/main1.css">	
+	<script src="js/modernizr.js"></script> <!-- Modernizr -->
+	<link rel="icon" href="img/logo.jpg" type="image/ico" >
+<title>linksavers - social bookmarking network - save and share your links</title>
+</head>
+
+<style>
+.ls_active{
+z-index:15000;
+opacity:1;
+}
+footer{
+background-color:#3b5998;
+height:40px;
+color:white;
+margin-top:13%;
+}
+footer p{
+text-align:center;
+padding-top:1%;
+}
+.ls_removeopacity{
+opacity:0.4;
+}
+#afterlogin{
+display:none;
+}
+.or{
+margin-left:20%;
+}
+.btn1{
+position:absolute;
+}
+#vis{
+position:absolute;
+}
+#afterlogin{
+margin-left:10%;
+width:100%;
+}
+#ls_cate{
+
+width:150%;
+
+}
+tr a{
+color:#3b5998 !important;
+}
+</style>
+<header role="banner" >
+	
+		<div id="cd-logo"><a href="http://www.ragupathi.tk/"><img src="img/title1.png" alt="Logo"></a></div>
+
+		<nav class="main-nav">
+			<ul  id="menu_list">
+				<!-- inser more links here -->
+				<li><a class="cd-signin" href="#0" id="in">Sign in<i class="icon-signin"></i></a></li>
+
+				<li><a class="cd-signup" href="#0" id="out">Sign up<i class="icon-signout"></i></a></li>
+				
+			</ul>
+		</nav>
+	</header>
+<br><br><br> <br>
+	<div class="cd-user-modal"> <!-- this is the entire modal form, including the background -->
+		<div class="cd-user-modal-container"> <!-- this is the container wrapper -->
+			<ul class="cd-switcher">
+				<li><a href="#0">Sign in</a></li>
+				<li><a href="#0">New account</a></li>
+				
+			</ul>
+
+			<div id="cd-login"> <!-- log in form -->
+				<form class="cd-form">
+					<p class="fieldset">
+						<label class="image-replace cd-email" for="mailid">E-mail</label>
+						<input class="full-width has-padding has-border" id="mailid" type="email" placeholder="E-mail">
+					<!--	<span class="cd-error-message">Error message here!</span>-->
+					</p>
+
+					<p class="fieldset">
+						<label class="image-replace cd-password" for="signin-password">Password</label>
+						<input class="full-width has-padding has-border" id="signin-password" type="password"  placeholder="Password">
+						<a href="#0" class="hide-password">Show</a>
+						<span class="signinerr">Please check username and password</span>
+					</p>
+
+				
+					<p class="fieldset">
+						<input class="full-width" type="submit" value="Login" id="signin">
+					</p>
+				</form>
+				
+				<p class="cd-form-bottom-message"><a href="#0">Forgot your password?</a></p>
+				<!-- <a href="#0" class="cd-close-form">Close</a> -->
+			</div> <!-- cd-login -->
+
+			<div id="cd-signup"> <!-- sign up form -->
+				<form class="cd-form">
+					<p class="fieldset">
+						<label class="image-replace cd-username" for="signup-username">Username</label>
+						<input class="full-width has-padding has-border" id="signup-username" type="text" placeholder="Username" required>
+						<span class="usernameerr">Please enter atleast three characters</span>
+					</p>
+
+					<p class="fieldset">
+						<label class="image-replace cd-email" for="signup-email">E-mail</label>
+						<input class="full-width has-padding has-border" id="signup-email" type="email" placeholder="E-mail" required>
+						<span class="emailerr">Please enter valid mail id </span>
+					</p>
+
+					<p class="fieldset">
+						<label class="image-replace cd-password" for="signup-password">Password</label>
+						<input class="full-width has-padding has-border" id="signup-password" type="password"  placeholder="Password" required>
+						<a href="#0" class="hide-password">Show</a>
+						<span class="passworderr">Please enter atleast three characters!</span>
+					</p>
+
+					<p class="fieldset">
+						
+						<!--<label for="accept-terms">By Clicking the Create Account button you agreed to the <a href="#0" class="term">Terms</a></label>-->
+					</p>
+
+					<p class="fieldset">
+						<input class="full-width has-padding" type="submit" id="signup" value="Create account">
+					</p>
+				</form>
+
+				<!-- <a href="#0" class="cd-close-form">Close</a> -->
+			</div> <!-- cd-signup -->
+
+			<div id="cd-reset-password"> <!-- reset password form -->
+				<p class="cd-form-message">Lost your password? Please enter your email address. You will receive a password.</p>
+
+				<form class="cd-form">
+					<p class="fieldset">
+						<label class="image-replace cd-email" for="reset-email">E-mail</label>
+						<input class="full-width has-padding has-border" id="reset-email" type="email" placeholder="E-mail">
+						<span class="forgeterr"></span>
+					</p>
+
+					<p class="fieldset">
+						<input class="full-width has-padding" type="submit" id="reset_pwd" value="Reset password">
+					</p>
+				</form>
+
+				<p class="cd-form-bottom-message"><a href="#0">Back to log-in</a></p>
+			</div> <!-- cd-reset-password -->
+			
+			
+		
+			
+			
+			<a href="#0" class="cd-close-form">Close</a>
+		</div> <!-- cd-user-modal-container -->
+	</div> <!-- cd-user-modal -->
+	
+	<div class="user-modal1">
+		<div id="cd-add-category"> <!-- add new category form -->
+				<p class="cd-form-message">Please enter your new category name</p>
+
+				<form class="cd-form">
+					<p class="fieldset">
+						<label class="image-replace cd-email" for="reset-email">Category Name</label>
+						<input class="full-width has-padding has-border" id="reset-email" type="text" placeholder="Category Name">
+						<span class="cd-error-message">Error message here!</span>
+					</p>
+
+					<p class="fieldset">
+						<input class="full-width has-padding" type="submit" value="Add">
+					</p>
+				</form>
+
+				<p class="cd-form-bottom-message"><a href="#0">Back to log-in</a></p>
+			</div> <!-- cd-reset-password -->
+	</div>
+	
+<body id="home" class="metro" >
+
+<div class="loader">
+  <span class="l-1"></span>
+  <span class="l-2"></span>
+  <span class="l-3"></span>
+  <span class="l-4"></span>
+  <span class="l-5"></span>
+  <span class="l-6"></span>
+</div>
+
+	<table><tr>
+	
+	<td class="ls_mine">
+	<p id="ppp">  Please login to continue....  </p>
+	<div id="afterlogin">
+	<div id="ls_cate"><div class="ls_first">
+   <input name="category" id="cat1" value="old" checked="checked" type="radio">Choose from List    
+	<br>
+		 
+	<select class="drop">	</select>
+	</div>
+	<br><p class="or">or</p><br>
+	<div class="ls_second">
+		<input name="category" id="cat2" value="new" type="radio">Add new category<br>
+	<input type="text" id="newcat_add" class="input-xlarge search-query"/>
+	
+	
+	
+	<button id="addcat" class="btn btn1 btn-primary">check category</button>
+	<label class="cat_err">Enter category name between 2-15 characters</label>
+	</div>
+	</div>
+	<br><br>
+	<input type="text" class="input-xlarge search-query" readonly id="link"/><button id="addlink" class="btn btn-primary">Add</button>  <select id="vis" class=' input-small'><option value="Public">Public</option><option value="OnlyMe">OnlyMe</option></select>
+	<label class="cat_err1"> </label>
+	</div>
+	
+	</td>
+	<td class="ls_mine1">
+	<div class="cornertext"> 
+	</div>
+	</td>
+	
+	</tr>
+	
+	</table>
+	<footer>
+	<p>copyrights @ linksavers.com  </p>
+	
+	</footer>
+<script>
+
+</script>
+	
+<script src="js/common.js"></script>
+
+<script src="js/main1.js"></script> <!-- Gem jQuery -->
+
+
+
+
+<script src="js/api_login.js"> </script>
+<script src="js/bootbar.js"></script>
+
+
+  	
+</body>
+
+</html>

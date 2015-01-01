@@ -36,7 +36,8 @@ $mysqli = new mysqli($hostname, $username, $password, $database);
 		
 	
 		
-	}else{ echo "u"; }
+	}else{// echo "u"; 
+	}
 	
 	if($stmt1 = $mysqli -> prepare($sql2)) 
 	{	
@@ -60,7 +61,7 @@ $mysqli = new mysqli($hostname, $username, $password, $database);
 	
 		
 	}else{
-	echo "sry";
+	//echo "sry";
 	}
 
 	echo var_export(json_encode($sitename)); 

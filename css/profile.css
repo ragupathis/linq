@@ -1,4 +1,8 @@
-
+.ls_profname{
+background-color:#3b5998 ;
+cursor:pointer;
+text-transform:capitalize;
+}
 i{
 float:right;
 }
@@ -47,13 +51,13 @@ background-image:linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 
 background-size: 100% 1.2em;*/
 background:url('http://zhukov.github.io/webogram/img/bg_tile.png')  ;
 }
-.icon-share,.icon-thumbs-up , .icon-plus{
+.icon-share,.icon-thumbs-up , .icon-plus , .icon-user{
 float:right;
 }
-.err1,.err2,.err3{
-color:red;
+.err1,.err2,.err3,.err4{
+
 font-size:17px;
-display:none;
+
 }
 .titl{
 color:#FFFAF0;
@@ -196,7 +200,7 @@ padding:5px;
 
 .ls_content{
 
-height:400px;
+height:300px;
 overflow-y:scroll;
 width:96%;
 }
@@ -220,7 +224,7 @@ padding:5px;
 
 .ls_content{
 
-height:400px;
+height:300px;
 overflow-y:scroll;
 width:96%;
 }
@@ -242,7 +246,7 @@ padding:5px;
 }
 
 .ls_content{
-height:400px;
+height:300px;
 overflow-y:scroll;
 width:100%;
 }

@@ -9,9 +9,9 @@ html * {
 }
 
 *, *:after, *:before {
-  -webkit-box-sizing: border-box;
+  /*-webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  box-sizing: border-box;
+  box-sizing: border-box;*/
 }
 
 body {
@@ -173,8 +173,8 @@ header[role=banner]::after {
     /*border-radius: 50em;*/
   }
   .main-nav a.cd-signup , .main-nav a.cd-signin  , .main-nav a.cd-profile , .main-nav a.cd-signout{
-    background: #8b9dc3;
-    border: none;
+    /*background: #8b9dc3;
+    border: none;*/
   }
     .main-nav a.cd-add_category {
     background: #2f889a;
@@ -461,10 +461,15 @@ xsigin/signup popup
   font-size: 0.875rem;
   line-height: 1.4;
   text-align: center;
+  color:#809191;
+}
+.usernameerr,.emailerr,.passworderr{
+color:#809191;
 }
 @media only screen and (min-width: 600px) {
   .cd-form-message {
     padding: 2em 2em 0;
+	
   }
 }
 

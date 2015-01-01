@@ -27,6 +27,7 @@
 	
 	<link rel="stylesheet" href="css/reset_menu.css"> <!-- CSS reset -->
 	<link rel="stylesheet" href="css/style_menu.css"> <!-- Gem style -->
+	<link rel="stylesheet" href="css/backtotop.css"> 
 <link rel="stylesheet" href="css/main1.css">	
 	<script src="js/modernizr.js"></script> <!-- Modernizr -->
 	<link rel="icon" href="img/logo.jpg" type="image/ico" >
@@ -51,8 +52,14 @@ padding-top:1%;
 .ls_removeopacity{
 opacity:0.4;
 }
-#ou{
-
+.ls_uname{
+ background-color: #3b5998 ;
+    cursor: auto;
+    text-transform: capitalize;
+	text-decoration:none	!important;
+}
+.i{
+margin-top:12px		!important;
 }
 </style>
 <header role="banner" >
@@ -99,7 +106,7 @@ opacity:0.4;
 					</p>
 				</form>
 				
-				<p class="cd-form-bottom-message"><a href="#0">Forgot your password?</a></p>
+				<p class="cd-form-bottom-message"><a href="#0">Resend Password/Activation Link</a></p>
 				<!-- <a href="#0" class="cd-close-form">Close</a> -->
 			</div> <!-- cd-login -->
 
@@ -108,7 +115,7 @@ opacity:0.4;
 					<p class="fieldset">
 						<label class="image-replace cd-username" for="signup-username">Username</label>
 						<input class="full-width has-padding has-border" id="signup-username" type="text" placeholder="Username" required>
-						<span class="usernameerr">Please enter atleast three characters</span>
+						<span class="usernameerr">Please enter atleast four characters</span>
 					</p>
 
 					<p class="fieldset">
@@ -138,7 +145,7 @@ opacity:0.4;
 			</div> <!-- cd-signup -->
 
 			<div id="cd-reset-password"> <!-- reset password form -->
-				<p class="cd-form-message">Lost your password? Please enter your email address. You will receive a password.</p>
+				<p class="cd-form-message">Lost your Password/Activation Link? Please enter your email address. You will receive a Password/Activation Link.</p>
 
 				<form class="cd-form">
 					<p class="fieldset">
@@ -148,7 +155,7 @@ opacity:0.4;
 					</p>
 
 					<p class="fieldset">
-						<input class="full-width has-padding" type="submit" id="reset_pwd" value="Reset password">
+						<input class="full-width has-padding" type="submit" id="reset_pwd" value="Resend ">
 					</p>
 				</form>
 
@@ -195,7 +202,7 @@ opacity:0.4;
 </div>
 
 	<table><tr>
-	
+	<a href="#0" class="cd-top">Top</a>
 	<td class="ls_mine">
 	
 		<div class="cornertextsmall">  <!--<div class="accordion span3 place-left margin10" data-role="accordion" data-closeany="false">
@@ -240,12 +247,13 @@ opacity:0.4;
 	<p>copyrights @ linksavers.com  </p>
 	
 	</footer>
+	
 <script>
 
 </script>
-	
+	<script src="js/menu_header_index.js"></script>
 <script src="js/common.js"></script>
-
+<script src="js/backtotop.js"></script>
 <script src="js/main.js"></script> <!-- Gem jQuery -->
 <script src="js/modernizr.custom1.js"></script>
 

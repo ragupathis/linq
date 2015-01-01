@@ -17,13 +17,17 @@ $mysqli = new mysqli($hostname, $username, $password, $database);
  
    }
 	
+	$my_t=getdate(date("U"));
+$info=("$my_t[mday]-$my_t[mon]-$my_t[year] $my_t[hours]:$my_t[minutes]");
+
+	
 	$sql="INSERT INTO `deleted_sites`(`sitename`,`by`,`report_count`) VALUES (?,?,? )";
 	$sql1="UPDATE sitelist SET `report_count`=? where `sitename`=?";
 	$sql2="SELECT `report_count`,`by` FROM `sitelist` where `sitename`=?";
 	$sql3="UPDATE  sitelist SET `visible`=? where `sitename`=?";
 	$sql4="DELETE from `likedsites` where `sitename`=?";
 	$sql5="SELECT `by` FROM `report_details` where `sitename`=? and `by`=?";
-	$sql6="INSERT INTO `report_details`(`sitename`,`by`) VALUES (?,? )";
+	$sql6="INSERT INTO `report_details`(`sitename`,`by`,`datetime`) VALUES (?,?,? )";
 	
 
 	
@@ -47,7 +51,7 @@ $mysqli = new mysqli($hostname, $username, $password, $database);
 	else{
 	
 	if($stmt = $mysqli -> prepare($sql6)) {
-		$stmt->bind_param('ss', $site, $by);
+		$stmt->bind_param('sss', $site, $by,$info);
 		$stmt->execute();
 		if ($stmt->errno) {
 		  echo "FAILURE!!! " . $stmt->error();

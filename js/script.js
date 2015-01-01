@@ -1,4 +1,4 @@
-var user="";
+var user="",msg='',visible='';
 var i=0,j=0;
 var k=0,k1=0;
 var design_collection=[2,7,8,14,19,20]; 
@@ -22,16 +22,16 @@ function display_link_count(userid){
 	text_val+='<p>you liked link count'+t['like_count']+'</p>';
 	text_val+='<p>you added category '+t['cate_count']+'</p>';*/
 	
-	sessionStorage['site_cnt']=t['count'];
-	sessionStorage['like_cnt']=t['like_count'];
-	sessionStorage['cate_cnt']=t['cate_count'];
+	localStorage.site_cnt=t['count'];
+	localStorage.like_cnt=t['like_count'];
+	localStorage.cate_cnt=t['cate_count'];
 	
 	
 	   var text_val='<div class="accordion span3 place-left margin10" data-role="accordion" data-closeany="false">';
-text_val+='<div class="accordion-frame"><a class="heading ribbed-blue fg-white" href="profile.html">added link count :<span id="site_c">'+sessionStorage['site_cnt']+'</span></a></div>	';
-text_val+='<div class="accordion-frame"><a class="heading ribbed-blue fg-white" href="profile.html">you liked link count :<span id="like_c">'+sessionStorage['like_cnt']+'</span></div>';
-text_val+='<div class="accordion-frame"><a class="heading ribbed-blue   fg-white" href="profile.html">you added category :<span id="cate_c">'+sessionStorage['cate_cnt']+'</span></div>';
-text_val+='<div class="accordion-frame"><a class="heading ribbed-blue   fg-white" href="help.html">Help</div><div class="accordion-frame"><a class="heading ribbed-blue   fg-white" href="team.html">About</div></div>';
+text_val+='<div class="accordion-frame"><a class="heading ribbed-blue fg-white" href="profile.html">added link count <span class="site_c" cl>'+localStorage.site_cnt+'</span></a></div>	';
+text_val+='<div class="accordion-frame"><a class="heading ribbed-blue fg-white" href="profile.html">you liked link count <span class="like_c">'+localStorage.like_cnt+'</span></div>';
+text_val+='<div class="accordion-frame"><a class="heading ribbed-blue   fg-white" href="profile.html">you added category <span class="cate_c">'+localStorage.cate_cnt+'</span></div>';
+text_val+='<div class="accordion-frame"><a class="heading ribbed-blue   fg-white" href="help.html">Help</div></div>';
  
 	
 	
@@ -63,7 +63,7 @@ var temp="";
         var t = JSON.parse(result);	
 	//console.log(t.count);
 	//$('.count_'+categorynames).html(t.count);
-	sessionStorage['site_size']=t.count;
+	localStorage.site_size=t.count;
 	//$('.count_'+categorynames).html(sessionStorage['site_size']);
 	for(var i=1;i<=t.count;i++){
 	//console.log(t[i]);
@@ -74,7 +74,7 @@ var temp="";
 	if(title_temp===''){
 	title_temp=t[i].toLowerCase();
 	}
-	 temp+='<li> <a class="ls_label label ls_tooltip" title='+title_temp+' href="http://'+t[i]+'" target="_blank">'+t[i]+'</a><i class="icon-ban-circle ls_tooltip" uid='+categorynames+' id='+t[i]+' title="report '+t[i]+'"></i><i class="icon-thumbs-up ls_tooltip" uid='+categorynames+' id='+t[i]+' title="like '+t[i]+'"></i><a target="_blank" href="http://www.facebook.com/sharer.php?u=http://'+t[i]+'"><i class="icon-facebook ls_tooltip" title="share it on facebook"></i> </a> <a target="_blank" href="http://twitter.com/home?status=Linksavers%20http://'+t[i]+'"><i  class="icon-twitter ls_tooltip" title="share it on twitter"></i> </a></li>';
+	 temp+='<li> <a class="ls_label label ls_tooltip" title='+title_temp+' href="http://'+t[i]+'" target="_blank">'+t[i]+'</a><i class="icon-ban-circle ls_tooltip" uid='+categorynames+' id='+t[i]+' title="report '+t[i]+'"></i><i class="icon-thumbs-up ls_up ls_tooltip" uid='+categorynames+' id='+t[i]+' title="like '+t[i]+'"></i><a target="_blank" href="http://www.facebook.com/sharer.php?u=http://'+t[i]+'"><i class="icon-facebook ls_tooltip" title="share it on facebook"></i> </a> <a target="_blank" href="http://twitter.com/home?status=Linksavers%20http://'+t[i]+'"><i  class="icon-twitter ls_tooltip" title="share it on twitter"></i> </a></li>';
 	}
 	
   $('.loader').css('display','none');
@@ -99,16 +99,31 @@ var temp="";
 	  if((t['response'])==='newuser'){
 	  //console.log(t['hash']);
 	    //console.log(t['response']); 
-		sessionStorage['hash']=t['hash'];
-		sessionStorage['mail']=t['mail'];
-		sessionStorage['screen_name']=t['screen_name'];
-		sessionStorage['status_code']='first_login';
+		localStorage.hash=t['hash'];
+		localStorage.mail=t['mail'];
+		localStorage.screen_name=t['screen_name'];
+		localStorage.status_code='first_login';
 		window.location='index.html';
 	}
 	 if((t['response'])==='olduser'){
 	 $('.already').css('display','block');
 	//console.log( "old user");
 	}
+	});  
+}
+
+
+function add_notif(by,byname,msg,visibility){
+var temp="";
+ $.ajax({
+        type: "POST",
+		url: 'model/notification.php',			
+		data: {'by':by,'byname':byname,'msg':msg,'visible':visibility}
+		
+   	}).done(function(result) {
+	
+	
+	
 	});  
 }
 
@@ -124,11 +139,11 @@ $.ajax({
      var t = JSON.parse(result);	
 //	  $('.loader').css('display','none');
 	  if(t['status']==='true'){
-	sessionStorage['site_size']=parseInt(sessionStorage['site_size'])+1;
-	$('.count_'+categoryname).html(sessionStorage['site_size']);
+	localStorage.site_size=parseInt(localStorage.site_size)+1;
+	$('.count_'+categoryname).html(localStorage.site_size);
 	
-		sessionStorage['site_cnt']=parseInt(sessionStorage['site_cnt'])+1;
-$('#site_c').text(sessionStorage['site_cnt']);
+		localStorage['site_cnt']=parseInt(localStorage.site_cnt)+1;
+$('#site_c').text(localStorage.site_cnt);
 
 
  $('.'+categoryname+'err').addClass('alert-info'); 
@@ -138,6 +153,11 @@ $('.'+categoryname+'err').css('display','block');
 $('.loader').css('display','none');
 document.getElementById(categoryname+'text').value='';
 
+var uname=localStorage.screen_name;
+msg=uname+' adds  '+sitename;
+visible='true';
+add_notif(user_name,uname,msg,visible);
+
 }else{
 $('.'+categoryname+'err').html('Error !!! Sorry try again');
 $('.'+categoryname+'err').css('display','block');
@@ -146,11 +166,11 @@ $('.loader').css('display','none');
 	}
 	catch(err){
 //	$('.loader').css('display','none');
-		sessionStorage['site_size']=parseInt(sessionStorage['site_size'])+1;
-	$('.count_'+categoryname).html(sessionStorage['site_size']);
+		localStorage.site_size=parseInt(localStorage.site_size)+1;
+	$('.count_'+categoryname).html(localStorage.site_size);
 	
-		sessionStorage['site_cnt']=parseInt(sessionStorage['site_cnt'])+1;
-$('#site_c').text(sessionStorage['site_cnt']);
+		localStorage.site_cnt=parseInt(localStorage.site_cnt)+1;
+$('.site_c').text(localStorage.site_cnt);
 
 
  $('.'+categoryname+'err').addClass('alert-info'); 
@@ -159,6 +179,12 @@ $('.'+categoryname+'err').html('link added successfully');
 $('.'+categoryname+'err').css('display','block');
 $('.loader').css('display','none');
 document.getElementById(categoryname+'text').value='';
+
+var uname=localStorage.screen_name;
+msg=uname+'  adds '+sitename;
+visible='true';
+add_notif(user_name,uname,msg,visible);
+
 	}
 	}); 
 	
@@ -168,8 +194,8 @@ function getRandomInt(min, max) {
     }
 function generate_category(){
 var user_names;
-if(sessionStorage['mail']){
- user_names=sessionStorage['mail'];
+if(localStorage.mail){
+ user_names=localStorage.mail;
 }else{    user_names='a'; }
 $.ajax({
         type: "POST",
@@ -182,10 +208,11 @@ $.ajax({
       var t = JSON.parse(result);	
 	  //console.log("category size"+t['1']);	
    	 random=getRandomInt(0,6);
-	 sessionStorage['category_count']=t['size'];
+	 localStorage.category_count=t['size'];
 	for(id=1;id<=t['size'];id++){
 	var category_name=t[id];
-	sessionStorage['category'+[id]]=t[id];
+	var ls_temp=t[id];
+	localStorage['category'+[id]]=t[id];
 	
 	var html3='	<div class="ls_example" pid="'+category_name+'" >';
 	html3+='	<nav class="cl-effect-'+design_collection[random]+'"> <a href="#" class="confirm"  id="'+category_name+'" class="box" data-tooltip="">';
@@ -222,7 +249,7 @@ $.ajax({
   
 //}
 $('.loader').css('display','none');
-	
+	$('body').append('<a href="#0" class="cd-top">Top</a>');
 }); 
 
 }
@@ -240,13 +267,22 @@ $.ajax({
 	   $('.'+category_temp+'err').removeClass('alert-info');
 	    $('.'+category_temp+'err').removeClass('alert-danger');
 	  if(t['replay']==='you liked'){
-	  sessionStorage['like_cnt']=parseInt(sessionStorage['like_cnt'])+1;
-	  $('#like_c').text(sessionStorage['like_cnt']);
+	  localStorage.like_cnt=parseInt(localStorage.like_cnt)+1;
+	 $('.like_c').html(localStorage.like_cnt);
+     
+	  $('.'+category_temp+'err').addClass('alert-info'); 
 
-	  $('.'+category_temp+'err').addClass('alert-info');  }
+	var uname=localStorage.screen_name;
+	msg=uname+'  likes '+site_name;
+	visible='true';
+	add_notif(user,uname,msg,visible);
+
+	  }
 	  else{
 	  $('.'+category_temp+'err').addClass('alert-danger');
 	  }
+	  
+	   
 	$('.'+category_temp+'err').html(t['replay']);
 	$('.'+category_temp+'err').css('display','block');
 	
@@ -281,15 +317,15 @@ $.ajax({
 
 $(document).ready(function(){
 
-if(sessionStorage['hash']){
+if(localStorage.hash){
 
 
-if(sessionStorage['status_code']==='first_login'){
-$.bootbar.success("<p align='center'>Welcome "+sessionStorage['screen_name']+"</p>");
-sessionStorage['status_code']='second_login';
+if(localStorage.status_code==='first_login'){
+$.bootbar.success("<p align='center'>Welcome "+localStorage.screen_name+"</p>");
+localStorage.status_code='second_login';
 } 
 
-display_link_count(sessionStorage['mail']);
+display_link_count(localStorage.mail);
 
 
 }else{
@@ -299,9 +335,9 @@ temp_val+='<p><button id="signin">SignIn</button></p>';
 
 $('#add_category').css('display','none');
 $('#profile').css('display','none');
-if(sessionStorage['status_code']==='logout_first'){
-$.bootbar.danger("<p align='center'>"+ sessionStorage['screen_name']+" you are logged out successfully</p>");
-sessionStorage['status_code']='';
+if(localStorage.status_code==='logout_first'){
+$.bootbar.danger("<p align='center'>"+ localStorage.screen_name+" you are logged out successfully</p>");
+localStorage.status_code='';
 }else{
 $.bootbar.success("<p align='center'>Welcome to Linksavers , Click the Category to view the Links</p>");
 }
@@ -361,12 +397,12 @@ sitename='www.'+sitename;
 if(sitename.length>5){
 var visible=document.getElementById(categoryname+'visible').value;
 if(visible=='me'){
-visible=sessionStorage['mail'];}
+visible=localStorage.mail;}
 
  
-if(sessionStorage['hash'])
+if(localStorage.hash)
 {
-var user=sessionStorage['mail'];
+var user=localStorage.mail;
 //console.log(visible);
 $('.loader').css('display','block');
 $('.'+categoryname+'err').html('Please wait !!!');
@@ -398,10 +434,10 @@ $(document.body).on('mousedown','.ls_example',function(){
 $('.loader').css('display','block');
 var userid='';
 var category_temp =  $(this).attr( "pid" );
-if(sessionStorage['mail']){
-userid=sessionStorage['mail'];}
+if(localStorage.mail){
+userid=localStorage.mail;}
 else{  userid='';  }
-var load_temp='<img src="img/Preloader.gif">';
+var load_temp='<img class="loader_img" src="img/Preloader.gif">';
 $('.'+category_temp).html(load_temp);
 fetch_site(category_temp,userid);
 });
@@ -410,15 +446,16 @@ fetch_site(category_temp,userid);
 
 $(document.body).on('mousedown','.icon-thumbs-up',function(){
 var cat_name=$(this).attr( "uid" );
-if(sessionStorage['mail']){
+if(localStorage.mail){
 //alert(site_name);
 var site_name=$(this).attr( "id" );
-var user=sessionStorage['mail'];
+var user=localStorage.mail;
 var category_temp =  $(this).attr( "uid" );
 $('.'+category_temp+'err').html('Please wait !!!');
 $('.'+category_temp+'err').css('display','block');
 $('.loader').css('display','block');
 liked_site(category_temp,site_name,user);
+
 }
 else{
 $('.'+cat_name+'err').addClass('alert-danger');
@@ -431,10 +468,10 @@ $('.'+cat_name+'err').css('display','block');
 
 $(document.body).on('mousedown','.icon-ban-circle',function(){
 var cat_name=$(this).attr( "uid" );
-if(sessionStorage['mail']){
+if(localStorage.mail){
 var site_name=$(this).attr( "id" );
 //alert(site_name);
-var user=sessionStorage['mail'];
+var user=localStorage.mail;
 $('.'+cat_name+'err').html('Please wait !!!');
 $('.'+cat_name+'err').css('display','block');
 $('.loader').css('display','block');
@@ -451,12 +488,12 @@ $('.'+cat_name+'err').css('display','block');
 /*  navigate to profile page  */
 
 $(document.body).on('mousedown','#profile',function(){
-if(sessionStorage['hash']){
+if(localStorage.hash){
 window.location='profile_new.html';
 }
 });
 $(document.body).on('mousedown','.username',function(){
-if(sessionStorage['hash']){
+if(localStorage.hash){
 window.location='profile_new.html';
 }
 });
@@ -465,12 +502,12 @@ window.location='profile_new.html';
 
 $(document.body).on('mousedown','#logout',function(){
 //alert('log out successfully');
-if(sessionStorage['hash']){
-sessionStorage['hash']='';
-sessionStorage['mail']='';
-sessionStorage['screen_name']='';
-if(sessionStorage['status_code']==='second_login'){
-sessionStorage['status_code']='logout_first';
+if(localStorage.hash){
+localStorage.hash='';
+localStorage.mail='';
+localStorage.screen_name='';
+if(localStorage.status_code==='second_login'){
+localStorage.status_code='logout_first';
 }
 window.location='index.html';
 }else{
@@ -485,7 +522,7 @@ signup_data(newmail,password);
 }
 
 $("#signup_btn").click(function(){
-//alert('signup successfully');
+
 signup_details();
 });
 
@@ -496,16 +533,10 @@ var url=$(this).attr( "url" );
 alert(url);
 
 });
-
-$(document.body).on('mousedown','.icon-twitter',function(){
-
-var url=$(this).attr( "url" );
-alert(url);
-
-});*/
+*/
 
 $(document.body).on('mousedown','.dark-tooltip',function(){
-//alert('wow');
+
 $('.dark-tooltip').removeClass('ls_active');
 $(this).addClass('ls_removeopacity');
 $(this).addClass('ls_active');

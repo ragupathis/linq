@@ -534,7 +534,7 @@ $.ajax({
 		
 		$('.ls_mine').css('display','none');
 		$('.ls_mine1').css('display','none');
-	  $('tr').html('Your site added successfully  , visit <a href="index.html"> linksavers.com </a>');
+	  $('tr').html('Your site added successfully  , visit <a href="home.html"> linksavers.com </a>');
 		}
 		else{
 		//console.log('false');

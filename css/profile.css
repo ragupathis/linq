@@ -51,7 +51,7 @@ background-image:linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 
 background-size: 100% 1.2em;*/
 background:url('http://zhukov.github.io/webogram/img/bg_tile.png')  ;
 }
-.icon-share,.icon-thumbs-up , .icon-plus , .icon-user{
+.icon-share,.icon-thumbs-up , .icon-plus , .icon-user,.icon-group,.icon-pencil{
 float:right;
 }
 .err1,.err2,.err3,.err4{

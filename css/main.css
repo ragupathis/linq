@@ -87,6 +87,7 @@ margin-left:20%;
 .like_c,.site_c,.cate_c{
 padding:0 1% ;
 background-color:#8b9dc3;
+float:right;
 }
 
 .icon-eye-open{
@@ -96,6 +97,7 @@ cursor:default !important ;
 	body{
 		font-size:10px
 	}
+
 
 }
 
@@ -117,6 +119,8 @@ cursor:default !important ;
 	body{
 		font-size:6px
 	}
+	
+
 .ls_demo{
 font-size:14px;
 width:280px;
@@ -146,6 +150,7 @@ width:280px;
 	body{
 		font-size:8px
 	}
+	
 .ls_demo{
 font-size:14px;
 width:300px;
@@ -207,6 +212,7 @@ width:320px;
 	body{
 		font-size:12px
 	}
+
 .ls_demo{
 font-size:14px;
 width:360px;
@@ -230,5 +236,3 @@ width:340px;
 }
 
 }
-
-

@@ -50,12 +50,12 @@
 
 
 
-.icon-facebook , .icon-twitter , .icon-remove-circle ,.icon-thumbs-down,.icon-thumbs-up{
+.icon-facebook , .icon-twitter , .icon-remove-circle ,.icon-thumbs-down,.icon-thumbs-up,.icon-phone{
 color:#3b5998;
 cursor:pointer;
 }
 
-.ls_up:hover,.icon-facebook:hover,.icon-twitter:hover{
+.ls_up:hover,.icon-facebook:hover,.icon-twitter:hover,.icon-phone:hover{
 color:blue;
 }
 .icon-ban-circle:hover,.icon-remove-circle:hover,.icon-thumbs-down:hover{

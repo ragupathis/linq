@@ -30,7 +30,7 @@ gsession.clearSession=(function(key){
  $(document).ready(function(){	  
 		$('#signout').click(function() {
 		gsession.clearSession('hash_val');
-		window.location = "index.html";		
+		window.location = "home.html";		
 	});
 		
 });	

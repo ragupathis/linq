@@ -66,7 +66,7 @@ $mysqli = new mysqli($hostname, $username, $password, $database);
 $to=$user_name;
 $msg="Hi User , \n\n password : " . $password ;
 $sub="www.linksavers.com";
-//mail($to,$msg,$msg);
+mail($to,$sub,$msg);
 
 /*  mail to send password   */	
 		
@@ -98,10 +98,9 @@ $result['status']='true';
 	
 	/*  mail to send activation link   */	
 $to=$user_name;
-$msg="Thanks for signing up linksavers.com , there is one step before activate your account . please open this link your browser to activate your account" ;
-$msg+="<a href='http://www.linksavers.com/activate.html?acc='".$hashval.">activate</a>";
+$msg="Thanks for signing up linksavers.com , there is one step before activate your account . please open this link your browser to activate your account <a href='http://www.linksavers.com/activate.html?acc=".$hashval."'>activate</a>";
 $sub="www.linksavers.com";
-//mail($to,$msg,$msg);
+mail($to,$sub,$msg);
 
 
 /*  mail to send activation link   */	
@@ -114,9 +113,9 @@ $sub="www.linksavers.com";
 	$result['status']='true';
 	
 	
-	]
+	
 	
 	}
-	
+	}
 	echo var_export(json_encode($result)); 
 ?>

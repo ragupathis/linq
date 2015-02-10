@@ -18,11 +18,20 @@ $mysqli = new mysqli($hostname, $username, $password, $database);
  
    }
    
+   
+   function clean($string) {
+   $string = str_replace(' ', '-', $string); // Replaces all spaces with hyphens.
+
+   return preg_replace('/[^A-Za-z0-9\-:"\'|]/', '', $string); // Removes special chars.
+}
+//$a='a|"bc!@£de^&$\'f.||||            :"" k1g)';
+//echo clean($a);
+   
    $my_t=getdate(date("U"));
 $info=("$my_t[mday]-$my_t[mon]-$my_t[year] $my_t[hours]:$my_t[minutes]");
 
    
-   $homepage = file_get_contents('http://'.$site);
+$homepage = file_get_contents('http://'.$site);
 
 $start=strpos($homepage,'<title>');
 $end=strpos($homepage,'</title>');
@@ -30,6 +39,7 @@ $para=substr($homepage,$start,$end-$start+4);
 $para=html_entity_decode(strip_tags($para,''));
 
 $desc=$para;
+$desc=clean($desc);
 	
 	$sql="INSERT INTO `sitelist`(`sitename`,`description`,`category`,`by`,`visible`,`datetime`) VALUES (?,?,?,?,?,? )";
 	

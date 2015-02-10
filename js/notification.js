@@ -59,7 +59,7 @@ $('#ls_prof').html('Welcome '+localStorage.screen_name+'<i class="icon-star"></i
 
 $('#ls_my').html(localStorage.screen_name+'<i class="icon-user"></i>');
 }else{
-window.location='index.html';
+window.location='home.html';
 }
 
 

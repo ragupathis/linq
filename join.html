@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Linksavers - save & share your links</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/bootstrap.flaty.min.css" rel="stylesheet" id="bootstrap-css">
+    <style type="text/css">
+    body{
+	background:url('img/bg_tile.png') 100% repeat;
+	}
+	#login-overlay{
+	opacity:0.8;
+	
+	}
+
+	
+    </style>
+	   
+	<link rel="stylesheet" href="css/reset_menu.css"> <!-- CSS reset -->
+	<link rel="stylesheet" href="css/style_menu.css"> <!-- Gem style -->
+    <style type="text/css">
+    
+.form-control { margin-bottom: 10px; }
+  .usernameerr,.passworderr,.emailerr{
+  display:none;
+  margin-top:-2%;
+  
+  }  
+  	footer{
+background-color:#3b5998;
+height:40px;
+color:white;
+margin-top:9%;
+}
+footer p{
+text-align:center;
+padding-top:1%;
+}
+	</style>
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    
+</head>
+<header role="banner" >
+	
+		<div id="cd-logo"><a href="http://www.ragupathi.tk/"><img src="img/title1.png" alt="Logo"></a></div>
+
+	<!--	<nav class="main-nav">
+			<ul  id="menu_list">
+				 inser more links here -->
+				<!-- <li><a class="cd-signin" href="#0" id="in">Sign in<i class="icon-signin"></i></a></li>
+
+				<li><a class="cd-signup" href="#0" id="out">Sign up<i class="icon-signout"></i></a></li>
+				
+			</ul>
+		</nav>-->
+	</header>
+<body>
+	
+
+    <div id="login-overlay" class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true"></span><span class="sr-only">Close</span></button>
+              <h4 class="modal-title" id="myModalLabel">Join with linksavers.com</h4>
+          </div>
+ 
+	<div class="">
+    <div class="well">
+   
+   
+     <input class="form-control" name="username" id="signup-username" placeholder="User Name" type="email" required />
+	 <p class="usernameerr">Please enter atleast four characters</p>
+            <input class="form-control" name="youremail" placeholder="Your Email" id="signup-email" type="email" required />
+			<p class="emailerr">Please enter valid mail id </p>
+            <input class="form-control" name="password" placeholder="New Password" id="signup-password" type="password" required/>
+			<p class="passworderr">Please enter atleast three characters!</p>
+    <button class="btn btn-success  btn-block" id="signup">Yes please, register now!</button>
+   <a href="forget_password.html" class="btn btn-default btn-block">Help to signup</a>
+    </div>
+</div>
+
+      </div>
+  </div>
+ 
+<script src="js/js.js"> </script>
+ <footer>
+	<p>copyrights @ linksavers.com  </p>
+	
+	</footer>
+</body>
+</html>

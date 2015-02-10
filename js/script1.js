@@ -1,4 +1,4 @@
-
+var cate_temp=0,desc_temp=0;
 function getVariable(variable){
 
 var query=window.location.search.substring(1);
@@ -34,7 +34,7 @@ function user_details(user_name)
 	  if(t['desc'+i]===''){
 	  t['desc'+i]=t[i];
 	  }
-	  temp+='<li class="ad_'+add_class+'"> <a class="linklbl ls_label label ls_tooltip" href="http://'+t[i]+'" target="_blank" title="'+t['desc'+i]+'">'+t[i]+'</a><i class="icon-remove-circle remove_sites ls_tooltip" title="remove '+ t[i]+'" id="'+t[i]+'"></i></i> <a target="_blank" href="http://www.facebook.com/sharer.php?u=http://'+t[i]+'"><i class="icon-facebook ls_tooltip" title="share it on facebook"></i></a><a target="_blank" href="http://twitter.com/home?status=Linksavers%20http://'+t[i]+'">  <i class="icon-twitter ls_tooltip" title="share it on twitter"></i></a> </li>';
+	  temp+='<li class="ad_'+add_class+'"> <a class="linklbl ls_label label ls_tooltip" href="http://'+t[i]+'" target="_blank" title="'+t['desc'+i]+'">'+t[i]+'</a><i class="icon-remove-circle remove_sites ls_tooltip" title="remove '+ t[i]+'" id="'+t[i]+'" uid="'+t['cate'+i]+'"></i></i> <a target="_blank" href="http://www.facebook.com/sharer.php?u=http://'+t[i]+'"><i class="icon-facebook ls_tooltip" title="share it on facebook"></i></a><a target="_blank" href="http://twitter.com/home?status=Linksavers%20http://'+t[i]+'">  <i class="icon-twitter ls_tooltip" title="share it on twitter"></i></a><a target=_blank" href="whatsapp://send?text='+t[i]+' from www.linksavers.com"><i class="icon-phone ls_tooltip" title="Share it on WhatsApp"></i></a> </li>';
 	}
 	$('.added_site').html(temp);
 	
@@ -53,10 +53,12 @@ function user_details(user_name)
 		//t[i]=t[i].replace(/\\/g,'');
 		t['likes'+i]=t['likes'+i].replace(/\\/g,'');
 		var temp_class=t['likes'+i];
+		var temp_cate=t['likes_cate'+i];
+		var temp_desc=t['likes_desc'+i];
 		temp_class=temp_class.replace(/\./g,'_');
 		temp_class=temp_class.replace(/\//g,'_');
 	    //console.log(t[i]);
-	    temp+='<li class="li_'+temp_class+'"> <a class="linklbl ls_label label ls_tooltip" href="http://'+t['likes'+i]+'" title="'+t['likes'+i]+'" target="_blank">'+t['likes'+i]+'</a><i class="icon-thumbs-down ls_tooltip" title="dislike '+t['likes'+i]+'" id="'+t['likes'+i]+'"></i></i>  <a target="_blank" href="http://www.facebook.com/sharer.php?u=http://'+t['likes'+i]+'"><i class="icon-facebook ls_tooltip" title="share it on facebook"></i><a target="_blank" href="http://twitter.com/home?status=Linksavers%20http://'+t['likes'+i]+'">  <i class="icon-twitter ls_tooltip" title="share it on twitter"></i> </li>';
+	    temp+='<li class="li_'+temp_class+'"> <a class="linklbl ls_label label ls_tooltip" href="http://'+t['likes'+i]+'" title="'+t['likes_desc'+i]+'" target="_blank">'+t['likes'+i]+'</a><i class="icon-thumbs-down unlike_site ls_tooltip" title="dislike '+t['likes'+i]+'" id="'+t['likes'+i]+'" cate="'+t['likes_cate'+i]+'"></i></i>  <a target="_blank" href="http://www.facebook.com/sharer.php?u=http://'+t['likes'+i]+'"><i class="icon-facebook ls_tooltip" title="share it on facebook"></i><a target="_blank" href="http://twitter.com/home?status=Linksavers%20http://'+t['likes'+i]+'">  <i class="icon-twitter ls_tooltip" title="share it on twitter"></i> <a target=_blank" href="whatsapp://send?text='+t['likes'+i]+' from www.linksavers.com"><i class="icon-phone ls_tooltip" title="Share it on WhatsApp"></i></a></li>';
 	}
 	$('.liked_site').html(temp);
 	
@@ -72,7 +74,7 @@ function user_details(user_name)
 		temp_fl=temp_fl.replace(/\@/g,'_');
 		temp_fl=temp_fl.replace(/\//g,'_');
 	
-	  temp+='<li class="fl_'+temp_fl+'"> <a class="linklbl ls_label label ls_tooltip" href="http://" target="_blank" title="'+t['byname'+i]+'">'+t['byname'+i]+'</a><i class="icon-remove-circle unfollow_user ls_tooltip" title="unfollow '+ t['byname'+i]+'" id="'+t['by'+i]+'"></i> </li>';
+	  temp+='<li class="fl_'+temp_fl+'"> <a class="linklbl ls_label label ls_tooltip" href="profile.html?id=" target="_blank" title="'+t['byname'+i]+'">'+t['byname'+i]+'</a><i class="icon-remove-circle unfollow_user ls_tooltip" title="unfollow '+ t['byname'+i]+'" id="'+t['by'+i]+'"></i> </li>';
 	}
 	$('.followed_to').html(temp);
 	
@@ -81,7 +83,7 @@ function user_details(user_name)
 	temp='';	
 	for(var i=1;i<=t.to_count;i++){
 	
-	  temp+='<li class="ad_"> <a class="linklbl ls_label label ls_tooltip" href="http://" target="_blank" title="'+t['toname'+i]+'">'+t['toname'+i]+'</a> </li>';
+	  temp+='<li class="ad_"> <a class="linklbl ls_label label ls_tooltip" href="profile.html?id=" target="_blank" title="'+t['toname'+i]+'">'+t['toname'+i]+'</a> </li>';
 	}
 	$('.followed_by').html(temp);
 	
@@ -151,32 +153,76 @@ function other_user_details(user_name)
 	  }
 	  
 	  for(var i=1;i<=t.count;i++){
-	  t[i]=t[i].replace(/\\/g,'');
-	  var add_class=t[i];
+	  t['a'+i]=t['a'+i].replace(/\\/g,'');
+	  var add_class=t['a'+i];
 		add_class=add_class.replace(/\./g,'_');
 		add_class=add_class.replace(/\//g,'_');
 	  
-	  t[i]=t[i].replace(/\\/g,'');
-	  if(t['desc'+i]===''){
-	  t['desc'+i]=t[i];
+	  t['a'+i]=t['a'+i].replace(/\\/g,'');
+	  if(t['a_d'+i]===''){
+	  t['a_d'+i]=t['a'+i];
 	  }
 	  
 	  
-	  temp+='<li class="ad_'+add_class+'"> <a class="linklbl ls_label label ls_tooltip" href="http://'+t[i]+'" target="_blank" title="'+t['desc'+i]+'">'+t[i]+'</a><i class="'+temp_remove+' '+temp_cls+' ls_tooltip" title="'+title_temp+' '+ t[i]+'" id="'+t[i]+'"></i></i> <a target="_blank" href="http://www.facebook.com/sharer.php?u=http://'+t[i]+'"><i class="icon-facebook ls_tooltip" title="share it on facebook"></i></a><a target="_blank" href="http://twitter.com/home?status=Linksavers%20http://'+t[i]+'">  <i class="icon-twitter ls_tooltip" title="share it on twitter"></i></a> </li>';
+	  temp+='<li class="ad_'+add_class+'"> <a class="linklbl ls_label label ls_tooltip" href="http://'+t['a'+i]+'" target="_blank" title="'+t['a_d'+i]+'">'+t['a'+i]+'</a><i class="icon-thumbs-up like_site1 ls_tooltip" title="'+title_temp+' '+ t['a'+i]+'" id="'+t['a'+i]+'" uid="'+t['a_c'+i]+'" t_dec="'+t['a_d'+i]+'"></i></i> <a target="_blank" href="http://www.facebook.com/sharer.php?u=http://'+t['a'+i]+'"><i class="icon-facebook ls_tooltip" title="share it on facebook"></i></a><a target="_blank" href="http://twitter.com/home?status=Linksavers%20http://'+t['a'+i]+'">  <i class="icon-twitter ls_tooltip" title="share it on twitter"></i></a> </li>';
 	}
+	/*   to display me liked sites which is added by him  */
+	  for(var i=1;i<=t.n_count;i++){
+	  t['b'+i]=t['b'+i].replace(/\\/g,'');
+	  var add_class=t['b'+i];
+		add_class=add_class.replace(/\./g,'_');
+		add_class=add_class.replace(/\//g,'_');
+	  
+	  t['b'+i]=t['b'+i].replace(/\\/g,'');
+	  if(t['b_d'+i]===''){
+	  t['b_d'+i]=t['b'+i];
+	  }
+	  
+	  
+	  temp+='<li class="ad_'+add_class+'"> <a class="linklbl ls_label label ls_tooltip" href="http://'+t['b'+i]+'" target="_blank" title="'+t['b_d'+i]+'">'+t['b'+i]+'</a><i class="'+'icon-thumbs-down'+'  ls_tooltip unlike_site1" title="dislike '+ t['b'+i]+'" id="'+t['b'+i]+'" uid="'+t['b_c'+i]+'" t_dec="'+t['b_d'+i]+'"></i></i> <a target="_blank" href="http://www.facebook.com/sharer.php?u=http://'+t['b'+i]+'"><i class="icon-facebook ls_tooltip" title="share it on facebook"></i></a><a target="_blank" href="http://twitter.com/home?status=Linksavers%20http://'+t['b'+i]+'">  <i class="icon-twitter ls_tooltip" title="share it on twitter"></i></a> </li>';
+	}
+	
+	
 	$('.added_site').html(temp);
 	
-	// code to display liked sites 
+	/*  to display him liked sites which is added by me  */
 	temp='';
-	    for(var i=1;i<=t.like_count;i++){
+	    for(var i=1;i<=t.l1_count;i++){
 		//t[i]=t[i].replace(/\\/g,'');
-		t['likes'+i]=t['likes'+i].replace(/\\/g,'');
-		var temp_class=t['likes'+i];
+		t['c'+i]=t['c'+i].replace(/\\/g,'');
+		var temp_class=t['c'+i];
 		temp_class=temp_class.replace(/\./g,'_');
 		temp_class=temp_class.replace(/\//g,'_');
 	    //console.log(t[i]);
-	    temp+='<li class="li_'+temp_class+'"> <a class="linklbl ls_label label ls_tooltip" href="http://'+t['likes'+i]+'" title="'+t['likes'+i]+'" target="_blank">'+t['likes'+i]+'</a><i class="'+temp_like+' '+temp_cls1+' ls_tooltip" title="'+title_temp+' '+t['likes'+i]+'" id="'+t['likes'+i]+'"></i></i>  <a target="_blank" href="http://www.facebook.com/sharer.php?u=http://'+t['likes'+i]+'"><i class="icon-facebook ls_tooltip" title="share it on facebook"></i><a target="_blank" href="http://twitter.com/home?status=Linksavers%20http://'+t['likes'+i]+'">  <i class="icon-twitter ls_tooltip" title="share it on twitter"></i> </li>';
+	    temp+='<li class="li_'+temp_class+'"> <a class="linklbl ls_label label ls_tooltip" href="http://'+t['c'+i]+'" title="'+t['c_d'+i]+'" target="_blank">'+t['c'+i]+'</a><i class="'+'icon-remove-circle'+' remove_othr_site ls_tooltip" title="'+'remove '+' '+t['c'+i]+'" id="'+t['c'+i]+'" cate="'+t['c_c'+i]+'"></i></i>  <a target="_blank" href="http://www.facebook.com/sharer.php?u=http://'+t['c'+i]+'"><i class="icon-facebook ls_tooltip" title="share it on facebook"></i><a target="_blank" href="http://twitter.com/home?status=Linksavers%20http://'+t['c'+i]+'">  <i class="icon-twitter ls_tooltip" title="share it on twitter"></i> </li>';
 	}
+	
+		/* to display him liked sites which is liked by me */
+	    for(var i=1;i<=t.l2_count;i++){
+		//t[i]=t[i].replace(/\\/g,'');
+		t['d'+i]=t['d'+i].replace(/\\/g,'');
+		var temp_class=t['d'+i];
+		temp_class=temp_class.replace(/\./g,'_');
+		temp_class=temp_class.replace(/\//g,'_');
+	    //console.log(t[i]);
+	    temp+='<li class="li_'+temp_class+'"> <a class="linklbl ls_label label ls_tooltip" href="http://'+t['d'+i]+'" title="'+t['d_d'+i]+'" target="_blank">'+t['d'+i]+'</a><i class="'+'icon-thumbs-up'+' like_site1  ls_tooltip" title="like '+t['d'+i]+'" id="'+t['d'+i]+'" uid="'+t['d_c'+i]+'" t_dec="'+t['d_d'+i]+'"></i></i>  <a target="_blank" href="http://www.facebook.com/sharer.php?u=http://'+t['d'+i]+'"><i class="icon-facebook ls_tooltip" title="share it on facebook"></i><a target="_blank" href="http://twitter.com/home?status=Linksavers%20http://'+t['d'+i]+'">  <i class="icon-twitter ls_tooltip" title="share it on twitter"></i> </li>';
+	}
+	
+	/* to display him liked sites which is not related to me */
+	    for(var i=1;i<=t.l3_count;i++){
+		//t[i]=t[i].replace(/\\/g,'');
+		t['e'+i]=t['e'+i].replace(/\\/g,'');
+		var temp_class=t['e'+i];
+		temp_class=temp_class.replace(/\./g,'_');
+		temp_class=temp_class.replace(/\//g,'_');
+	    //console.log(t[i]);
+	    temp+='<li class="li_'+temp_class+'"> <a class="linklbl ls_label label ls_tooltip" href="http://'+t['e'+i]+'" title="'+t['e_d'+i]+'" target="_blank">'+t['e'+i]+'</a><i class="'+'icon-thumbs-down'+' unlike_site1 ls_tooltip" title="dislike '+t['e'+i]+'" id="'+t['e'+i]+'"  uid="'+t['e_c'+i]+'" t_dec="'+t['e_d'+i]+'"></i></i>  <a target="_blank" href="http://www.facebook.com/sharer.php?u=http://'+t['e'+i]+'"><i class="icon-facebook ls_tooltip" title="share it on facebook"></i><a target="_blank" href="http://twitter.com/home?status=Linksavers%20http://'+t['e'+i]+'">  <i class="icon-twitter ls_tooltip" title="share it on twitter"></i> </li>';
+	}
+	
+	
+
+	
+	
 	$('.liked_site').html(temp);
 	
 	$('.ls_hide').css('display','none');
@@ -211,20 +257,20 @@ $('.flw_btn').text('unfollow');
 	}
 	
 	
-	localStorage.t_count=t.count;
+	localStorage.t_count=t.tot_count;
 	//sessionStorage['t_like_count']=t.like_count;
 	//sessionStorage['t_cate_count']=t.cate_count;
 	localStorage.by_counts=t.by_count;
     localStorage.to_counts=t.to_count;
 	
 	
-	$('#a').text(t.count);
+	$('#a').text(t.tot_count);
 	$('#b').text(t.like_count);
 	//$('#c').text(t.cate_count);
 	//$('#d').text(t.by_count);
 	//$('#e').text(t.to_count);
 	
-	$('.ad_ln_c').text(t.count);
+	$('.ad_ln_c').text(t.tot_count);
 	$('.flwto_ln_c').text(localStorage.to_counts);
 	$('.flwby_ln_c').text(localStorage.by_counts);
 	
@@ -249,12 +295,13 @@ $('.flw_btn').text('unfollow');
 	
 }
 
-function liked_site(alrt_flag,site_name,user){
-
+function liked_site(alrt_flag,site_name,user,desc,cate){
+//alert(desc);
+//alert(cate);
 $.ajax({
         type: "POST",
 		url: 'model/liked_site.php',			
-		data: {'sitename':site_name,'user':user}
+		data: {'sitename':site_name,'user':user,'desc':desc,'category':cate}
    	}).done(function(result) {
 	
 	  result = result.substring(2, result.length - 1);
@@ -281,8 +328,55 @@ $.ajax({
 
 }
 
+function disliked_site(flag1,category_tem,site_name,user){
+var tblname="likedsites";	
+//alert(category_tem+' - '+site_name+' - '+user+' - '+tblname)
+$.ajax({
+        type: "POST",
+		url: 'model/delete_site.php',			
+		data: {'sitename':site_name,'cate':category_tem,'user':user,'tbl':tblname}
+   	}).done(function(result) {	
+	  result = result.substring(2, result.length - 1);
+      var t = JSON.parse(result);
+	  $('.loader').css('display','none');
+	  /*$('.'+category_temp+'err').removeClass('alert-info');
+	  $('.'+category_temp+'err').removeClass('alert-danger');*/
+	  if(t['replay']==='you disliked'){
+		  if(flag1==='mine'){
+	  localStorage.like_cnt=parseInt(localStorage.like_cnt)-1;
+      $('.like_c').html(localStorage.like_cnt);
+	  site_name=site_name.replace(/\./g,'_');
+	  site_name=site_name.replace(/\//g,'_');
+	  $('.li_'+site_name).css('display','none');
+//alert(site_name);
+	  localStorage.t_like_count=parseInt(localStorage.t_like_count)-1;
+	  $('#b').text(localStorage.t_like_count);
+		  }
+	  //$('.'+category_temp+'err').addClass('alert-info'); 
+	  }
+	  else{
+	  //$('.'+category_temp+'err').addClass('alert-danger');
+	  }
+	//$('.'+category_temp+'err').html(t['replay']);
+	//$('.'+category_temp+'err').css('display','block');
+	}); 
+}
 
-function remove_site(site_name,user,tblname){
+function remove_site(site_name,user,tblname,cate_name){
+	//alert('my '+cate_name);
+$.ajax({
+        type: "POST",
+		url: 'model/delete_site.php',			
+		data: {'sitename':site_name,'user':user,'tbl':tblname,'cate':cate_name}
+   	}).done(function(result) {	
+
+	
+	
+	}); 
+}
+
+function remove_cate(site_name,user,tblname){
+	//alert(cate_name);
 $.ajax({
         type: "POST",
 		url: 'model/delete_site.php',			
@@ -318,7 +412,7 @@ var usr_name=localStorage.otherusername;
 }
 
 
-function unfollow(usrid,user){
+function unfollow(flag,usrid,user){
 //alert(usrid +' : '+user);
 $.ajax({
 
@@ -331,19 +425,22 @@ $.ajax({
 	  result = result.substring(2, result.length - 1);
       var t = JSON.parse(result);
 	  if(t.response==='av'){
-	  localStorage.amfollowing=parseInt(localStorage.amfollowing)-1;
+		if(flag==='mine'){
+	localStorage.amfollowing=parseInt(localStorage.amfollowing)-1;
 	$('.flwby_ln_c').text(localStorage['amfollowing']);
 	
 	localStorage.by_count=parseInt(localStorage.by_count)-1;
 $('#d').text(localStorage.by_count);
-
+		}
+/*
 $('.err4').addClass('alert-danger');
 $('.err4').removeClass('alert-info');
 $('.err4').text(' removed successfully');
+*/
 }else{
-$('.err4').addClass('alert-danger');
+/*$('.err4').addClass('alert-danger');
 $('.err4').removeClass('alert-info');
-$('.err4').text('please try again');
+$('.err4').text('please try again');*/
 }
 	
 	}); 
@@ -365,29 +462,38 @@ other_user_details(otherid);
 user_details(localStorage.mail);
 }
 }else{
-window.location='index.html';
+window.location='home.html';
 }
 });
 
 /*    dislike sites    */
-$(document.body).on('mousedown','.icon-thumbs-down',function(){
+$(document.body).on('mousedown','.unlike_site',function(){
 //$('.icon-thumbs-down').click( function(){
 var site_name=this.id;
-$('.err2').css('display','block'); 
+$(this).removeClass('icon-thumbs-down');
+$(this).addClass('icon-thumbs-up');
+
+$(this).removeClass('unlike_site');
+$(this).addClass('like_site');
+
+//$('.err2').css('display','block'); 
 //alert(site_name);
 var user=localStorage.mail;
 var tblname="likedsites";
-remove_site(site_name,user,tblname);
-site_name=site_name.replace(/\./g,'_');
+cate_name=$(this).attr( "cate" );
+//remove_site(site_name,user,tblname,cate_name);
+var flag1='mine';
+disliked_site(flag1,cate_name,site_name,user);
+/*	site_name=site_name.replace(/\./g,'_');
 site_name=site_name.replace(/\//g,'_');
 $('.li_'+site_name).css('display','none');
 //alert(site_name);
 localStorage.t_like_count=parseInt(localStorage.t_like_count)-1;
-$('#b').text(localStorage.t_like_count);
-$('.err2').addClass('alert-danger');
+$('#b').text(localStorage.t_like_count);	*/
+/*$('.err2').addClass('alert-danger');
 	$('.err2').removeClass('alert-info');
 	$('.err2').text('link removed successfully');
-	
+*/	
 });
 
 /*   remove sites   */
@@ -396,7 +502,9 @@ $(document.body).on('mousedown','.remove_sites',function(){
 var site_name=this.id;
 var user=localStorage.mail;
 var tblname="sitelist";
-remove_site(site_name,user,tblname);
+var cate_name=$(this).attr( "uid" );
+
+remove_site(site_name,user,tblname,cate_name);
 
 site_name=site_name.replace(/\./g,'_');
 site_name=site_name.replace(/\//g,'_');
@@ -420,7 +528,7 @@ var category_name=this.id;
 
 var user=localStorage.mail;
 var tblname="categories";
-remove_site(category_name,user,tblname);
+remove_cate(category_name,user,tblname);
 $('.err3').css('display','block');
 
 $('.c_'+category_name).css('display','none');
@@ -440,8 +548,8 @@ $(document.body).on('mousedown','.unfollow_user',function(){
 var usrid=this.id;
 
 var user=localStorage['mail'];
-
-unfollow(usrid,user);
+var flag='mine';   // to check unfollow in my profile
+unfollow(flag,usrid,user);
 
 
 
@@ -493,8 +601,8 @@ localStorage.follow_count='1';
 }else if(localStorage.follow_count==='1'){
 var usrid1=localStorage.otherusermail;
 var user1=localStorage.mail;
-
-unfollow(usrid1,user1);
+var flag='other';	 // to check unfollow in other profile
+unfollow(flag,usrid1,user1);
 
 localStorage.to_counts=parseInt(localStorage.to_counts)-1;
 $('.flwto_ln_c').text(localStorage.to_counts);
@@ -522,8 +630,14 @@ var user=localStorage.mail;
 $('.err1').html('Please wait !!!');
 alrt_flag='err1';
 $('.loader').css('display','block');
-liked_site(alrt_flag,site_name,user);
+desc_temp=$(this).attr( "t_dec" );
+cate_temp=$(this).attr( "uid" );
+$(this).removeClass('icon-thumbs-up');
+$(this).addClass('icon-thumbs-down');
 
+$(this).removeClass('like_site');
+$(this).addClass('unlike_site');
+liked_site(alrt_flag,site_name,user,desc_temp,cate_temp);
 
 }
 else{
@@ -547,10 +661,94 @@ $('.err2').html('Please wait !!!');
 
 $('.loader').css('display','block');
  alrt_flag='err2';
-liked_site(alrt_flag,site_name,user);
+desc_temp=$(this).attr( "uid" );
+cate_temp=$(this).attr( "t_dec" );
+$(this).removeClass('icon-thumbs-up');
+$(this).addClass('icon-thumbs-down');
+
+$(this).removeClass('ls_up');
+$(this).addClass('ls_down');
+liked_site(alrt_flag,site_name,user,desc_temp,cate_temp);
 
 }
 else{
 
 }
+});
+
+$(document.body).on('mousedown','.like_site1',function(){
+
+
+
+if(localStorage.mail){
+
+
+var site_name=$(this).attr( "id" );
+var user=localStorage.mail;
+
+$(this).removeClass('like_site1');
+$(this).addClass('unlike_site1');
+
+$('.err1').html('Please wait !!!');
+alrt_flag='err1';
+$('.loader').css('display','block');
+desc_temp=$(this).attr( "t_dec" );
+cate_temp=$(this).attr( "uid" );
+$(this).removeClass('icon-thumbs-up');
+$(this).addClass('icon-thumbs-down');
+
+
+liked_site(alrt_flag,site_name,user,desc_temp,cate_temp);
+
+}
+else{
+
+}
+});
+
+/*    dislike sites    */
+
+/* to delete a site which is added by me and liked by he */
+$(document.body).on('mousedown','.remove_othr_site',function(){
+
+var site_name=this.id;
+var user=localStorage.mail;
+var tblname="sitelist";
+var cate_name=$(this).attr( "cate" );
+
+remove_site(site_name,user,tblname,cate_name);
+
+site_name=site_name.replace(/\./g,'_');
+site_name=site_name.replace(/\//g,'_');
+$('.li_'+site_name).css('display','none');
+
+});
+/*  unlike site */
+$(document.body).on('mousedown','.unlike_site1',function(){
+//$('.icon-thumbs-down').click( function(){
+var site_name=this.id;
+$(this).removeClass('icon-thumbs-down');
+$(this).addClass('icon-thumbs-up');
+
+$(this).removeClass('unlike_site');
+$(this).addClass('like_site');
+
+//$('.err2').css('display','block'); 
+//alert(site_name);
+var user=localStorage.mail;
+var tblname="likedsites";
+cate_name=$(this).attr( "uid" );
+//remove_site(site_name,user,tblname,cate_name);
+var flag1='other';
+disliked_site(flag1,cate_name,site_name,user);
+/*	site_name=site_name.replace(/\./g,'_');
+site_name=site_name.replace(/\//g,'_');
+$('.li_'+site_name).css('display','none');
+//alert(site_name);
+localStorage.t_like_count=parseInt(localStorage.t_like_count)-1;
+$('#b').text(localStorage.t_like_count);	*/
+/*$('.err2').addClass('alert-danger');
+	$('.err2').removeClass('alert-info');
+	$('.err2').text('link removed successfully');
+*/	
 });

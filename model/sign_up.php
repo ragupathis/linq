@@ -11,7 +11,7 @@ $result= array();
 $notes="your notes here";
 $res1='';
 $verified='yet';
-
+$msg='';
 
 //  new code to encrypt user data
 
@@ -59,10 +59,10 @@ $sql2="INSERT INTO `useranalyst`(`user_name`,`hash`,`ip_address`,`datetime`) VAL
 				//echo($hashval);		
 /*   code to send activation link to users*/
 				$to=$user_name;
-$msg="Thanks for signing up linksavers.com , there is one step before activate your account . please open this link your browser to activate your account" ;
-'$msg+="<a href='http://www.linksavers.com/activate.html?acc='".$hashval.">activate</a>";
+$msg="Thanks for signing up linksavers.com , there is one step before activate your account . please open this link your browser to activate your account <a href='http://www.linksavers.com/activate.html?acc=".$hashval."'>activate</a>";
 $sub="www.linksavers.com";
-mail($to,"ragu",$msg);
+
+mail($to,"linksavers.com",$msg);
 
 				
 			}

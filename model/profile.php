@@ -15,13 +15,13 @@ $mysqli = new mysqli($hostname, $username, $password, $database);
    }
 	
 	$sql1="SELECT count(`by`) FROM `sitelist` WHERE `by`=?";
-	$sql2 = "SELECT  `sitename`,`description` FROM `sitelist` where `by`=?";	
+	$sql2 = "SELECT  `sitename`,`description`,`category` FROM `sitelist` where `by`=?";	
 	//$sql3 = "SELECT `notes` FROM `notes` where `user_name`=?";	
 	$sql4="SELECT count(`category`) FROM `categories` where `added_by`=?";
 	$sql5="SELECT `category` FROM `categories` where `added_by`=?";
 		
 	$sql6="SELECT  count(  `sitename`) FROM `likedsites` WHERE `by`=?";
-	$sql7="SELECT   `sitename` FROM `likedsites` WHERE `by`=?";	
+	$sql7="SELECT   `sitename`,`desc`,`category` FROM `likedsites` WHERE `by`=?";	
 	
 	$sql8="SELECT  count( `to`) FROM `followers_list` WHERE `by`=?";
 	$sql9="SELECT   `to`,`to_screen_name` FROM `followers_list` WHERE `by`=?";	
@@ -64,13 +64,15 @@ $mysqli = new mysqli($hostname, $username, $password, $database);
 		$stmt1 -> bind_param('s', $by);
 		$stmt1 -> execute();
 		for($i=1;$i<=$count;$i++){
-		$stmt1 -> bind_result($site,$desc);
+		$stmt1 -> bind_result($site,$desc,$cate);
 		$stmt1 -> fetch();
 		if($site==''){
 		$sitename['count']=$sitename['count']-1;
 		}else{
 		 $sitename[$i]=$site;
-		 $sitename['desc'.$i]=$desc;   }
+		 $sitename['desc'.$i]=$desc; 
+		 $sitename['cate'.$i]=$cate; 
+		 }
 		}
 		$stmt1 -> close();	
 		//echo $sitename1;
@@ -140,9 +142,11 @@ $mysqli = new mysqli($hostname, $username, $password, $database);
 		$stmt1 -> bind_param('s', $by);
 		$stmt1 -> execute();
 		for($i=1;$i<=$count;$i++){
-		$stmt1 -> bind_result($site);
+		$stmt1 -> bind_result($site,$desc,$category);
 		$stmt1 -> fetch();
 		 $sitename['likes'.$i]=$site;
+		 $sitename['likes_desc'.$i]=$desc;
+		 $sitename['likes_cate'.$i]=$category;
 		}
 		$stmt1 -> close();	
 		//echo $sitename1;

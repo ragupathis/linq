@@ -4,10 +4,10 @@
 $site=$_POST['sitename'];
 $by=$_POST['user'];
 //$like=$_POST['like_count'];
-
+$cate=$_POST['category'];
 $like_count=0;
 $result= array();
-
+$desc=$_POST['desc'];
 
 $mysqli = new mysqli($hostname, $username, $password, $database);
 	if(mysqli_connect_errno()) {
@@ -17,8 +17,8 @@ $mysqli = new mysqli($hostname, $username, $password, $database);
  
    }
 	
-	$sql="INSERT INTO `likedsites`(`sitename`,`by`,`datetime`) VALUES (?,?,? )";
-	$sql1="UPDATE sitelist SET `likes`=? where `sitename`=?";
+	$sql="INSERT INTO `likedsites`(`sitename`,`desc`,`category`,`by`,`datetime`) VALUES (?,?,?,?,? )";
+	$sql1="UPDATE sitelist SET `likes`=? where `sitename`=? and `category`=?";
 	$sql2="SELECT `likes` FROM `sitelist` where `sitename`=?";
 	$sql3="SELECT `by` FROM `likedsites` where `sitename`=? and `by`=?";
 	
@@ -58,35 +58,37 @@ $info=("$my_t[mday]-$my_t[mon]-$my_t[year] $my_t[hours]:$my_t[minutes]");
 		$stmt1 -> fetch();
 		$stmt1 -> close();		
 		
-	}else{ echo "u"; }
+	}else{
+		//echo "u";
+	}
 	
 	$like_count++;
 	
 	  if($stmt = $mysqli -> prepare($sql)) {
-			$stmt->bind_param('sss', $site, $by,$info);
+			$stmt->bind_param('sssss',$site,$desc,$cate,$by,$info);
 			$stmt->execute();
 			if ($stmt->errno) {
-			  echo "FAILURE!!! " . $stmt->error();
+			 // echo "FAILURE!!! " . $stmt->error();
 			}
 			$stmt->close();
 			
 	  }else {
-		echo "fail";
+		//echo "fail1";
 	  }
 	  
 	  
 	if($stmt = $mysqli -> prepare($sql1)) {
-			$stmt->bind_param('ss', $like_count,$site);
+			$stmt->bind_param('sss', $like_count,$site,$cate);
 			$stmt->execute();
 			if ($stmt->errno) {
-			  echo "FAILURE!!! " . $stmt->error();
+			//  echo "FAILURE!!! " . $stmt->error();
 			}
 			$stmt->close();
 			
 			
 			
 	  }else {
-		echo "fail";
+	//	echo "fail2";
 	  }
 	$result['replay']='you liked';
 	}

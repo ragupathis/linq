@@ -19,7 +19,7 @@ $('#ls_prof').html('Welcome '+localStorage.screen_name+'<i class="icon-star"></a
 var temp='<ul class="cd-switcher"><li><a href="#0">Add Category</a></li><li><a href="#0">Feedback</a></li>	</ul>';
 temp+='<div id="cd-login"> <!-- add new category form -->	<p class="cd-form-message">Please enter your new category name</p>';
 temp+='	<form class="cd-form">	<p class="fieldset"><label class="image-replace " for="reset-email">Category Name</label>';
-temp+='<input class="full-width has-padding has-border" id="categoryname" type="text" placeholder="Category Name">';
+temp+='<input class="full-width has-padding has-border" id="categoryname" maxlength="12" minlength="2" type="text" placeholder="Category Name">';
 temp+='<span class="category_errmsg">category length 2-15 characters</span></p><p class="fieldset">';
 temp+='<input class="full-width has-padding" type="submit"  id="newcategorybtn" value="Add">	</p></form>';
 temp+='	</div> <!-- cd-reset-password -->';

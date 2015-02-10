@@ -18,8 +18,9 @@ $mysqli = new mysqli($hostname, $username, $password, $database);
    }
    if($tblname=='categories'){
 	$sql="DELETE  FROM `$tblname` WHERE `category`=? and `added_by`=?";
-	}else{
-	$sql="DELETE  FROM `$tblname` WHERE `sitename`=? and `by`=?";
+	}else if($tblname=='sitelist' || $tblname=='likedsites'){
+	$sql="DELETE  FROM `$tblname` WHERE `sitename`=? and `by`=? and `category`=?";
+	$cate=$_POST['cate'];
 	}
 	
 	$sql2 = "SELECT `site_count` from `userdetails` where `hash` =?";
@@ -29,7 +30,11 @@ $mysqli = new mysqli($hostname, $username, $password, $database);
 	
 	
 	  if($stmt = $mysqli -> prepare($sql)) {
+			if($tblname=='categories'){
 			$stmt->bind_param('ss', $site, $by);
+			}else{
+				$stmt->bind_param('sss', $site, $by,$cate);
+			}
 			$stmt->execute();
 			if ($stmt->errno) {
 			//  echo "FAILURE!!! " . $stmt->error();
@@ -58,15 +63,16 @@ $mysqli = new mysqli($hostname, $username, $password, $database);
 		  
 		  $stmt -> fetch();
 		  $stmt -> close();
-		  
+		$result['replay']='you disliked';	  
 
 	  }	
 			
 	  }else {
 		echo "fail";
+		$result['replay']='no';
 	  }
 	  
 
-
+echo var_export(json_encode($result));
 	
 ?>

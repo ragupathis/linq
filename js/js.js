@@ -20,7 +20,7 @@ function user_login(user_name,user_password){
 	    sessionStorage['hash']=t['hash'];
 	    sessionStorage['mail']=t['mail'];
 		sessionStorage['status_code']='first_login';*/
-	    window.location='index.html';}
+	    window.location='home.html';}
 		else if(t['status']==='yet'){
 			$('.signinerr').css('display','block');
 			$('.signinerr').html('please verify your mail');
@@ -203,3 +203,4 @@ function user_register(screen_name,mailid,password){
 	});  
 
 }
+

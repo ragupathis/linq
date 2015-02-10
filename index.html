@@ -1,269 +1,143 @@
-<!doctype html>
-<html lang="en" class="no-js">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<link rel="stylesheet" href="css/common.css">
-<link rel="stylesheet" href="css/examples.css">
-<link rel="stylesheet" href="css/darktooltip.css">
-<link href="css/font-awesome.css" rel="stylesheet">
-
-
-<link rel="stylesheet" type="text/css" href="css/link/component.css" />
-<link href="css/main.css" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
-
-   
-		<link rel="stylesheet" type="text/css" href="css/content.css" />
-		 
-		<script src="js/jquery-1.10.2.min.js"></script>
-		<script src="js/modernizr.custom.js"></script>
-
-
-<link rel="stylesheet" href="css/bootbar.css">
-  <link href="css/metro-bootstrap1.css" rel="stylesheet">
- 
-	
+    <meta charset="utf-8">
+    <title>Linksavers - save & share your links</title>
+	<link rel="icon" href="img/logo.jpg" type="image/ico" >
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/bootstrap.flaty.min.css" rel="stylesheet" id="bootstrap-css">
+    
 	<link rel="stylesheet" href="css/reset_menu.css"> <!-- CSS reset -->
 	<link rel="stylesheet" href="css/style_menu.css"> <!-- Gem style -->
-	<link rel="stylesheet" href="css/backtotop.css"> 
-<link rel="stylesheet" href="css/main1.css">	
-	<script src="js/modernizr.js"></script> <!-- Modernizr -->
-	<link rel="icon" href="img/logo.jpg" type="image/ico" >
-<title>linksavers - social bookmarking network - save and share your links</title>
-</head>
-
-<style>
-.ls_active{
-z-index:15000;
-opacity:1;
+	<style type="text/css">
+    body,.modal-content{
+	background:url('img/bg_tile.png') 100% repeat;
+	}
+	.modal-dialog{
+	margin-top:5% !important;
+	}
+	.signinerr{
+	display:none;
+	color:red;
+	}
+	#login-overlay{
+	opacity:0.85;
+	}
+	.ls_min_sup{
+   display:none;
+   }
+	@media screen and (max-width: 400px) {
+   .ls_lsinfo{
+   display:none;	!important
+   }
+   .ls_min_sup{
+   display:block;
+   }
+   .ls_loginfrm{
+   width:100%; !important
+   }
 }
-footer{
+.close{
+	color:#2c3e50 !important;
+	}
+	
+	footer{
 background-color:#3b5998;
 height:40px;
 color:white;
-margin-top:1%;
+margin-top:4%;
 }
 footer p{
 text-align:center;
 padding-top:1%;
 }
-.ls_removeopacity{
-opacity:0.4;
+#home a,li a{
+color:#505260;
 }
-.ls_uname{
- background-color: #3b5998 ;
-    cursor: auto;
-    text-transform: capitalize;
-	text-decoration:none	!important;
-}
-.i{
-margin-top:12px		!important;
-}
-</style>
+    </style>
+    <script src="js/jquery-1.10.2.min.js"></script>
+    
+    
+</head>
 <header role="banner" >
 	
 		<div id="cd-logo"><a href="http://www.ragupathi.tk/"><img src="img/title1.png" alt="Logo"></a></div>
-
+<!--
 		<nav class="main-nav">
 			<ul  id="menu_list">
-				<!-- inser more links here -->
-				<li><a class="cd-signin" href="#0" id="in">Sign in<i class="icon-signin"></i></a></li>
+				 inser more links here -->
+				<!-- <li><a class="cd-signin" href="#0" id="in">Sign in<i class="icon-signin"></i></a></li>
 
 				<li><a class="cd-signup" href="#0" id="out">Sign up<i class="icon-signout"></i></a></li>
 				
 			</ul>
-		</nav>
+		</nav>-->
 	</header>
-<br><br><br> <br>
-	<div class="cd-user-modal"> <!-- this is the entire modal form, including the background -->
-		<div class="cd-user-modal-container"> <!-- this is the container wrapper -->
-			<ul class="cd-switcher">
-				<li><a href="#0">Sign in</a></li>
-				<li><a href="#0">New account</a></li>
-				
-			</ul>
-
-			<div id="cd-login"> <!-- log in form -->
-				<form class="cd-form">
-					<p class="fieldset">
-						<label class="image-replace cd-email" for="mailid">E-mail</label>
-						<input class="full-width has-padding has-border" id="mailid" type="email" placeholder="E-mail">
-					<!--	<span class="cd-error-message">Error message here!</span>-->
-					</p>
-
-					<p class="fieldset">
-						<label class="image-replace cd-password" for="signin-password">Password</label>
-						<input class="full-width has-padding has-border" id="signin-password" type="password"  placeholder="Password">
-						<a href="#0" class="hide-password">Show</a>
-						<span class="signinerr">Please check username and password</span>
-					</p>
-
-				
-					<p class="fieldset">
-						<input class="full-width" type="submit" value="Login" id="signin">
-					</p>
-				</form>
-				
-				<p class="cd-form-bottom-message"><a href="#0">Resend Password/Activation Link</a></p>
-				<!-- <a href="#0" class="cd-close-form">Close</a> -->
-			</div> <!-- cd-login -->
-
-			<div id="cd-signup"> <!-- sign up form -->
-				<form class="cd-form">
-					<p class="fieldset">
-						<label class="image-replace cd-username" for="signup-username">Username</label>
-						<input class="full-width has-padding has-border" id="signup-username" type="text" placeholder="Username" required>
-						<span class="usernameerr">Please enter atleast four characters</span>
-					</p>
-
-					<p class="fieldset">
-						<label class="image-replace cd-email" for="signup-email">E-mail</label>
-						<input class="full-width has-padding has-border" id="signup-email" type="email" placeholder="E-mail" required>
-						<span class="emailerr">Please enter valid mail id </span>
-					</p>
-
-					<p class="fieldset">
-						<label class="image-replace cd-password" for="signup-password">Password</label>
-						<input class="full-width has-padding has-border" id="signup-password" type="password"  placeholder="Password" required>
-						<a href="#0" class="hide-password">Show</a>
-						<span class="passworderr">Please enter atleast three characters!</span>
-					</p>
-
-					<p class="fieldset">
-						
-						<!--<label for="accept-terms">By Clicking the Create Account button you agreed to the <a href="#0" class="term">Terms</a></label>-->
-					</p>
-
-					<p class="fieldset">
-						<input class="full-width has-padding" type="submit" id="signup" value="Create account">
-					</p>
-				</form>
-
-				<!-- <a href="#0" class="cd-close-form">Close</a> -->
-			</div> <!-- cd-signup -->
-
-			<div id="cd-reset-password"> <!-- reset password form -->
-				<p class="cd-form-message">Lost your Password/Activation Link? Please enter your email address. You will receive a Password/Activation Link.</p>
-
-				<form class="cd-form">
-					<p class="fieldset">
-						<label class="image-replace cd-email" for="reset-email">E-mail</label>
-						<input class="full-width has-padding has-border" id="reset-email" type="email" placeholder="E-mail">
-						<span class="forgeterr"></span>
-					</p>
-
-					<p class="fieldset">
-						<input class="full-width has-padding" type="submit" id="reset_pwd" value="Resend ">
-					</p>
-				</form>
-
-				<p class="cd-form-bottom-message"><a href="#0">Back to log-in</a></p>
-			</div> <!-- cd-reset-password -->
-			
-			
-		
-			
-			
-			<a href="#0" class="cd-close-form">Close</a>
-		</div> <!-- cd-user-modal-container -->
-	</div> <!-- cd-user-modal -->
+<body>
 	
-	<div class="user-modal1">
-		<div id="cd-add-category"> <!-- add new category form -->
-				<p class="cd-form-message">Please enter your new category name</p>
 
-				<form class="cd-form">
-					<p class="fieldset">
-						<label class="image-replace cd-email" for="reset-email">Category Name</label>
-						<input class="full-width has-padding has-border" id="reset-email" type="text" placeholder="Category Name">
-						<span class="cd-error-message">Error message here!</span>
-					</p>
-
-					<p class="fieldset">
-						<input class="full-width has-padding" type="submit" value="Add">
-					</p>
-				</form>
-
-				<p class="cd-form-bottom-message"><a href="#0">Back to log-in</a></p>
-			</div> <!-- cd-reset-password -->
-	</div>
-	
-<body id="home" class="metro" >
-
-<div class="loader">
-  <span class="l-1"></span>
-  <span class="l-2"></span>
-  <span class="l-3"></span>
-  <span class="l-4"></span>
-  <span class="l-5"></span>
-  <span class="l-6"></span>
-</div>
-
-	<table><tr>
-	<a href="#0" class="cd-top">Top</a>
-	<td class="ls_mine">
-	
-		<div class="cornertextsmall">  <!--<div class="accordion span3 place-left margin10" data-role="accordion" data-closeany="false">
-                                    <div class="accordion-frame">
-                                        <a class="heading ribbed-blue fg-white" href="#">Save & Share Links</a>
-                                       
-                                    </div>
-                                    <div class="accordion-frame">
-                                        <a class="heading ribbed-blue fg-white" href="#">Create your own categories</a>
-                                       
-                                    </div>
-									<div class="accordion-frame">
-                                        <a class="heading ribbed-blue fg-white" href="#">Share your links </a>
-                                     
-									</div>    
-									<div class="accordion-frame">
-                                        <a class="heading ribbed-blue fg-white" href="#">Free to use</a>
-                                       
-                                    </div>
-                                    <div class="accordion-frame">
-                                        <a class="heading  ribbed-blue fg-white" href="#">Save private links</a>
-                                       
-                                    </div>
-                                    <div class="accordion-frame">
-                                        <a class="heading ribbed-blue fg-white" href="#">like others link</a>
-                                     
-									</div> -->
-                                   									
-			</div>	
-	</div>
-	
-	</td>
-	<td class="ls_mine1">
-	<div class="cornertext"> 
-	</div>
-	</td>
-	
-	</tr>
-	
-	</table>
+    <div id="login-overlay" class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" id="home" ><a href="home.html" >skip to home</a></button>
+              <h4 class="modal-title" id="myModalLabel">Login to linksavers.com</h4>
+          </div>
+          <div class="modal-body">
+              <div class="row">
+                  <div class="col-xs-6 ls_loginfrm">
+                      <div class="well">
+                          
+                              <div class="form-group">
+                                  <label for="username" class="control-label">Username</label>
+                                  <input type="text" class="form-control" id="mailid" name="username" value="" required="" title="Please enter you username" placeholder="example@gmail.com">
+                                  <span class="help-block"></span>
+                              </div>
+                              <div class="form-group">
+                                  <label for="password" class="control-label">Password</label>
+                                  <input type="password" class="form-control" id="signin-password" name="password" value="" required="" title="Please enter your password">
+                                  <span class="help-block"></span>
+                              </div>
+                              <span id="loginErrorMsg" class="signinerr  ">Wrong Credentials</span>
+                            
+                              <button  class="btn btn-success btn-block" id="signin">Login</button>
+                              <a href="forget_password.html" class="btn btn-default btn-block">Help to login</a>
+							  <a href="join.html" class="btn btn-info btn-block ls_min_sup">Register now!</a>
+                          
+                      </div>
+                  </div>
+                  <div class="col-xs-6 ls_lsinfo">
+                      <p class="lead">Register now for <span class="text-success">FREE</span></p>
+                      <ul class="list-unstyled" style="line-height: 2">
+                          <li><span class="fa fa-check text-success"></span> Save and Share your favorite links</li>
+                          <li><span class="fa fa-check text-success"></span> See others links</li>
+                          <li><span class="fa fa-check text-success"></span> Follow your friends</li>
+                          <li><span class="fa fa-check text-success"></span> Save private links</li>
+                          <li><span class="fa fa-check text-success"></span> Save your time in searching sites</li>
+                          <li><a href="#"><u>Read more</u></a></li>
+                      </ul>
+                      <p><a href="join.html" class="btn btn-info btn-block">Yes please, register now!</a></p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
 	<footer>
 	<p>copyrights @ linksavers.com  </p>
 	
 	</footer>
-	
+</body>
+<script src="js/js.js"> </script>
 <script>
 
+$(document).ready(function(){
+
+if(localStorage.hash){
+window.location='home.html';
+}
+});
+$('#home').click(function(){
+
+window.location='home.html';
+});
 </script>
-	<script src="js/menu_header_index.js"></script>
-<script src="js/common.js"></script>
-<script src="js/backtotop.js"></script>
-<script src="js/main.js"></script> <!-- Gem jQuery -->
-<script src="js/modernizr.custom1.js"></script>
-
-<script type="text/javascript" src="js/script.js">	</script>
-<script src="js/jquery.darktooltip.js"></script>
-<script src="js/js.js"> </script>
-<script src="js/bootbar.js"></script>
-
-
-  	
-</body>
-
 </html>

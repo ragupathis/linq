@@ -16,8 +16,8 @@ function user_list()
 		  for( unf=1;unf<=t.fwcount;unf++){	  
 	
 	  
-	 temp='<div class="span4 well user'+unf+'h">	<div class="row"><div class="span1"><a href="profile.html?id='+t["fwuname"+unf]+'" class="thumbnail">';
-	 temp+='<img src="img/user.jpg" alt=""></a></div><div class="span3 ls_nm"><p>'+t["fwsname"+unf]+'</p>';
+	 temp='<div class="span4 ls_u well user'+unf+'h" >	<div class="row"><div class="span1"><a href="profile.html?id='+t["fwuname"+unf]+'" class="thumbnail">';
+	 temp+='<img src="img/user.jpg" alt=""></a></div><div class="span3 ls_nm"><p usr="'+t["fwuname"+unf]+'">'+t["fwsname"+unf]+'</p>';
 	 temp+='<span class=" badge badge-warning">'+t["fwsite"+unf]+' links</span> <span class=" badge badge-info">'+t["fwflwr"+unf]+' followers</span><br>';
 	 temp+='<button btnid="'+t["fwsname"+unf]+'" class="ls_unflw ls_fwt btn-success " ls_usr="user'+unf+'">Following <i class="icon-ok">  </i></button><input type="hidden" id="unf_user'+unf+'" usr_id="'+t["fwuname"+unf]+'"/></div>	</div><p><span class="badge badge-success ls_info fwuser'+unf+'_info"></span></p></div>';
 
@@ -31,8 +31,8 @@ function user_list()
 	for( unf1=1;unf1<=t.count;unf1++){	  
 	
 	  
-	 temp='<div class="span4 well f_cnt'+unf1+'">	<div class="row"><div class="span1"><a href="profile.html?id='+t["uname"+unf1]+'" class="thumbnail">';
-	 temp+='<img src="img/user.jpg" alt=""></a></div><div class="span3 ls_nm"><p>'+t["sname"+unf1]+'</p>';
+	 temp='<div class="span4 well ls_u f_cnt'+unf1+'" >	<div class="row"><div class="span1"><a href="profile.html?id='+t["uname"+unf1]+'" class="thumbnail">';
+	 temp+='<img src="img/user.jpg" alt=""></a></div><div class="span3 ls_nm"><p usr="'+t["uname"+unf1]+'">'+t["sname"+unf1]+'</p>';
 	 temp+='<span class=" badge badge-warning">'+t["site"+unf1]+' links</span> <span class=" badge badge-info">'+t["flwr"+unf1]+' followers</span><br>';
 	 temp+='<button btnid="'+t["sname"+unf1]+'" class="ls_flw btn-primary ls_fwf" ls_usr="user'+unf1+'">Follow Me<i class="">  </i></button><input type="hidden" id="user'+unf1+'" usr_ids="'+t["uname"+unf1]+'"/></div>	</div><p><span class="badge badge-success ls_info user'+unf1+'_info"></span></p></div>';
 
@@ -59,7 +59,7 @@ $.ajax({
   result = result.substring(2, result.length - 1);
       var t = JSON.parse(result);
 	  if(t.response==='av'){
-	  
+	  /*
 	  unf1=unf1+1;
 
  var temp1='<div class="span4 well f_cnt'+unf1+'">	<div class="row"><div class="span1"><a href="http://www.linksavers.com" class="thumbnail">';
@@ -68,7 +68,7 @@ $.ajax({
 	 temp1+='<button btnid="'+usrid+'" class="ls_flw btn-primary ls_fwf" ls_usr="user'+unf1+'">Follow Me<i class="">  </i></button><input type="hidden" id="user'+unf1+'" usr_id="'+localStorage.screen_name+'"/></div>	</div><p><span class="badge badge-success ls_info user'+unf1+'_info"></span></p></div>';
 
 
-	 $('#content1').append(temp1);
+	 $('#content1').append(temp1);*/
 	  
 	  }else{
 	  
@@ -150,7 +150,7 @@ $('#ls_prof').html('Welcome '+localStorage.screen_name+'<i class="icon-star"></i
 $('#ls_my').html(localStorage.screen_name+'<i class="icon-user"></i>');
 user_list();
 }else{
-window.location='index.html';
+window.location='home.html';
 }
 
 
@@ -192,7 +192,7 @@ $('.'+usr_flg+'_info').html('now you successfully following '+usr_name);
 $('.'+usr_flg+'_info').css('display','block');
 
 }else{
-window.location='index.html';
+window.location='home.html';
 }
 
 });
@@ -221,7 +221,7 @@ unfollow(followed,follow_by);
 //$('.'+usr_flg+'_info').css('display','block');
 
 }else{
-window.location='index.html';
+window.location='home.html';
 }
 
 });
@@ -260,5 +260,13 @@ $(document.body).on('mousedown','#btn',function(){
 var q=$('#ser').val();
 alert(q);
 dynamic_user_list(q);
+
+});
+
+$(document.body).on('mousedown','.span3 p',function(){
+var urls=$(this).attr( "usr" );
+//alert(urls);
+//alert(q);
+window.location='profile.html?id='+urls;
 
 });

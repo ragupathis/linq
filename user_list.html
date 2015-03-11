@@ -89,7 +89,7 @@ font-size:20px;
 
 <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
 <br><br>
-
+<p>Search Peoples<input type="text" id="search" placeholder="Search Peoples" /></p>
 <hr>
 	<div class="container">
 		<div class="row">
@@ -119,4 +119,26 @@ font-size:20px;
 <script type="text/javascript" src="js/user_list.js">	</script>
 <script src="js/main.js"></script> <!-- Gem jQuery -->
 <script src="js/backtotop.js"></script>
+
+<script>
+$(document).ready(function(){
+	$("#search").keyup(function(){
+		var str = $("#search").val();
+		str=str.trim();
+		//alert(str);
+		$(" .span4").each(function(index){
+		$(this).data('user');
+			if($(this).data("user")){
+//		alert(1);	
+				if(!$(this).data("user").match(new RegExp(str, "i"))){
+					$(this).fadeOut("fast");
+				}else{
+					$(this).fadeIn("slow");
+				}
+			}
+		});		
+	});
+});
+
+</script>
 </html>

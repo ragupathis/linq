@@ -35,6 +35,10 @@
 </head>
 
 <style>
+.ls_url_loader{
+margin:20% 0 0 30% ;
+}
+
 .ls_active{
 z-index:15000;
 opacity:1;
@@ -64,6 +68,7 @@ padding-top:1%;
 .ls_removeopacity{
 opacity:0.4;
 }
+/*
 .ls_uname{
  background-color: #3b5998 ;
     cursor: auto;
@@ -84,7 +89,7 @@ background-color:rgb(212,150,101) !important;
 color:rgb(212,150,101) !important;
 }
 .dark-tooltip.dark.west .tip,.dark-tooltip.west.medium .tip,.dark-tooltip.dark.west .tip,.dark-tooltip.dark.west .tip,.dark-tooltip.dark.west .tip,.dark-tooltip.dark.west .tip{
-/*color:rgb(212,150,101) !important;*/
+
 border-color:rgb(212,150,101) !important;
 }
 .cl-effect-20 a span:before,.cl-effect-7 a:before, .cl-effect-7 a:after,.cl-effect-14 a:before, .cl-effect-14 a:after,.cl-effect-2 a span{
@@ -98,9 +103,34 @@ color:rgb(182,106,56) !important;
 }
 .cd-top,.no-touch .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .btn-primary.disabled, .btn-primary[disabled],.btn-primary{
 background-color:rgb(182,106,56);
-}
+}*/
 i:hover{
 background-color:rgb(254,191,77 );
+}
+#ls_sr{
+/*margin-left:10%;*/
+}
+/*    it is for iframe content */
+
+.ls_box{
+    
+    width: 500px;
+	position:absolute !important;
+	height:100%;
+	margin-left:383px;
+
+font-size:20px;
+opacity:1;
+	display: none;
+background-image:url('img/bg.png');
+}
+.rmv_pre{
+background-color:gray;
+}
+a:hover + .ls_box,.ls_box:hover{
+    display: none;
+    
+    z-index: 100;
 }
 </style>
 <header role="banner" >
@@ -233,7 +263,7 @@ background-color:rgb(254,191,77 );
 	
 <body id="home" class="metro" >
 
-<div class="loader">
+<div class="loader loader1">
   <span class="l-1"></span>
   <span class="l-2"></span>
   <span class="l-3"></span>
@@ -242,8 +272,22 @@ background-color:rgb(254,191,77 );
   <span class="l-6"></span>
 </div>
 
-	<table><tr>
+	<table>
+	<tr>	<td>
+	<input type="text" id="search"/>
+	<input type="button" id="btnsearch" value="search"/>
+	<div id="ls_sr">
+	test
+	</div>
+	</td>  <td>
+	
+	</td>	</tr>
+	
+	<tr>
 	<a href="#0" class="cd-top">Top</a>
+	
+	
+	
 	<td class="ls_mine">
 	
 		<div class="cornertextsmall">  <!--<div class="accordion span3 place-left margin10" data-role="accordion" data-closeany="false">
@@ -276,6 +320,7 @@ background-color:rgb(254,191,77 );
 	</div>
 	
 	</td>
+	
 	<td class="ls_mine1">
 	<div class="cornertext"> 
 	</div>
@@ -303,7 +348,7 @@ background-color:rgb(254,191,77 );
 <script src="js/js.js"> </script>
 <script src="js/bootbar.js"></script>
 
-
+<script src="js/search.js"></script>
   	
 </body>
 

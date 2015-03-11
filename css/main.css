@@ -120,7 +120,9 @@ cursor:default !important ;
 		font-size:6px
 	}
 	
-
+.icon-search{
+display:none !important;
+}
 .ls_demo{
 font-size:14px;
 width:280px;
@@ -150,7 +152,9 @@ width:280px;
 	body{
 		font-size:8px
 	}
-	
+.icon-search{
+display:none !important;
+}	
 .ls_demo{
 font-size:14px;
 width:300px;
@@ -181,7 +185,9 @@ width:280px;
 	body{
 		font-size:8px
 	}
-	
+.icon-search{
+display:none !important;
+}	
 .ls_demo{
 font-size:14px;
 width:340px;

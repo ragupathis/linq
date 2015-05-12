@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Linksavers</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="css/follow_category.css" rel="stylesheet" id="bootstrap-css">
+	<style>
+	.flw{
+	float:right;
+	}
+	</style>
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.tmpl.min.js">   </script>
+	<script src="js/display_category.js">  </script>
+	<script type="text/javascript">
+$(document).ready(function(){
+generate_category();
+});
+</script>
+<script id="templ" type="text/html">
+             <div class="col-sm-6 col-md-3">
+                <div class="panel panel-default panel-card">
+                    <div class="panel-heading">
+                      <div class="btn btn-primary flw">  <input type="checkbox" > Follow Me </div>
+                    </div>
+                    <div class="panel-figure">
+                     <img class="img-responsive img-circle" src="my.png" />
+                    </div>
+                    <div class="panel-body text-center">
+                        <h4 class="panel-header cate_title ">${category}</h4>
+                        <small>A short description goes here.</small>
+                    </div>
+                </div>   
+    		</div>
+</script>
+</head>
+<body>
+	<section id="t-cards">
+    <div class="container">
+        <div class="row">
+
+<ul>   </ul>
+</div>
+</div>
+</section>
+
+</body>
+<script>
+$(document).on('.follow-me').click(function(){
+//var t=
+var t=$('h4').val();
+//alert('d');
+
+});
+
+</script>
+</html>

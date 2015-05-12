@@ -1,0 +1,48 @@
+.alert-messages {    
+    top: 70px;
+    left: 0;
+    right: 0;
+    position: absolute;
+	z-index: 100;
+}
+
+
+.alert-messages1 {    
+    bottom: -5%;
+    left: 0;
+    right: 0;
+    position: absolute;
+	z-index: 9999;
+}
+
+
+@media screen and (max-width: 600px) {
+	.alert-messages {
+top: 40px;
+    position: absolute;
+	
+}
+}
+
+@media screen and (max-width: 800px) {
+	.alert-messages {
+top: 70px;
+    position: absolute;
+	
+}
+}
+@media screen and (max-width: 900px) {
+	.alert-messages {
+top: 50px;
+    position: absolute;
+	
+}
+}
+
+@media screen and (max-width: 400px) {
+	.alert-messages {
+top: 50px;
+    position: absolute;
+	
+}
+}

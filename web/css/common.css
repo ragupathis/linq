@@ -1,0 +1,107 @@
+
+.loader {
+  z-index: 1199;
+  position: fixed;
+  top: 300px;
+  width: 50%;
+}
+ 
+.loader > span {
+  display: inline-block;
+  background: #dbdbdb;
+  width: 15px;
+  height: 15px;
+  border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+
+  position: fixed;
+  top: 2px;
+  left:0%;
+  transition: 2.8s all cubic-bezier(0.030, 0.615, 0.995, 0.415);
+  -o-transition: 2.8s all cubic-bezier(0.030, 0.615, 0.995, 0.415);
+  -ms-transition: 2.8s all cubic-bezier(0.030, 0.615, 0.995, 0.415);
+  -moz-transition: 2.8s all cubic-bezier(0.030, 0.615, 0.995, 0.415);
+  -webkit-transition: 2.8s all cubic-bezier(0.030, 0.615, 0.995, 0.415);
+  z-index: 101;
+}
+ 
+.loader > span.jmp {
+  transition: none !important;
+  -o-transition: none !important;
+  -ms-transition: none !important;
+  -moz-transition: none !important;
+  -webkit-transition: none !important;
+}
+ 
+.loader span.l-1 { background: #e74c3c; }
+ 
+.loader span.l-2 { background: #e67e22; }
+ 
+.loader span.l-3 { background: #f1c40f; }
+ 
+.loader span.l-4 { background: #2ecc71; }
+ 
+.loader span.l-5 { background: #3498db; }
+ 
+.loader span.l-6 { background: #9b59b6; }
+
+
+
+.icon-facebook , .icon-twitter , .icon-remove-circle ,.icon-thumbs-down,.icon-thumbs-up,.icon-phone{
+color:#3b5998;
+cursor:pointer;
+}
+
+.ls_up:hover,.icon-facebook:hover,.icon-twitter:hover,.icon-phone:hover{
+color:blue;
+}
+.icon-ban-circle:hover,.icon-remove-circle:hover,.icon-thumbs-down:hover{
+color:red;
+}
+
+ .icon-ban-circle{
+/*color:red;*/
+}
+
+a{
+color:;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    /*-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.8);*/ 
+    -webkit-border-radius: 10px;
+    background-color:white;
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background:gray; 
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+
+
+
+
+#ls_tooltip{
+	position:absolute;
+	border:1px solid #333;
+	background:#f7f5d1;
+	padding:2px 5px;
+	color:#333;
+	
+	display:none;
+	z-index:99999;
+	}	
+	
+	

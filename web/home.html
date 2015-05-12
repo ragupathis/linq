@@ -1,0 +1,214 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Pinball Website Template | Home :: w3layouts</title>
+		<link href="css/style.css" rel='stylesheet' type='text/css' />
+				<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="shortcut icon" type="image/x-icon" href="images/fav-icon.png" />
+		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+		</script>
+		 <link href="css/bootstrap.flaty.min.css" rel="stylesheet" id="bootstrap-css">
+    
+		<!----webfonts---->
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+		<!----//webfonts---->
+		<!-- Global CSS for the page and tiles -->
+  		<link rel="stylesheet" href="css/main.css">
+  		<!-- //Global CSS for the page and tiles -->
+		<!---start-click-drop-down-menu----->
+		<script src="js/jquery.min.js"></script>
+        <!----start-dropdown--->
+		<style>
+		.my_tiles li{
+		display:block !important;
+		}
+		</style>
+		<style type="text/css">
+    body,.modal-content{
+	background:url('img/bg_tile.png') 100% repeat;
+	}
+	.modal-dialog{
+	margin-top:5% !important;
+	}
+	.signinerr{
+	display:none;
+	color:red;
+	}
+	#login-overlay{
+	opacity:0.85;
+	}
+	.ls_min_sup{
+   display:none;
+   }
+	@media screen and (max-width: 400px) {
+   .ls_lsinfo{
+   display:none;	!important
+   }
+   .ls_min_sup{
+   display:block;
+   }
+   .ls_loginfrm{
+   width:100%; !important
+   }
+}
+.close{
+	color:#2c3e50 !important;
+	}
+	
+	footer{
+background-color:#3b5998;
+height:40px;
+color:white;
+margin-top:4%;
+}
+footer p{
+text-align:center;
+padding-top:1%;
+}
+#home a,li a{
+color:#505260;
+}
+    </style>
+         <script type="text/javascript">
+			var $ = jQuery.noConflict();
+				$(function() {
+					$('#activator').click(function(){
+						$('#box').animate({'top':'0px'},500);
+					});
+					$('#boxclose').click(function(){
+					$('#box').animate({'top':'-700px'},500);
+					});
+				});
+				$(document).ready(function(){
+				//Hide (Collapse) the toggle containers on load
+				$(".toggle_container").hide(); 
+				//Switch the "Open" and "Close" state per click then slide up/down (depending on open/close state)
+				$(".trigger").click(function(){
+					$(this).toggleClass("active").next().slideToggle("slow");
+						return false; //Prevent the browser jump to the link anchor
+				});
+									
+			});
+		</script>
+        <!----//End-dropdown--->
+		<!---//End-click-drop-down-menu----->
+	</head>
+	<body>
+		<!---start-wrap---->
+			<!---start-header---->
+			<div class="header">
+				<div class="wrap">
+				<div class="logo">
+					<a href="index.html"><img src="images/logo.png" title="pinbal" /></a>
+				</div>
+				<div class="nav-icon">
+					 <a href="#" class="right_bt" id="activator"><span> </span> </a>
+				</div>
+				 <div class="box" id="box">
+					 <div class="box_content">        					                         
+						<div class="box_content_center">
+						 	<div class="form_content">
+								<div class="menu_box_list">
+									<ul>
+										<li><a href="#"><span>home</span></a></li>
+										<li><a href="street.html"><span>Street</span></a></li>
+										<li><a href="users.html"><span>Users</span></a></li>
+										<li><a href="#"><span>Clients</span></a></li>
+										<li><a href="#"><span>Blog</span></a></li>
+										<li><a href="contact.html"><span>Contact</span></a></li>
+										<div class="clear"> </div>
+									</ul>
+								</div>
+								<a class="boxclose" id="boxclose"> <span> </span></a>
+							</div>                                  
+						</div> 	
+					</div> 
+				</div>       	  
+				<div class="top-searchbar">
+					<form>
+						<input type="text" /><input type="submit" value="" />
+					</form>
+				</div>
+				<div class="userinfo">
+					<div class="user">
+						<ul>
+							<li><a href="#"><img src="images/user-pic.png" title="user-name" /><span>Ipsum</span></a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="clear"> </div>
+			</div>
+		</div>
+		<!---//End-header---->
+		<!---start-content---->
+		<br><br><br><br>
+    <div id="login-overlay" class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" id="home" ><a href="home.html" >login as guest</a></button>
+              <h4 class="modal-title" id="myModalLabel">Login to linksavers.com</h4>
+          </div>
+          <div class="modal-body">
+              <div class="row">
+                  <div class="col-xs-6 ls_loginfrm">
+                      <div class="well">
+                          
+                              <div class="form-group">
+                                  <label for="username" class="control-label">Username</label>
+                                  <input type="text" class="form-control" id="mailid" name="username" value="" required="" title="Please enter you username" placeholder="example@gmail.com">
+                                  <span class="help-block"></span>
+                              </div>
+                              <div class="form-group">
+                                  <label for="password" class="control-label">Password</label>
+                                  <input type="password" class="form-control" id="signin-password" name="password" value="" required="" title="Please enter your password">
+                                  <span class="help-block"></span>
+								  <span id="loginErrorMsg" class="signinerr  ">Wrong Credentials</span>
+                              </div>
+                              
+                            
+                              <button  class="btn btn-success btn-block" id="signin">Login</button>
+                              <a href="forget_password.html" class="btn btn-default btn-block">Forgot password</a>
+							  <a href="join.html" class="btn btn-info btn-block ls_min_sup">Register now!</a>
+                          
+                      </div>
+                  </div>
+                  <div class="col-xs-6 ls_lsinfo">
+                      <p class="lead">Register now for <span class="text-success">FREE</span></p>
+                      <ul class="list-unstyled" style="line-height: 2">
+                          <li><span class="fa fa-check text-success"></span> Save and Share your favorite links</li>
+                          <li><span class="fa fa-check text-success"></span> See others links</li>
+                          <li><span class="fa fa-check text-success"></span> Follow your friends</li>
+                          <li><span class="fa fa-check text-success"></span> Save private links</li>
+                          <li><span class="fa fa-check text-success"></span> Save your time in searching sites</li>
+                          <li><a href="#"><u>Read more</u></a></li>
+                      </ul>
+                      <p><a href="join.html" class="btn btn-info btn-block">Yes please, register now!</a></p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+		<!---//End-content---->
+		<!----wookmark-scripts---->
+		
+		  <script src="js/jquery.imagesloaded.js"></script>
+		  <script src="js/jquery.wookmark.js"></script>
+		 <script src="js/js.js"> </script>
+	
+		<!----//wookmark-scripts---->
+		<!----start-footer--->
+		<div class="footer">
+			<p>abc</p>
+		</div>
+		<!----//End-footer--->
+		<!---//End-wrap---->
+	</body>
+	
+</html>
+

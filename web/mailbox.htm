@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>E-mail Interface - Bootsnipp.com</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <style type="text/css">
+    @import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700);
+
+body {
+    background-color:#F7F7F7;
+    font-family: 'Open Sans', sans-serif;
+}
+/*Navbar*/
+.navbar-default {
+    background-color:#fff;
+    border-bottom-color:#E3E3E3;
+}
+.navbar-default .navbar-nav>.active>a, 
+.navbar-default .navbar-nav>.active>a:hover, 
+.navbar-default .navbar-nav>.active>a:focus{
+    background-color:transparent!important;
+}
+.navbar-default .btn-compose {
+    padding-right:10px;
+    border-right:1px solid #F0F0F0;
+}
+/*Forms setup*/
+.form-control {
+    border-radius:0;
+    box-shadow:none;
+    height:auto;
+}
+.float-label{
+    font-size:10px;
+}
+input[type="text"].form-control,
+input[type="search"].form-control{
+    border:none;
+    border-bottom:1px dotted #CFCFCF;
+}
+textarea {
+    border:1px dotted #CFCFCF!important;
+    height:130px!important;
+}
+/*Content Container*/
+.content-container {
+    background-color:#fff;
+    padding:35px 20px;
+    margin-bottom:20px;
+}
+h1.content-title{
+    font-size:32px;
+    font-weight:300;
+    text-align:center;
+    margin-top:0;
+    margin-bottom:20px;
+    font-family: 'Open Sans', sans-serif!important;
+}
+/*Compose*/
+.btn-send{
+    text-align:center;
+    margin-top:20px;
+}
+/*mail list*/
+
+ul.mail-list{
+    padding:0;
+    margin:0;
+    list-style:none;
+    margin-top:30px;
+}
+ul.mail-list li a{
+    display:block;
+    border-bottom:1px dotted #CFCFCF;
+    padding:20px;
+    text-decoration:none;
+}
+ul.mail-list li:last-child a{
+    border-bottom:none;
+}
+ul.mail-list li a:hover{
+    background-color:#DBF9FF;
+}
+ul.mail-list li span{
+    display:block;
+}
+ul.mail-list li span.mail-sender{
+    font-weight:600;
+    color:#8F8F8F;
+}
+ul.mail-list li span.mail-subject{
+    color:#8C8C8C;
+}
+ul.mail-list li span.mail-message-preview{
+    display:block;
+    color:#A8A8A8;
+}
+.mail-search{
+    border-bottom-color:#7FBCC9!important; 
+}
+    </style>
+    <script src="jquery-1.10.2.min.js"></script>
+    <script src="bootstrap.min.js"></script>
+
+</head>
+<body>
+
+<div class="tab-content">
+  <div class="tab-pane active" id="inbox">
+      
+      <div class="container">
+           <div class="content-container clearfix">
+               <div class="col-md-12">
+                   <h1 class="content-title">Inbox</h1>
+                   
+                   <input type="search" placeholder="Search link" class="form-control mail-search" />
+                   
+                   <ul class="mail-list">
+                       <li>
+                           <a href="">
+                               <span class="mail-sender">You Tube</span>
+                               <span class="mail-subject">New subscribers!</span>
+                               <span class="mail-message-preview">You have ten more subscriptions click her...</span>
+                           </a>
+                       </li>
+                       <li>
+                           <a href="">
+                               <span class="mail-sender">You Tube</span>
+                               <span class="mail-subject">New subscribers!</span>
+                               <span class="mail-message-preview">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil eveniet ipsum nisi? Eaque odio quae debitis saepe explicabo alias sit tenetur animi...</span>
+                           </a>
+                       </li>
+                       <li>
+                           <a href="">
+                               <span class="mail-sender">You Tube</span>
+                               <span class="mail-subject">New subscribers!</span>
+                               <span class="mail-message-preview">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil eveniet ipsum nisi? Eaque odio quae debitis saepe explicabo alias sit tenetur animi...</span>
+                           </a>
+                       </li>
+                       <li>
+                           <a href="">
+                               <span class="mail-sender">You Tube</span>
+                               <span class="mail-subject">New subscribers!</span>
+                               <span class="mail-message-preview">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil eveniet ipsum nisi? Eaque odio quae debitis saepe explicabo alias sit tenetur animi...</span>
+                           </a>
+                       </li>
+                       <li>
+                           <a href="">
+                               <span class="mail-sender">You Tube</span>
+                               <span class="mail-subject">New subscribers!</span>
+                               <span class="mail-message-preview">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil eveniet ipsum nisi? Eaque odio quae debitis saepe explicabo alias sit tenetur animi...</span>
+                           </a>
+                       </li>
+                   </ul>
+               </div>
+           </div>
+       </div>
+      
+  </div>
+  <div class="tab-pane" id="compose">
+      
+      <div class="container">
+    <div class="content-container clearfix">
+        <h1 class="content-title">Compose</h1>
+        <div class="col-md-12">
+            <div class="form-group">
+                <input id="tokenfield" type="text" class="form-control" placeholder="To" />
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Cc" />
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Bcc" />
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Subject" />
+            </div>
+            <textarea class="form-control" placeholder="message"></textarea>
+            <div class="btn-send">
+            <button class="btn btn-success btn-lg"><span class="glyphicon glyphicon-send"></span> Send</button>
+            </div>
+        </div>
+    </div>
+</div>
+      
+  </div>
+  <div class="tab-pane" id="sent-mail">
+      
+      <div class="container">
+           <div class="content-container clearfix">
+               <div class="col-md-12">
+                   <h1 class="content-title">Sent Mail</h1>
+                   
+                   <input type="search" placeholder="Search Mail" class="form-control mail-search" />
+                   
+                   <ul class="mail-list">
+                       <li>
+                           <a href="">
+                               <span class="mail-sender">You Tube</span>
+                               <span class="mail-subject">New subscribers!</span>
+                               <span class="mail-message-preview">You have ten more subscriptions click her...</span>
+                           </a>
+                       </li>
+                       <li>
+                           <a href="">
+                               <span class="mail-sender">You Tube</span>
+                               <span class="mail-subject">New subscribers!</span>
+                               <span class="mail-message-preview">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil eveniet ipsum nisi? Eaque odio quae debitis saepe explicabo alias sit tenetur animi...</span>
+                           </a>
+                       </li>
+                       <li>
+                           <a href="">
+                               <span class="mail-sender">You Tube</span>
+                               <span class="mail-subject">New subscribers!</span>
+                               <span class="mail-message-preview">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil eveniet ipsum nisi? Eaque odio quae debitis saepe explicabo alias sit tenetur animi...</span>
+                           </a>
+                       </li>
+                       <li>
+                           <a href="">
+                               <span class="mail-sender">You Tube</span>
+                               <span class="mail-subject">New subscribers!</span>
+                               <span class="mail-message-preview">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil eveniet ipsum nisi? Eaque odio quae debitis saepe explicabo alias sit tenetur animi...</span>
+                           </a>
+                       </li>
+                       <li>
+                           <a href="">
+                               <span class="mail-sender">You Tube</span>
+                               <span class="mail-subject">New subscribers!</span>
+                               <span class="mail-message-preview">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil eveniet ipsum nisi? Eaque odio quae debitis saepe explicabo alias sit tenetur animi...</span>
+                           </a>
+                       </li>
+                   </ul>
+               </div>
+           </div>
+       </div>
+      
+  </div>
+  <div class="tab-pane" id="draft">
+      
+      <div class="container">
+           <div class="content-container clearfix">
+               <div class="col-md-12">
+                   <h1 class="content-title">Draft</h1>
+                   
+                   <input type="search" placeholder="Search Mail" class="form-control mail-search" />
+                   
+                   <ul class="mail-list">
+                       <li>
+                           <a href="">
+                               <span class="mail-sender">You Tube</span>
+                               <span class="mail-subject">New subscribers!</span>
+                               <span class="mail-message-preview">You have ten more subscriptions click her...</span>
+                           </a>
+                       </li>
+                       <li>
+                           <a href="">
+                               <span class="mail-sender">You Tube</span>
+                               <span class="mail-subject">New subscribers!</span>
+                               <span class="mail-message-preview">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil eveniet ipsum nisi? Eaque odio quae debitis saepe explicabo alias sit tenetur animi...</span>
+                           </a>
+                       </li>
+                       <li>
+                           <a href="">
+                               <span class="mail-sender">You Tube</span>
+                               <span class="mail-subject">New subscribers!</span>
+                               <span class="mail-message-preview">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil eveniet ipsum nisi? Eaque odio quae debitis saepe explicabo alias sit tenetur animi...</span>
+                           </a>
+                       </li>
+                       <li>
+                           <a href="">
+                               <span class="mail-sender">You Tube</span>
+                               <span class="mail-subject">New subscribers!</span>
+                               <span class="mail-message-preview">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil eveniet ipsum nisi? Eaque odio quae debitis saepe explicabo alias sit tenetur animi...</span>
+                           </a>
+                       </li>
+                       <li>
+                           <a href="">
+                               <span class="mail-sender">You Tube</span>
+                               <span class="mail-subject">New subscribers!</span>
+                               <span class="mail-message-preview">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil eveniet ipsum nisi? Eaque odio quae debitis saepe explicabo alias sit tenetur animi...</span>
+                           </a>
+                       </li>
+                   </ul>
+               </div>
+           </div>
+       </div>
+      
+  </div>
+  <div class="tab-pane" id="trash">
+      
+      <div class="container">
+           <div class="content-container clearfix">
+               <div class="col-md-12">
+                   <h1 class="content-title">Trash</h1>
+                   
+                   <input type="search" placeholder="Search Mail" class="form-control mail-search" />
+                   
+                   <ul class="mail-list">
+                       <li>
+                           <a href="">
+                               <span class="mail-sender">You Tube</span>
+                               <span class="mail-subject">New subscribers!</span>
+                               <span class="mail-message-preview">You have ten more subscriptions click her...</span>
+                           </a>
+                       </li>
+                       <li>
+                           <a href="">
+                               <span class="mail-sender">You Tube</span>
+                               <span class="mail-subject">New subscribers!</span>
+                               <span class="mail-message-preview">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil eveniet ipsum nisi? Eaque odio quae debitis saepe explicabo alias sit tenetur animi...</span>
+                           </a>
+                       </li>
+                       <li>
+                           <a href="">
+                               <span class="mail-sender">You Tube</span>
+                               <span class="mail-subject">New subscribers!</span>
+                               <span class="mail-message-preview">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil eveniet ipsum nisi? Eaque odio quae debitis saepe explicabo alias sit tenetur animi...</span>
+                           </a>
+                       </li>
+                       <li>
+                           <a href="">
+                               <span class="mail-sender">You Tube</span>
+                               <span class="mail-subject">New subscribers!</span>
+                               <span class="mail-message-preview">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil eveniet ipsum nisi? Eaque odio quae debitis saepe explicabo alias sit tenetur animi...</span>
+                           </a>
+                       </li>
+                       <li>
+                           <a href="">
+                               <span class="mail-sender">You Tube</span>
+                               <span class="mail-subject">New subscribers!</span>
+                               <span class="mail-message-preview">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil eveniet ipsum nisi? Eaque odio quae debitis saepe explicabo alias sit tenetur animi...</span>
+                           </a>
+                       </li>
+                   </ul>
+               </div>
+           </div>
+       </div>
+      
+  </div>
+</div>
+	<script type="text/javascript">
+	/**
+ * FloatLabels
+ * Version: 1.0
+ * URL: http://clubdesign.github.io/floatlabels.js/
+ * Description: 
+ * Author: Marcus Pohorely ( http://www.clubdesign.at )
+ * Copyright: Copyright 2013 / 2014 http://www.clubdesign.at
+ */
+!function(a,b){function g(b,c){this.$element=a(b),this.settings=a.extend({},f,c),this.init()}var e="floatlabel",f={slideInput:!0,labelStartTop:"20px",labelEndTop:"10px",paddingOffset:"10px",transitionDuration:.3,transitionEasing:"ease-in-out",labelClass:"",typeMatches:/text|password|email|number|search|url/};g.prototype={init:function(){var a=this,c=this.settings,d=c.transitionDuration,e=c.transitionEasing,f=this.$element,g={"-webkit-transition":"all "+d+"s "+e,"-moz-transition":"all "+d+"s "+e,"-o-transition":"all "+d+"s "+e,"-ms-transition":"all "+d+"s "+e,transition:"all "+d+"s "+e};if("INPUT"===f.prop("tagName").toUpperCase()&&c.typeMatches.test(f.attr("type"))){var h=f.attr("id");h||(h=Math.floor(100*Math.random())+1,f.attr("id",h));var i=f.attr("placeholder"),j=f.data("label"),k=f.data("class");k||(k=""),i&&""!==i||(i="You forgot to add placeholder attribute!"),j&&""!==j||(j=i),this.inputPaddingTop=parseFloat(f.css("padding-top"))+parseFloat(c.paddingOffset),f.wrap('<div class="floatlabel-wrapper" style="position:relative"></div>'),f.before('<label for="'+h+'" class="label-floatlabel '+c.labelClass+" "+k+'">'+j+"</label>"),this.$label=f.prev("label"),this.$label.css({position:"absolute",top:c.labelStartTop,left:f.css("padding-left"),display:"none","-moz-opacity":"0","-khtml-opacity":"0","-webkit-opacity":"0",opacity:"0"}),c.slideInput||f.css({"padding-top":this.inputPaddingTop}),f.on("keyup blur change",function(b){a.checkValue(b)}),b.setTimeout(function(){a.$label.css(g),a.$element.css(g)},100),this.checkValue()}},checkValue:function(a){if(a){var b=a.keyCode||a.which;if(9===b)return}var c=this.$element,d=c.data("flout");""!==c.val()&&c.data("flout","1"),""===c.val()&&c.data("flout","0"),"1"===c.data("flout")&&"1"!==d&&this.showLabel(),"0"===c.data("flout")&&"0"!==d&&this.hideLabel()},showLabel:function(){var a=this;a.$label.css({display:"block"}),b.setTimeout(function(){a.$label.css({top:a.settings.labelEndTop,"-moz-opacity":"1","-khtml-opacity":"1","-webkit-opacity":"1",opacity:"1"}),a.settings.slideInput&&a.$element.css({"padding-top":a.inputPaddingTop}),a.$element.addClass("active-floatlabel")},50)},hideLabel:function(){var a=this;a.$label.css({top:a.settings.labelStartTop,"-moz-opacity":"0","-khtml-opacity":"0","-webkit-opacity":"0",opacity:"0"}),a.settings.slideInput&&a.$element.css({"padding-top":parseFloat(a.inputPaddingTop)-parseFloat(this.settings.paddingOffset)}),a.$element.removeClass("active-floatlabel"),b.setTimeout(function(){a.$label.css({display:"none"})},1e3*a.settings.transitionDuration)}},a.fn[e]=function(b){return this.each(function(){a.data(this,"plugin_"+e)||a.data(this,"plugin_"+e,new g(this,b))})}}(jQuery,window,document);
+
+
+$(document).ready(function(){
+    $('.form-control').floatlabel({
+        labelClass: 'float-label',
+        labelEndTop: 5
+    });
+});
+	</script>
+</body>
+</html>

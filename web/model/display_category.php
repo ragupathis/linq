@@ -19,7 +19,7 @@ $mysqli = new mysqli($hostname, $username, $password, $database);
 	
 	
 	$sql3 ="SELECT  count(`category`) FROM `categories` where `added_by`=? or `added_by`=?" ;	
-	$sql4 ="SELECT   `category` FROM `categories` where `added_by`=? or `added_by`=? ORDER BY status desc";
+	$sql4 ="SELECT   `category`,`s_no` FROM `categories` where `added_by`=? or `added_by`=? ";
 	$sql5="SELECT count(`sitename`) FROM `sitelist` where `category`=?";
 	
 	if($stmt1 = $mysqli -> prepare($sql3)) 
@@ -45,9 +45,11 @@ $mysqli = new mysqli($hostname, $username, $password, $database);
 		$stmt1->bind_param('ss', $user, $admin);
 		$stmt1 -> execute();
 		for($k=1;$k<=$size;$k++){
-		$stmt1 -> bind_result($category);
+		$stmt1 -> bind_result($category,$no);
 		$stmt1 -> fetch();
-		 $category_info[$k]=$category;
+		 $category_info['cate'.$k]=$category;
+		 $category_info['no'.$k]=$no;
+		 
 		}
 		$stmt1 -> close();		
 	}else{ //echo "sorry"; 
@@ -57,7 +59,7 @@ $mysqli = new mysqli($hostname, $username, $password, $database);
 	for($k=1;$k<=$size;$k++){
 		
 		
-		 $temp_val=$category_info[$k];
+		 $temp_val=$category_info['cate'.$k];
 		
 	 if($stmt1 = $mysqli -> prepare($sql5)) 
 	{	

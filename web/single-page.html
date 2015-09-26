@@ -89,16 +89,16 @@ ul.mail-list{
     list-style:none;
     margin-top:30px;
 }
-ul.mail-list li a{
+ul.mail-list li div{
     display:block;
     border-bottom:1px dotted #CFCFCF;
     padding:20px;
     text-decoration:none;
 }
-ul.mail-list li:last-child a{
+ul.mail-list li:last-child div{
     border-bottom:none;
 }
-ul.mail-list li a:hover{
+ul.mail-list li div:hover{
     background-color:#DBF9FF;
 }
 ul.mail-list li span{
@@ -117,6 +117,41 @@ ul.mail-list li span.mail-message-preview{
 }
 .mail-search{
     border-bottom-color:#7FBCC9!important; 
+}
+.site-link{
+font-size:18px;
+color:#18bc9c;
+}
+.site-desc{
+font-size:18px;
+color:#31c3db;
+}
+.activities{
+font-size:20px;
+}
+.icon-facebook{
+color:blue;
+}
+.icon-twitter{
+color:blue;
+}
+.icon-phone{
+color:green;
+}
+.icon-thumbs-up{
+color:yellow;
+}
+.icon-thumbs-down{
+color:yellow;
+}
+.icon-remove-circle{
+color:red;
+}
+.icon-gift{
+color:yellow;
+}
+.icon-ban-circle{
+color:red;
 }
     </style>
     <script src="jquery-1.10.2.min.js"></script>
@@ -207,7 +242,7 @@ ul.mail-list li span.mail-message-preview{
                <div class="col-md-12">
                    <h1 class="content-title">Cricket</h1>
                    
-                   <input type="search" placeholder="Search link" class="form-control mail-search" />
+                   <input type="search" placeholder="Add link" class="form-control mail-search" />
                    
                    <ul class="mail-list site_list">
                      
@@ -242,7 +277,7 @@ $(document).ready(function(){
     });
 });
 	</script>		
-<script src="js/script.js">	</script>
+<script src="js/list_site.js">	</script>
 	</body>
 </html>
 

@@ -1,140 +1,86 @@
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
-	<head>
-		<title>Pinball Website Template | Home :: w3layouts</title>
-		<link href="css/style.css" rel='stylesheet' type='text/css' />
-				<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="shortcut icon" type="image/x-icon" href="images/fav-icon.png" />
-		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-		</script>
-		<!----webfonts---->
-		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
-		<!----//webfonts---->
-		<!-- Global CSS for the page and tiles -->
-  		<link rel="stylesheet" href="css/main.css">
-  		<!-- //Global CSS for the page and tiles -->
-		<!---start-click-drop-down-menu----->
-		
+<head>
+    <meta charset="utf-8" />
+    <title>Timeline Template | PrepBootstrap</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css" />
 
     <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
-	
-	
-		<script src="js/jquery.min.js"></script>
-
-<script src="js/jquery.tmpl.min.js"></script>
-<script id="templ" type="text/html">
-<li>
-
-{{if type==='like'}}
-  <div class="timeline-badge up"><i class="fa fa-thumbs-up"></i></div>
-{{/if}}
-
-{{if type==='add'}}
-  <div class="timeline-badge up"><i class="fa fa-thumbs-down"></i></div>
-{{/if}}
-
-{{if type==='follow'}}
-  <div class="timeline-badge up"><i class="fa fa-facebook"></i></div>
-{{/if}}
-        
-          <div class="timeline-panel">
-            <div class="timeline-body">
-              <p>  ${msg}</p>
-            </div>
-          </div>
-</li>
-</script>    
-    <!----start-dropdown--->
-		<style>
-		.my_tiles li{
-		display:block !important;
-		}
-		</style>
-         <script type="text/javascript">
-			var $ = jQuery.noConflict();
-				$(function() {
-					$('#activator').click(function(){
-						$('#box').animate({'top':'0px'},500);
-					});
-					$('#boxclose').click(function(){
-					$('#box').animate({'top':'-700px'},500);
-					});
-				});
-				$(document).ready(function(){
-				//Hide (Collapse) the toggle containers on load
-				$(".toggle_container").hide(); 
-				//Switch the "Open" and "Close" state per click then slide up/down (depending on open/close state)
-				$(".trigger").click(function(){
-					$(this).toggleClass("active").next().slideToggle("slow");
-						return false; //Prevent the browser jump to the link anchor
-				});
-									
-			});
-		</script>
-        <!----//End-dropdown--->
-		<!---//End-click-drop-down-menu----->
-	</head>
-	<body>
-		<!---start-wrap---->
-			<!---start-header---->
-			<div class="header">
-				<div class="wrap">
-				<div class="logo">
-					<a href="index.html"><img src="images/logo.png" title="pinbal" /></a>
-				</div>
-				<div class="nav-icon">
-					 <a href="#" class="right_bt" id="activator"><span> </span> </a>
-				</div>
-				 <div class="box" id="box">
-					 <div class="box_content">        					                         
-						<div class="box_content_center">
-						 	<div class="form_content">
-								<div class="menu_box_list">
-									<ul>
-										<li><a href="#"><span>home</span></a></li>
-										<li><a href="street.html"><span>Street</span></a></li>
-										<li><a href="#"><span>Works</span></a></li>
-										<li><a href="#"><span>Clients</span></a></li>
-										<li><a href="#"><span>Blog</span></a></li>
-										<li><a href="contact.html"><span>Contact</span></a></li>
-										<div class="clear"> </div>
-									</ul>
-								</div>
-								<a class="boxclose" id="boxclose"> <span> </span></a>
-							</div>                                  
-						</div> 	
-					</div> 
-				</div>       	  
-				<div class="top-searchbar">
-					<form>
-						<input type="text" /><input type="submit" value="" />
-					</form>
-				</div>
-				<div class="userinfo">
-					<div class="user">
-						<ul>
-							<li><a href="#"><img src="images/user-pic.png" title="user-name" /><span>Ipsum</span></a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="clear"> </div>
-			</div>
-		</div>
-		<!---//End-header---->
-		<!---start-content---->
+</head>
+<body>
 
 <div class="container">
+
+<div class="page-header">
+    <h1>Timeline <small>Flexible Timeline Bootstrap Template</small></h1>
+</div>
+
+<!-- Timeline - START -->
+<div class="container">
     <ul class="timeline">
-       
+        <li><!---Time Line Element--->
+          <div class="timeline-badge up"><i class="fa fa-thumbs-up"></i></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title">Time Line Entry #1</h4>
+            </div>
+            <div class="timeline-body"><!---Time Line Body&Content--->
+              <p>Time line content is placed here...</p>
+            </div>
+          </div>
+        </li>
+        <li><!---Time Line Element--->
+          <div class="timeline-badge down"><i class="fa fa-thumbs-down"></i></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title">Time Line Entry #2</h4>
+            </div>
+            <div class="timeline-body"><!---Time Line Body&Content--->
+              <p>Time line content is placed here...</p>
+              <p>And some more Time line content </p>
+            </div>
+          </div>
+        </li>
+        <li><!---Time Line Element--->
+          <div class="timeline-badge neutral"><i class="fa fa-navicon"></i></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title">Time Line Entry #3</h4>
+            </div>
+            <div class="timeline-body"><!---Time Line Body&Content--->
+              <p>Time line content is placed here...</p>
+              <p>This appears to be a neutral time line enty...</p>
+            </div>
+          </div>
+        </li>
+        <li><!---Time Line Element--->
+          <div class="timeline-badge down"><i class="fa fa-thumbs-down"></i></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title">Time Line Entry #4</h4>
+            </div>
+            <div class="timeline-body"><!---Time Line Body&Content--->
+              <p>Time line content is placed here...</p>
+              <p>And some more Time line content </p>
+            </div>
+          </div>
+        </li>
+        
+        <li><!---Time Line Element--->
+          <div class="timeline-badge up"><i class="fa fa-thumbs-up"></i></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title">Time Line Entry #5</h4>
+            </div>
+            <div class="timeline-body"><!---Time Line Body&Content--->
+              <p>Time line content is placed here...</p>
+            </div>
+          </div>
+        </li>
     </ul>
 </div>
 
@@ -252,35 +198,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 .timeline-body > p + p {
   margin-top: 5px;
 }
-.container{
-margin-top:100px;
-}
 </style>
 <!-- Timeline - END -->
 
 </div>
 
 </body>
-
-<script src="js/backtotop.js"></script> 
-<script src="js/notification1.js"></script> 
-
-		<!---//End-content---->
-		<!----wookmark-scripts---->
-		
-		  <script src="js/jquery.imagesloaded.js"></script>
-		  <script src="js/jquery.wookmark.js"></script>
-		  <script type="text/javascript">
-		    </script>
-		
-		<!----//wookmark-scripts---->
-		<!----start-footer--->
-		<div class="footer">
-			<p>abc</p>
-		</div>
-		<!----//End-footer--->
-		<!---//End-wrap---->
-	</body>
-	
 </html>
-

@@ -1,241 +1,463 @@
-<!doctype html>
-<html lang="en" class="no-js">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-		 
-		
-<link href="css/common.css" rel="stylesheet">
-<link href="css/font-awesome.css" rel="stylesheet">
+    <meta charset="utf-8">
+    <title>Profile</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/bootstrap.min1.css" rel="stylesheet" id="bootstrap-css">
+	<link href="css/font-awesome.css" rel="stylesheet">
+    <style type="text/css">
+.panel-body .btn:not(.btn-block) { width:120px;margin-bottom:10px; }
 
-       <link rel="icon" href="img/logo.jpg" type="image/ico" >
+.panel-body .btn:not(.btn-block) {
+    margin-bottom: 10px;
+    width: 45%;
+}
+.row{
+margin-left:8% !important;
+}
+
+.usernameerr,.passworderr,.emailerr{
+  display:none;
+  margin-top:-2%;
+}
 
 
+    </style>
+	<link href="links/css/style-modified.css" rel='stylesheet' type='text/css' />
 
-<link rel="stylesheet" href="css/profile.css">
+	
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/blockUI.js"></script>
+ <link href="css/bootstrap.min3.css" rel="stylesheet" id="bootstrap-css">
+    <style type="text/css">
+    /* USER PROFILE PAGE */
+ .card {
+    margin-top: 20px;
+    padding: 30px;
+    background-color: rgba(214, 224, 226, 0.2);
+    -webkit-border-top-left-radius:5px;
+    -moz-border-top-left-radius:5px;
+    border-top-left-radius:5px;
+    -webkit-border-top-right-radius:5px;
+    -moz-border-top-right-radius:5px;
+    border-top-right-radius:5px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.card.hovercard {
+    position: relative;
+    padding-top: 0;
+    overflow: hidden;
+    text-align: center;
+    background-color: #fff;
+    background-color: rgba(255, 255, 255, 1);
+}
+.card.hovercard .card-background {
+    height: 130px;
+}
+.card-background img {
+    -webkit-filter: blur(25px);
+    -moz-filter: blur(25px);
+    -o-filter: blur(25px);
+    -ms-filter: blur(25px);
+    filter: blur(25px);
+    margin-left: -100px;
+    margin-top: -200px;
+    min-width: 130%;
+}
+.card.hovercard .useravatar {
+    position: absolute;
+    top: 15px;
+    left: 0;
+    right: 0;
+}
+.card.hovercard .useravatar img {
+    width: 100px;
+    height: 100px;
+    max-width: 100px;
+    max-height: 100px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    border: 5px solid rgba(255, 255, 255, 0.5);
+}
+.card.hovercard .card-info {
+    position: absolute;
+    bottom: 14px;
+    left: 0;
+    right: 0;
+}
+.card.hovercard .card-info .card-title {
+    padding:0 5px;
+    font-size: 20px;
+    line-height: 1;
+    color: #262626;
+    background-color: rgba(255, 255, 255, 0.1);
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+.card.hovercard .card-info {
+    overflow: hidden;
+    font-size: 12px;
+    line-height: 20px;
+    color: #737373;
+    text-overflow: ellipsis;
+}
+.card.hovercard .bottom {
+    padding: 0 20px;
+    margin-bottom: 17px;
+}
+.btn-pref .btn {
+    -webkit-border-radius:0 !important;
+}
 
-<link href="css/metro-bootstrap.css" rel="stylesheet">
-   
+.textbox_border_color_change{
+	border-color: #f0ad4e;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px #f0ad4e;
+	outline: 0 none;
+}
 
-<link href="css/font-awesome-ie7.css" rel="stylesheet">
+.user_content_area{
+	margin-top:80px;
+}
 
-<link rel="stylesheet" href="css/backtotop.css"> 
+.navbar-fixed-top{
+	position:fixed;
+}
+    </style>
 
-<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+		  <style type="text/css">
+    nav.navbar-findcond { background: #fff; border-color: #ccc; box-shadow: 0 0 2px 0 #ccc; }
+nav.navbar-findcond a { color: #f14444; !important}
+nav.navbar-findcond ul.navbar-nav a { color: #f14444; border-style: solid; border-width: 0 0 3px 0; border-color: #fff; }
+nav.navbar-findcond ul.navbar-nav a:hover,
+nav.navbar-findcond ul.navbar-nav a:visited,
+nav.navbar-findcond ul.navbar-nav a:focus,
+nav.navbar-findcond ul.navbar-nav a:active { background: #fff; color: #f14444; }
+
+.active{ color: #f14444; border-width: 0 0 4px 0;font-weight: bold; border-color:#f14444; border-style:solid ;}
+nav.navbar-findcond ul.navbar-nav a:hover { border-color: #f14444; }
+nav.navbar-findcond li.divider { background: #ccc; }
+nav.navbar-findcond button.navbar-toggle { background: #f14444; border-radius: 2px; }
+nav.navbar-findcond button.navbar-toggle:hover { background: #999; }
+nav.navbar-findcond button.navbar-toggle > span.icon-bar { background: #fff; }
+nav.navbar-findcond ul.dropdown-menu { border: 0; background: #fff; border-radius: 4px; margin: 4px 0; box-shadow: 0 0 4px 0 #ccc; }
+nav.navbar-findcond ul.dropdown-menu > li > a { color: #444; }
+nav.navbar-findcond ul.dropdown-menu > li > a:hover { background: #f14444; color: #fff; }
+nav.navbar-findcond span.badge { background: #f14444; font-weight: normal; font-size: 11px; margin: 0 4px; }
+nav.navbar-findcond span.badge.new { background: rgba(255, 0, 0, 0.8); color: #fff; }
 
 
-	<link rel="stylesheet" href="css/reset_menu.css"> <!-- CSS reset -->
-	<link rel="stylesheet" href="css/style_menu.css"> <!-- Gem style -->
-<title>linksavers - social bookmarking network - save and share your links</title>
+#accordion .panel-heading h4 a{
+	display: block;
+    padding: 10px 15px;
+}
+
+.home_link{
+	color: #f14444 !important;
+}
+
+.div_back_color{
+	background-color:rgba(153, 153, 153, 0.2) !important;
+}
+    </style>
+	
+	<!--Materiel Design  -->
+
+<link href="css/material/bootstrap-material-design.css" rel="stylesheet">
+<link href="css/material/icon.css" rel="stylesheet">
+<link href="css/material/css.css" rel="stylesheet">
+<link href="css/material/ripples.min.css" rel="stylesheet">
+
+<!--Materiel Design  -->	
+	
+	
 </head>
+<body>
 
-
-<style>
-body{
-	background:url('img/bg_tile.png') 100% repeat;
-	}
-i:hover{
-background-color:#8b9dc3;
-}
-.ls_uname_title,#ls_my,#ls_prof{
-text-transform:capitalize;
-}
-.well{
-padding:0px;
-}
-.emphasis 
-{
-    border: 4px solid transparent;
-	padding:20px 0 10px 0;
-	
-    }
-.emphasis:hover 
-{
-    border: 4px solid #8b9dc3;
-    }
-.emphasis h2
-{
-    margin-bottom:0;
-    font-size:31.5px;
-	}
-
-.icon-home,.icon-off,.icon-user,.icon-star,.icon-comments,.icon-globe,.icon-group{
-margin-top:3px;
-}
-.ls_up_icon{
-color:white;
-cursor:default;
-}
-footer{
-background-color:#3b5998;
-height:40px;
-color:white;
-float:left;
-width:100%;
-}
-footer p{
-text-align:center;
-padding-top:1%;
-}
-</style>
-	
-	
-
-	<header role="banner">
-		<div id="cd-logo"><a href="http://www.ragupathi.tk/"><img src="img/title1.png" alt="Logo"></a></div>
-
-		<nav class="main-nav">
-			<ul  id="menu_list">
-				<!-- inser more links here -->
-				<li><a class="cd-signin ls_uname"  id="ls_prof"></a></li>
-				<li><a class="cd-signin" href="home.html" id="">Home<i class="icon-home"></i></a></li>
-				<li><a class="cd-signin ls_profname" href="user_list.html" id="pro_name">Peoples<i class="icon-globe"></i></a></li>
-				<li><a class="cd-signin" href="street.html" id="">Street<i class="icon-comments"></i></a></li>
-				<li><a class="cd-signin" href="profile.html" id="ls_my"><i class="icon-user"></i></a></li>
-				<li><a class="cd-signup" href="#0" id="logout">Sign Out<i class="icon-off"></i></a></li>
-				
-				
+			<nav class="navbar navbar-findcond navbar-fixed-top">
+    <div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand home_link" href="#">Linksavers</a>
+		</div>
+		<div class="collapse navbar-collapse" id="navbar">
+			<ul class="nav navbar-nav navbar-right">
+				<li ><a href="my_topics.html">My Topics <span class="sr-only">(current)</span></a></li>
+				<li class=""><a href="discover_topics.html">Discover <span class="sr-only">(current)</span></a></li>
+				<li class="active"><a href="#" id="my_profile">Profile <span class="sr-only">(current)</span></a></li>
+				<li class=""><a href="#" id="logout">Logout <span class="sr-only">(current)</span></a></li>
 			</ul>
-		</nav>
-	</header>
-<body class="metro">
-	<div class="loader">
-  <span class="l-1"></span>
-  <span class="l-2"></span>
-  <span class="l-3"></span>
-  <span class="l-4"></span>
-  <span class="l-5"></span>
-  <span class="l-6"></span>
+			
+		</div>
+	</div>
+</nav>
+
+
+
+	<div class="container user_content_area">
+    <div class="">
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <i class="icon icon-link"></i>Your Stats</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <a href="#" class="btn div_back_color btn-lg  col-lg-6 col-sm-6 col-md-6" role="button"><i class="icon icon-pencil"></i> <br/><span class="site_added">  </span> Links you added</a>
+                          <a href="#" class="btn div_back_color btn-lg  col-lg-6 col-sm-6 col-md-6" role="button"><i class="icon icon-thumbs-up"></i> <br/><span class="site_liked">  </span> Links you liked</a>
+                          <a href="#" class="btn div_back_color btn-lg  col-lg-6 col-sm-6 col-md-6" role="button"><i class="icon icon-plus"></i>  <br/><span class="category_followed">  </span>  Categories you following</a>
+                          <a href="#" class="btn div_back_color btn-lg col-lg-6 col-sm-6 col-md-6" role="button"><i class="icon icon-star"></i>  <br/><span class="other_users">  </span> Hearts you Earned </a>
+                          
+                        
+                        
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+	
+		<div class="col-lg-12 col-sm-12 col-md-12">
+    <div class="card hovercard">
+        <div class="card-background">
+            <img class="card-bkimg" alt="" src="img/9.jpg">
+            <!-- http://lorempixel.com/850/280/people/9/ -->
+        </div>
+        <div class="useravatar">
+            <img alt="" src="img/9.jpg">
+        </div>
+        <div class="card-info"> <span class="card-title" id="screen_name_display"></span>
+
+        </div>
+    </div>
+    <div class="btn-pref btn-group btn-group-justified btn-group-lg " role="group" aria-label="...">
+        <div class="btn-group" role="group">
+            <button type="button" id="stars" class="btn div_back_color" href="#tab1" data-toggle="tab"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                <div class="hidden-xs">Account Info</div>
+            </button>
+        </div>
+        <div class="btn-group" role="group">
+            <button type="button" id="favorites" class="btn btn-default" href="#tab2" data-toggle="tab"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
+                <div class="hidden-xs">General Info</div>
+            </button>
+        </div>
+        <div class="btn-group" role="group">
+            <button type="button" id="following" class="btn btn-default" href="#tab3" data-toggle="tab"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
+                <div class="hidden-xs">Change Password</div>
+            </button>
+        </div>
+    </div>
+
+        <div class="well">
+      <div class="tab-content">
+        <div class="tab-pane fade in active" id="tab1">
+          
+<div class="well ">
+
+	
+	<div class=" form-group s_name">
+	<label class="control-label move_help_text" for="screen_name">Please enter atleast four characters</label>
+	<input class="form-control" name="screen_name" id="screen_name"  type="text" maxlength="20"/>
+	<p class="help-block s_name_help">You should enter atleast three characters</p>
+	</div>
+	
+	<div class=" form-group ">
+	<!--<p class="help-block">Account E-mail ID</p>-->
+	<label class="control-label move_help_text" for="email">Account E-mail ID</label>
+	<input class="form-control" name="youremail"  id="email" type="email" disabled />
+		<p class="help-block">You can't edit your primary mail id</p>
+	</div>
+	
+	<div class=" form-group s_sec_mail">
+	<!--<p class="help-block">Account Secondary E-mail ID</p>-->
+	<label class="control-label move_help_text" for="sec-email">Account Secondary E-mail ID</label>
+	<input class="form-control" name="youremail"  id="sec-email" type="email"  />
+	<p class="help-block s_sec_mail_help">Enter secondary mail id for backup </p>
+	</div>
+
+<br>
+	<button class="btn btn-info btn-raised  btn-block" id="account_update">Update</button>
+
 </div>
 
-   <div id="main">
-       <div class="clear">&nbsp;</div>
-   </div>
-  <a href="#0" class="cd-top">Top</a>
-  
+        </div>
+        <div class="tab-pane fade in" id="tab2">
+    <div class="well">
 
-						<div class="panel ls_a">
-                            <div class="panel-header ribbed-blue  fg-white">
-                               <p  class="titl active"><a href="#" title=" Added Sites">Added Sites<span class=" notification count123"  id="a"></span></a> <span class="icon-pencil"> </span></p>
-                            </div>
-                            <div class="panel-content">
-                                <div class="ls_content "><ul class="site added_site"></ul></div>
-							</div>
-                        </div>
+	<div class=" form-group ">
+	<label class="control-label move_help_text" for="country">Country</label>
+	<input class="form-control" name="country" id="country"  type="text" maxlength="20" />
+	<p class="help-block">enter your country name</p>
+	</div>
 	
 
-						<div class="panel ls_b" >
-                            <div class="panel-header ribbed-blue  fg-white">
-                              <p class="titl inactive"><a href="#" title=" liked sites">Liked Sites<span  class="notification count123" id="b"></span></a>   <span class="icon-thumbs-up ls_up_icon"> </span></p>
-                            </div>
-                            <div class="panel-content">
-                                <div class="ls_content bg-lightBlue fg-white"><ul class="liked_site site"></ul></div>
-							</div>
-                        </div>
-
-						<div class="panel ls_hide ls_c">
-                            <div class="panel-header ribbed-blue  fg-white">
-                              <p class="titl inactive"><a href="#" title=" added categories"> Category<span class="notification count123" id="c"></span></a>    <span class="icon-plus"> </span></p>
-                            </div>
-                            <div class="panel-content">
-                                <div class="ls_content "><ul class="added_category site"></ul></div>
-							</div>
-                        </div>
-<br><br>
-								<div class="panel ls_d" >
-                            <div class="panel-header ribbed-blue  fg-white">
-                              <p class="titl inactive"><a href="#" title="Name here"><span class="ls_uname_title"></span> <span  class="notification count123" ></span></a>   <span class="icon-user"> </span></p>
-                            </div>
-                            <div class="panel-content">
-                              	<div class="col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6">
-    	 <div class="well profile">
-            <div class="col-sm-12">
-                     
-                <div class="col-xs-12 col-sm-4 text-center">
-                    <figure>
-                     
-                        <figcaption class="ratings">
-                            <p>
-                          <button class="btn btn-success btn-block flw_btn"><span class="fa fa-plus-circle"></span> Follow </button>
-                            </p>
-                        </figcaption>
-                    </figure>
-                </div>
-            </div>            
-            <div class="col-xs-12  text-center">
-				<div class="col-xs-12 col-sm-4 emphasis">
-                    <h2><strong><p class="ad_ln_c"></p></strong></h2>                    
-                    <p><small>Links</small></p>
-                 
-                </div>
-              
-                <div class="col-xs-12 col-sm-4 emphasis">
-                       <h2><strong><p class="flwby_ln_c"></p></strong></h2>                               
-                    <p><small>Following</small></p>
-                   
-                </div>
-				  <div class="col-xs-12 col-sm-4 emphasis">
-                       <h2><strong><p class="flwto_ln_c"></p></strong></h2>                                    
-                    <p><small>Followers</small></p>
-                  
-                </div>
-                
-            </div>
-    	 </div>                 
-		</div>
-							</div>
-                        </div>
-						
-						
-						<div class="panel ls_hide ">
-                            <div class="panel-header ribbed-blue  fg-white">
-                               <p  class="titl active"><a href="#" title="the people you are following">Following <span class=" notification count123"  id="d"></span></a> <span class="icon-group"> </span></p>
-                            </div>
-                            <div class="panel-content">
-                                <div class="ls_content "><ul class="site followed_to"></ul></div>
-							</div>
-                        </div>
 	
+	<div class=" form-group ">
+	<label class="control-label move_help_text" for="gender">select gender</label>
+		<select class="form-control" id="gender">
+										<option value="" disabled>Select gender</option>
+										<option value="Male">Male</option>
+										<option value="Female">Female</option>
+										<option value="Other">Other</option>
+	</select>
+	<p class="help-block">select gender</p>
+	</div>
 
-						<div class="panel ls_hide" >
-                            <div class="panel-header ribbed-blue  fg-white">
-                              <p class="titl inactive"><a href="#" title="the people following you">Followers <span  class="notification count123" id="e"></span></a>   <span class="icon-group"> </span></p>
-                            </div>
-                            <div class="panel-content">
-                                <div class="ls_content bg-lightBlue fg-white"><ul class="followed_by site"></ul></div>
-							</div>
-                        </div>
-						
-				
-
-		<footer>
-	<p>copyrights @ linksavers.com  </p>
 	
-	</footer>				
+	<div class=" form-group ">
+	<label class="control-label move_help_text" for="dob">enter dob</label>
+		<input class="form-control" name="dob"  id="dob" type="text" disabled />
+	<p class="help-block">enter dob</p>
+	</div>
+	
+	
+<br>
+	<button class="btn btn-info btn-raised btn-block" id="personal_update">Update</button>
 
-           
+</div>
+        </div>
+        <div class="tab-pane fade in" id="tab3">
+		
+		     <div class="well">
 
-</body>
+			 
+		<div class=" form-group old_pwd">
+	<label class="control-label move_help_text" for="old-password">Old Password</label>
+		<input class="form-control" name="password"  id="old-password" type="password" />
+	<p class="help-block">Please enter valid current password</p>
+	</div>		 
+			 
+		<div class=" form-group new_pwd1">
+	<label class="control-label move_help_text" for="newpassword">New Password</label>
+		<input class="form-control new_pwd" name="password" id="newpassword" type="password" maxlength="20" />
+	<p class="help-block new_pwd_help">Please enter atleast five characters</p>
+	</div>
 
-<script src="js/jquery-1.10.2.min.js"></script>
-<script>
-      window.include=function(){function f(){b--;b||c()}var a=arguments,d=document,b=a.length,c;
-      arguments[b-1]instanceof Function?(b--,c=a[a.length-1]):c=function(){};
-      for(var e=0;e<b;e++)a=d.createElement("script"),a.src=arguments[e],a.onload=a.onerror=f,
-      (d.head||d.getElementsByTagName("head")[0]).appendChild(a)};
 
-      include('js/common.js', function() {
-        include('js/session_details.js');
-        include('js/bootbar.js');
-		include('js/script1.js');
-		include('js/modernizr.js');
-		include('js/backtotop.js');
+	<div class=" form-group new_pwd2">
+	<label class="control-label move_help_text" for="re_newpassword">Repeat New Password</label>
+		<input class="form-control new_pwd" name="password"  id="re_newpassword" type="password" maxlength="20" />
+	<p class="help-block new_pwd_help">Please enter atleast five characters</p>
+	</div>	
+			 
+	<button class="btn btn-info btn-raised btn-block" id="password_update">Update</button>
+
+</div>
+
       
-    });
-    </script>
+        </div>
+      </div>
+    </div>
+    
+    </div>
+            
+    
+
+
+</div>
+
+
+<!--footer-->
+		<div class="footer">
+		   <p>&copy; 2016 Linksavers | Design by <a href="#" target="_blank">Linksavers Team</a></p>
+		</div>
+        <!--//footer-->
+		
+		<script src="links/js/jquery.nicescroll.js"></script>
+	<script src="links/js/scripts.js"></script>
+
+	<script type="text/javascript">
+	$(document).ready(function() {
+$(".btn-pref .btn").click(function () {
+    $(".btn-pref .btn").removeClass("div_back_color").addClass("div_back_color1");
+     //$(".tab").addClass("active"); // instead of this do the below 
+    $(this).removeClass("btn-default").addClass("div_back_color");   
+});
+});
+	</script>
+
+	<script type="text/javascript" src="js/user_profile.js">	</script>
 	
-<script src="js/main.js"></script> <!-- Gem jQuery -->
+
+   <!--Materiel Design  -->
+   
+    <script>
+  (function () {
+
+    var $button = $("<div id='source-button' class='btn btn-primary btn-xs'>&lt; &gt;</div>").click(function () {
+      var index = $('.bs-component').index($(this).parent());
+      $.get(window.location.href, function (data) {
+        var html = $(data).find('.bs-component').eq(index).html();
+        html = cleanSource(html);
+        $("#source-modal pre").text(html);
+        $("#source-modal").modal();
+      })
+
+    });
+
+    $('.bs-component [data-toggle="popover"]').popover();
+    $('.bs-component [data-toggle="tooltip"]').tooltip();
+
+    $(".bs-component").hover(function () {
+      $(this).append($button);
+      $button.show();
+    }, function () {
+      $button.hide();
+    });
+
+    function cleanSource(html) {
+      var lines = html.split(/\n/);
+
+      lines.shift();
+      lines.splice(-1, 1);
+
+      var indentSize = lines[0].length - lines[0].trim().length,
+          re = new RegExp(" {" + indentSize + "}");
+
+      lines = lines.map(function (line) {
+        if (line.match(re)) {
+          line = line.substring(indentSize);
+        }
+
+        return line;
+      });
+
+      lines = lines.join("\n");
+
+      return lines;
+    }
+
+    $(".icons-material .icon").each(function () {
+      $(this).after("<br><br><code>" + $(this).attr("class").replace("icon ", "") + "</code>");
+    });
+
+  })();
+
+</script>
 
 
+   <script src="js/ripples.min.js">	</script>
+   <script src="js/material.min.js">	</script>
+   <script>
+  $(function () {
+    $.material.init();
 
+  });
+</script>
+   <!--Materiel Design  -->
+   
+	
+	
+</body>
 </html>

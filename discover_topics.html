@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+		<meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+        <title>Discover Topics</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <meta name="description" content="social bookmarking" />
+        <meta name="keywords" content="social bookmarking" />
+        <meta name="author" content="Linksavers" />
+        <link rel="shortcut icon" href="../favicon.ico"> 
+        	<link href="css/bootstrap.min_discover.css" rel="stylesheet">
+
+  <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+    <script src="new/js/html5shiv.js"></script>
+    <script type="text/javascript" src="new/js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="new/js/browseralert.js"></script>
+  <![endif]-->
+ 
+    <link rel="shortcut icon" href="new/images/logo1.png">
+	<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<link href="links/css/style-modified.css" rel='stylesheet' type='text/css' />
+	<script type="text/javascript" src="js/bootstrap.min_discover.js"></script>
+	<script src="js/blockUI.js"></script>
+<!--Materiel Design  -->
+
+<link href="css/material/bootstrap-material-design.css" rel="stylesheet">
+<link href="css/material/icon.css" rel="stylesheet">
+<link href="css/material/css.css" rel="stylesheet">
+<link href="css/material/ripples.min.css" rel="stylesheet">
+
+<!--Materiel Design  -->
+		    
+    <link href="css/follow_category.css" rel="stylesheet" id="bootstrap-css">
+	<style>
+	.flw_btn{
+	float:right;
+	}
+	/*.panel{
+		height:110px;
+	}*/
+	.category_name {
+		text-transform: capitalize;
+	}
+	/*.sub_category_list{
+		border:1px solid red;
+		padding:5px;
+	}*/
+	.collapse-design{
+		font-size:20px;
+		text-decoration:none !important;
+		color:white !important;
+	}
+	</style>
+	
+	  <style type="text/css">
+    nav.navbar-findcond { background: #fff; border-color: #ccc; box-shadow: 0 0 2px 0 #ccc; }
+nav.navbar-findcond a { color: #f14444; !important}
+nav.navbar-findcond ul.navbar-nav a { color: #f14444; border-style: solid; border-width: 0 0 3px 0; border-color: #fff; }
+nav.navbar-findcond ul.navbar-nav a:hover,
+nav.navbar-findcond ul.navbar-nav a:visited,
+nav.navbar-findcond ul.navbar-nav a:focus,
+nav.navbar-findcond ul.navbar-nav a:active { background: #fff; color: #f14444;  }
+
+.active{ color: #f14444; border-width: 0 0 4px 0;font-weight: bold; border-color:#f14444; border-style:solid ;}
+nav.navbar-findcond ul.navbar-nav a:hover { border-color: #f14444; }
+nav.navbar-findcond li.divider { background: #ccc; }
+nav.navbar-findcond button.navbar-toggle { background: #f14444; border-radius: 2px; }
+nav.navbar-findcond button.navbar-toggle:hover { background: #999; }
+nav.navbar-findcond button.navbar-toggle > span.icon-bar { background: #fff; }
+nav.navbar-findcond ul.dropdown-menu { border: 0; background: #fff; border-radius: 4px; margin: 4px 0; box-shadow: 0 0 4px 0 #ccc; }
+nav.navbar-findcond ul.dropdown-menu > li > a { color: #444; }
+nav.navbar-findcond ul.dropdown-menu > li > a:hover { background: #f14444; color: #fff; }
+nav.navbar-findcond span.badge { background: #f14444; font-weight: normal; font-size: 11px; margin: 0 4px; }
+nav.navbar-findcond span.badge.new { background: rgba(255, 0, 0, 0.8); color: #fff; }
+
+
+#accordion_content .panel-heading h4 a{
+	display: block;
+    /*padding: 10px 15px;*/
+}
+
+.category_content{
+	
+	min-height:700px;
+	margin-top:100px;
+}
+
+.sub_category_list{
+	margin-top:10px;
+}
+
+.unflw_btn{
+	float:right;
+}
+
+.home_link{
+	color: #f14444 !important;
+}
+
+#suggest_new_cateogry_area{
+	margin-top:5%;
+}
+
+
+    </style>
+	
+
+	
+    </head>
+    <body>
+			<nav class="navbar navbar-findcond navbar-fixed-top">
+    <div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand home_link" href="#">Linksavers</a>
+		</div>
+		<div class="collapse navbar-collapse" id="navbar">
+			<ul class="nav navbar-nav navbar-right">
+				<li ><a href="my_topics.html">My Topics <span class="sr-only">(current)</span></a></li>
+				<li class="active"><a href="#">Discover <span class="sr-only">(current)</span></a></li>
+				<li class=""><a href="profile.html" id="my_profile">Profile <span class="sr-only">(current)</span></a></li>
+				<li class=""><a href="#" id="logout">Logout <span class="sr-only">(current)</span></a></li>
+			</ul>
+			
+		</div>
+	</div>
+</nav>
+		
+			<!--<div id="suggest_new_cateogry_area">
+			<div class="col-lg-7 col-sm-7 col-xs-12 col-md-offset-1">
+			<div class="form-group label-floating ">
+			<form>
+            <label class="control-label" for="add_site_text">Suggest new category</label>
+            <input class="form-control"  type="text" id="add_site_text">
+			</form>
+			</div>
+			</div>
+			
+			
+			
+			<div class="col-lg-4 col-sm-4 col-xs-12 ">
+			<div class="">
+            <button class="btn btn-raised btn-success" id="add_site_btn">Add Site</button>
+			</div>
+			</div>
+			</div>-->
+<div class="">
+			
+				<div class="category_corner">
+						
+							
+				<div class="panel-group col-lg-12 col-sm-12 col-md-12 category_content" id="accordion_content">
+					
+					
+				</div>
+				</div>
+	<!--footer-->
+		<div class="footer">
+		   <p>&copy; 2016 Linksavers | Design by <a href="#" target="_blank">Linksavers Team</a></p>
+		</div>
+        <!--//footer-->
+    </body>
+	
+<script type="text/javascript">
+	$(document).on('click', '.panel-heading .panel-title a', function (e) {
+    var $this = $(this);
+    if (!$this.hasClass('collapsed')) {
+	$(".glyphicon-minus").removeClass("glyphicon-minus").addClass('glyphicon-plus');
+		$this.find('i').removeClass('glyphicon-plus').addClass('glyphicon-minus');
+    } else {
+        $this.find('i').removeClass('glyphicon-minus').addClass('glyphicon-plus');
+    }
+});
+	</script>	
+	 
+   <!--Materiel Design  -->
+   
+    <script>
+  (function () {
+
+    var $button = $("<div id='source-button' class='btn btn-primary btn-xs'>&lt; &gt;</div>").click(function () {
+      var index = $('.bs-component').index($(this).parent());
+      $.get(window.location.href, function (data) {
+        var html = $(data).find('.bs-component').eq(index).html();
+        html = cleanSource(html);
+        $("#source-modal pre").text(html);
+        $("#source-modal").modal();
+      })
+
+    });
+
+    $('.bs-component [data-toggle="popover"]').popover();
+    $('.bs-component [data-toggle="tooltip"]').tooltip();
+
+    $(".bs-component").hover(function () {
+      $(this).append($button);
+      $button.show();
+    }, function () {
+      $button.hide();
+    });
+
+    function cleanSource(html) {
+      var lines = html.split(/\n/);
+
+      lines.shift();
+      lines.splice(-1, 1);
+
+      var indentSize = lines[0].length - lines[0].trim().length,
+          re = new RegExp(" {" + indentSize + "}");
+
+      lines = lines.map(function (line) {
+        if (line.match(re)) {
+          line = line.substring(indentSize);
+        }
+
+        return line;
+      });
+
+      lines = lines.join("\n");
+
+      return lines;
+    }
+
+    $(".icons-material .icon").each(function () {
+      $(this).after("<br><br><code>" + $(this).attr("class").replace("icon ", "") + "</code>");
+    });
+
+  })();
+
+</script>
+<script src="links/js/jquery.nicescroll.js"></script>
+	<script src="links/js/scripts.js"></script>
+
+   <script src="js/ripples.min.js">	</script>
+   <script src="js/material.min.js">	</script>
+   <script>
+  $(function () {
+    $.material.init();
+
+  });
+</script>
+   <!--Materiel Design  -->
+      <script src="js/display_category_discover.js">  </script>
+
+</html>
